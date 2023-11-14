@@ -12,13 +12,13 @@ using System;
 namespace ClassLibrary1
 {
     /// <summary>
-    /// Purpose: Template de classe 
+    /// Purpose: Garantia de classe 
     /// Created by: Fábio Lopes
     /// Created on: 13/11/2023
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Template
+    public class Garantia
     {
         #region Attributes
         private float garantiaAnos;

@@ -13,7 +13,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace ClassLibrary1
 {
     /// <summary>
-    /// Purpose: Template de classe 
+    /// Purpose: Garantia de classe 
     /// Created by: Fábio Lopes
     /// Created on: 13/11/2023
     /// </summary>
@@ -21,6 +21,7 @@ namespace ClassLibrary1
     /// <example></example>
     public class Cliente
     {
+
         #region Attributes
         private string nome, morada;
         private int nif, telemovel;

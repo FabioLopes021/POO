@@ -3,7 +3,7 @@
 *	Copyright (c) 2023 All Rights Reserved
 *	</copyright>
 * 	<author>Fábio Lopes</author>
-*   <date>13/11/2023</date>
+*   <date>24/10/2023</date>
 *	<description></description>
 */
 
@@ -12,18 +12,20 @@ using System;
 namespace ClassLibrary1
 {
     /// <summary>
-    /// Purpose: Garantia de classe 
+    /// Purpose: Pessoa de classe 
     /// Created by: Fábio Lopes
-    /// Created on: 13/11/2023
+    /// Created on: 24/10/2023
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Campanhas
+    public class Pessoa
     {
         #region Attributes
-        private string nome;
-        private Categoria categoria;
-        private int desconto;
+        private string nome, morada;
+        private int nif, contacto;
+        DateTime dataNascimento;
+
+
         #endregion
 
         #region Methods
