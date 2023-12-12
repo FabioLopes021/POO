@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Fábio\\Desktop\\ipca\\2ºano\\1ºsemestre\\POO\\gittrbalho\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Fábio\\Desktop\\ipca\\2ºano\\1ºsemestre\\POO\\gittrbalho\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Fábio\\Desktop\\ipca\\2ºano\\1ºsemestre\\POO\\gittrbalho\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\Fábio\\Desktop\\ipca\\2ºano\\1ºsemestre\\POO\\gittrbalho\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-        "packagesPath": "C:\\Users\\Fábio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Fábio\\Desktop\\ipca\\2ºano\\1ºsemestre\\POO\\gittrbalho\\POO\\ConsoleApp1\\ConsoleApp1\\obj\\",
+        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\Fabio\\.nuget\\packages\\",
+        "outputPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Fábio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

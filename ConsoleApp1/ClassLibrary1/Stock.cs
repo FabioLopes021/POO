@@ -8,6 +8,7 @@
 */
 
 using System;
+using System.Collections.Generic;
 
 namespace ClassLibrary1
 {
@@ -21,14 +22,20 @@ namespace ClassLibrary1
     public class Stock
     {
         #region Attributes
-        private string nomeArmazem;
-        private Produto prodID;
-        private int quantidade;
+
+        static List<Produto> listaProdutos;
+        int CAPACIDADEMAX;
+        string nomeArmazem;
+        List<Produto> produtos;
+
         #endregion
 
         #region Methods
 
         #region Constructors
+
+        static List<Produto>
+
         #endregion
 
         #region Properties

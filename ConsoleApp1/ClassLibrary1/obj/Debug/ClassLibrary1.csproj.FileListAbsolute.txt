@@ -1,0 +1,6 @@
+E:\Repositorios\POO\ConsoleApp1\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\Repositorios\POO\ConsoleApp1\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\Repositorios\POO\ConsoleApp1\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.AssemblyReference.cache
+E:\Repositorios\POO\ConsoleApp1\ClassLibrary1\obj\Debug\ClassLibrary1.csproj.CoreCompileInputs.cache
+E:\Repositorios\POO\ConsoleApp1\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\Repositorios\POO\ConsoleApp1\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
