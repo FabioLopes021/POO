@@ -24,7 +24,7 @@ namespace ClassLibrary1
         #region Attributes
 
         static List<Produto> listaProdutos;
-        int CAPACIDADEMAX;
+        int capacidadeMax;
         string nomeArmazem;
         List<Produto> produtos;
 
@@ -34,11 +34,50 @@ namespace ClassLibrary1
 
         #region Constructors
 
-        static List<Produto>
+        static Stock()
+        {
+            listaProdutos = new List<Produto>();     
+        }
+        
+        public Stock()
+        {
+            capacidadeMax = 0;
+            nomeArmazem = string.Empty;
+            produtos = new List<Produto>();
 
+        }
+
+        public Stock(int capacidadeMax, string nomeArmazem, List<Produto> produtos)
+        {
+            this.capacidadeMax = capacidadeMax;
+            this.nomeArmazem = nomeArmazem;
+            this.produtos = produtos;
+        }
         #endregion
 
         #region Properties
+
+        public int CapacidadeMax
+        {
+            get { return capacidadeMax; }
+            set { capacidadeMax = value;}
+        }
+
+        public string NomeArmazem
+        {
+            get { return nomeArmazem; }
+            set { nomeArmazem = value; }
+        }
+
+        public List<Produto> Produtos
+        {
+            get { return new List<Produto>(); }
+        }
+
+        public List<Produto> ListaProdutos
+        {
+            get { return new List<Produto>(); }
+        }
         #endregion
 
         #region Operators
@@ -48,6 +87,66 @@ namespace ClassLibrary1
         #endregion
 
         #region Other_Methods
+
+        public bool AdicionarProduto(Produto p)
+        {
+            if (p == null) return false;
+            
+            if(ReferenceEquals(this.produtos,null))
+                this.produtos = new List<Produto>();
+
+            if (this.produtos.Contains(p)) return false;
+
+            this.produtos.Add(p);
+            return true;
+        }
+
+        public bool RemoverProduto(Produto p)
+        {
+            if (p == null) return false;
+
+            if (ReferenceEquals(this.produtos, null) || this.produtos.Count == 0)
+                return false;
+
+            if (this.produtos.Contains(p))
+                this.produtos.Remove(p);
+
+            return true;
+        }
+
+        public bool RetirarQuantidade(Produto p, float quantidade)
+        {
+            if (p == null) return false;
+
+            if (ReferenceEquals(this.produtos, null))
+                this.produtos = new List<Produto>();
+
+            if ((this.produtos.Contains(p)) && (p.Quantidade>=quantidade))
+            {
+                p.Quantidade -= quantidade;
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool AumentarQuantidade(Produto p, float quantidade)
+        {
+            if (p == null) return false;
+
+            if (ReferenceEquals(this.produtos, null))
+                this.produtos = new List<Produto>();
+
+            if (this.produtos.Contains(p))
+            {
+                p.Quantidade += quantidade;
+                return true;
+            }
+
+            return false;
+        }
+
+
         #endregion
 
         #endregion
