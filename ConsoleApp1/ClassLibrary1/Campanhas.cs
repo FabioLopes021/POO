@@ -9,7 +9,7 @@
 
 using System;
 
-namespace ClassLibrary1
+namespace ObjetosNegocio
 {
     /// <summary>
     /// Purpose: Garantia de classe 
@@ -21,10 +21,13 @@ namespace ClassLibrary1
     public class Campanhas
     {
         #region Attributes
+
         private string nome;
         private Categoria categoria;
         private int desconto;
+
         #endregion
+
 
         #region Methods
 

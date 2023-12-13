@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\FrontEnd.csproj": {}
   },
   "projects": {
-    "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\FrontEnd.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-        "projectName": "ConsoleApp1",
-        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\FrontEnd.csproj",
+        "projectName": "FrontEnd",
+        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\FrontEnd.csproj",
         "packagesPath": "C:\\Users\\Fabio\\.nuget\\packages\\",
         "outputPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",

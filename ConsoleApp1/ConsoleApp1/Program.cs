@@ -1,4 +1,4 @@
-﻿using ClassLibrary1;
+﻿using ObjetosNegocio;
 using System;
 
 namespace Aula_5

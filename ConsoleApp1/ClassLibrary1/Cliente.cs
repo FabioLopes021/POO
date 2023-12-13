@@ -10,7 +10,7 @@
 using System;
 using static System.Net.Mime.MediaTypeNames;
 
-namespace ClassLibrary1
+namespace ObjetosNegocio
 {
     /// <summary>
     /// Purpose: Garantia de classe 
@@ -23,6 +23,7 @@ namespace ClassLibrary1
     {
 
         #region Attributes
+
         private string nome, morada;
         private int nif, telemovel;
 
@@ -55,6 +56,8 @@ namespace ClassLibrary1
         #endregion
 
         #region Properties
+
+
         /// <summary>
         /// 
         /// </summary>

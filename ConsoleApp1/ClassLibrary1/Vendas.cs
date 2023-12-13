@@ -9,7 +9,7 @@
 
 using System;
 
-namespace ClassLibrary1
+namespace ObjetosNegocio
 {
     /// <summary>
     /// Purpose: Garantia de classe 

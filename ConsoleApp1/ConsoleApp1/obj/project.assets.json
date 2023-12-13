@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\RBN\\.nuget\\packages\\": {}
+    "C:\\Users\\Fabio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RBN\\Desktop\\TRABALHO POO\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-      "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\RBN\\Desktop\\TRABALHO POO\\POO\\ConsoleApp1\\ConsoleApp1\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\RBN\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RBN\\Desktop\\TRABALHO POO\\POO\\ConsoleApp1\\ConsoleApp1\\obj\\",
+      "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\FrontEnd.csproj",
+      "projectName": "FrontEnd",
+      "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\FrontEnd.csproj",
+      "packagesPath": "C:\\Users\\Fabio\\.nuget\\packages\\",
+      "outputPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\RBN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

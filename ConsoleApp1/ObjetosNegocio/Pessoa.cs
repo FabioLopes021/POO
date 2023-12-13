@@ -1,5 +1,5 @@
 ﻿/*
-*	<copyright file="ClassLibrary1.cs" company="IPCA">
+*	<copyright file="ObjetosNegocio.cs" company="IPCA">
 *	Copyright (c) 2023 All Rights Reserved
 *	</copyright>
 * 	<author>Fábio Lopes</author>
