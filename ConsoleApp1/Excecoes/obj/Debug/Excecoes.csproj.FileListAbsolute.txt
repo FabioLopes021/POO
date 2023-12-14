@@ -1,0 +1,6 @@
+E:\Repositorios\POO\ConsoleApp1\Excecoes\bin\Debug\Excecoes.dll
+E:\Repositorios\POO\ConsoleApp1\Excecoes\bin\Debug\Excecoes.pdb
+E:\Repositorios\POO\ConsoleApp1\Excecoes\obj\Debug\Excecoes.csproj.AssemblyReference.cache
+E:\Repositorios\POO\ConsoleApp1\Excecoes\obj\Debug\Excecoes.csproj.CoreCompileInputs.cache
+E:\Repositorios\POO\ConsoleApp1\Excecoes\obj\Debug\Excecoes.dll
+E:\Repositorios\POO\ConsoleApp1\Excecoes\obj\Debug\Excecoes.pdb

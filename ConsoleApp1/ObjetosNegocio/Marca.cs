@@ -7,7 +7,7 @@
 *	<description></description>
 */
 
-using System;
+using Dados;
 using System.Collections.Generic;
 
 namespace ObjetosNegocio
@@ -89,6 +89,7 @@ namespace ObjetosNegocio
 
         #region Other_Methods
 
+        
         /// <summary>
         /// Funçao para calcular id a ser atribuido a cada marca a ser criada
         /// </summary>
@@ -97,20 +98,20 @@ namespace ObjetosNegocio
         {
             int maxid = 1;
 
-            List<Marca> aux = Marcas.ListaMarcas;
+            List<Marca> lista = Marcas.ListaMarcas;
 
-            if (ReferenceEquals(listaMarcas, null))
+            if (ReferenceEquals(lista, null))
                 return maxid;
 
-            foreach (Marca aux in listaMarcas)
+            foreach (Marca aux in lista)
             {
                 if (aux.id > maxid)
                     maxid = aux.id;
             }
 
-            return maxid;
+            return ++maxid;
         }
-
+        
         #endregion
 
         #endregion

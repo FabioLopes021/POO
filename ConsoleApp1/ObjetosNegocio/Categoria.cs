@@ -7,8 +7,8 @@
 *	<description></description>
 */
 
-using System;
 using System.Collections.Generic;
+using Dados;
 
 namespace ObjetosNegocio
 {
@@ -23,7 +23,6 @@ namespace ObjetosNegocio
     {
         #region Attributes
 
-        static List<Categoria> ListaCategorias;
         string nome;
         int id;
 
@@ -34,21 +33,16 @@ namespace ObjetosNegocio
 
         #region Constructors
 
-        static Categoria()
-        {
-            ListaCategorias = new List<Categoria>();
-        }
-
         public Categoria()
         {
             nome = "";
-            id = 0;
+            id = this.AtribuirId();
         }
 
         public Categoria(string morada, string nome)
         {
             this.nome = nome;
-            id = AtribuirId();
+            id = this.AtribuirId();
         }
 
         #endregion
@@ -88,67 +82,31 @@ namespace ObjetosNegocio
         /// Funçao para calcular id a ser atribuido a cada Categoria a ser criada
         /// </summary>
         /// <returns></returns>
-        public static int AtribuirId()
+        public int AtribuirId()
         {
             int maxid = 1;
 
-            if (ReferenceEquals(ListaCategorias, null))
+            List<Categoria> list = Categorias.ListaCategorias;
+
+            if (ReferenceEquals(list, null))
                 return maxid;
 
-            foreach (Categoria aux in ListaCategorias)
+            foreach (Categoria aux in list)
             {
                 if (aux.id > maxid)
                     maxid = aux.id;
             }
 
-            return maxid;
+            return ++maxid;
         }
 
 
-        /// <summary>
-        /// Funçao para adicionar uma marca a lista de marcas
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        public static bool guardarCategoria(Categoria c)
-        {
 
-            if (ReferenceEquals(c, null) || ReferenceEquals(ListaCategorias, null))
-                return false;
-
-            if (ListaCategorias.Contains(c))
-                return false;
-
-            ListaCategorias.Add(c);
-            return true;
-        }
-
-        
-        public Categoria CategoriaPorId(int id)
-        {
-            if (ReferenceEquals(ListaCategorias, null))
-                return null;
-
-            if ((id < 0) || (ListaCategorias.Count < 1))
-                return null;
-
-
-            Categoria aux;
-
-            aux = ListaCategorias.Find(e => e.Id == id);
-
-            if (aux == null)
-                return null;
-
-            return aux;
-        }
 
 
         #endregion
 
         #endregion
-
-
 
     }
 }

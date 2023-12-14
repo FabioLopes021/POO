@@ -1,0 +1,9 @@
+E:\Repositorios\POO\ConsoleApp1\Dados\bin\Debug\Dados.dll
+E:\Repositorios\POO\ConsoleApp1\Dados\bin\Debug\Dados.pdb
+E:\Repositorios\POO\ConsoleApp1\Dados\bin\Debug\ObjetosNegocio.dll
+E:\Repositorios\POO\ConsoleApp1\Dados\bin\Debug\ObjetosNegocio.pdb
+E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.csproj.AssemblyReference.cache
+E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.csproj.CoreCompileInputs.cache
+E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.csproj.CopyComplete
+E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.dll
+E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.pdb

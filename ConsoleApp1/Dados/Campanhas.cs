@@ -1,32 +1,34 @@
 ﻿/*
-*	<copyright file="ClassLibrary1.cs" company="IPCA">
+*	<copyright file="Dados.cs" company="IPCA">
 *	Copyright (c) 2023 All Rights Reserved
 *	</copyright>
-* 	<author>Fábio Lopes</author>
-*   <date>24/10/2023</date>
+* 	<author>Fábio Lopes & Ruben Costa</author>
+*   <date>13/12/2023</date>
 *	<description></description>
 */
 
 using System;
+using ObjetosNegocio;
 
-namespace ObjetosNegocio
+namespace Dados
 {
     /// <summary>
-    /// Purpose: Pessoa de classe 
-    /// Created by: Fábio Lopes
-    /// Created on: 24/10/2023
+    /// Purpose: 
+    /// Created by: Fábio Lopes & Ruben Costa
+    /// Created on: 13/12/2023
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Pessoa
+    public class Campanhas
     {
         #region Attributes
 
-        private string nome, morada;
-        private int nif, contacto;
-        DateTime dataNascimento;
+        private string nome;
+        private Categoria categoria;
+        private int desconto;
 
         #endregion
+
 
         #region Methods
 

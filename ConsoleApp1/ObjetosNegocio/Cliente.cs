@@ -7,8 +7,8 @@
 *	<description></description>
 */
 
-using System;
-using static System.Net.Mime.MediaTypeNames;
+using Dados;
+using System.Collections.Generic;
 
 namespace ObjetosNegocio
 {
@@ -24,8 +24,11 @@ namespace ObjetosNegocio
 
         #region Attributes
 
-        private string nome, morada;
-        private int nif, telemovel;
+        string nome;
+        string morada;
+        int nif;
+        int telemovel;
+        int id;
 
         #endregion
 
@@ -42,6 +45,7 @@ namespace ObjetosNegocio
             morada = "";
             nif = 0;
             telemovel = 0;
+            id = AtribuirId();
         }
 
         public Cliente(string nome, string morada, int nif, int telemovel)
@@ -50,6 +54,7 @@ namespace ObjetosNegocio
             this.morada = morada;
             this.nif = nif;
             this.telemovel = telemovel;
+            id = AtribuirId();
         }
 
 
@@ -85,6 +90,11 @@ namespace ObjetosNegocio
             get { return nif; }
         }
 
+        public int Id
+        {
+            get { return id; }
+        }
+
         #endregion
 
         #region Operators
@@ -94,6 +104,25 @@ namespace ObjetosNegocio
         #endregion
 
         #region Other_Methods
+
+        public static int AtribuirId()
+        {
+            int maxid = 1;
+
+            List<Cliente> lista = Clientes.ListaClientes;
+
+            if (ReferenceEquals(lista, null))
+                return maxid;
+
+            foreach (Cliente aux in lista)
+            {
+                if (aux.id > maxid)
+                    maxid = aux.id;
+            }
+
+            return ++maxid;
+        }
+
         #endregion
 
         #endregion

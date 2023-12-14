@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dados">
+      <HintPath>..\ObjetosNegocio\bin\Debug\Dados.dll</HintPath>
+    </Reference>
+    <Reference Include="Excecoes">
+      <HintPath>..\Excecoes\bin\Debug\Excecoes.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjetosNegocio">
+      <HintPath>..\ObjetosNegocio\bin\Debug\ObjetosNegocio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegrasNegocio.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
