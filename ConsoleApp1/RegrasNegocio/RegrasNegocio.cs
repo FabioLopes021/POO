@@ -43,17 +43,14 @@ namespace RegrasNegocio
         #region Other_Methods
 
 
-        public static bool AdicionarProduto(Produto p, Stock s)
+        public static bool AdicionarProduto(Produto p)
         {
             if (p == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data)");
 
-            if (s == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em stock)");
-
             try
             {
-                s.AdicionarProduto(p);
+                Stock.AdicionarProduto(p);
             }
             catch (StockExcecoes e)
             {
@@ -63,17 +60,14 @@ namespace RegrasNegocio
             return true;
         }
 
-        public static bool RemoverProduto(Produto p, Stock s)
+        public static bool RemoverProduto(Produto p)
         {
             if (p == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data em Produto)");
-
-            if (s == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em stock)");
             
             try
             {
-                s.RemoverProduto(p);
+                Stock.RemoverProduto(p);
             }
             catch (StockExcecoes e)
             {
@@ -85,16 +79,14 @@ namespace RegrasNegocio
 
 
 
-        public static bool AumentarQuantidadeArmazem(Produto p, Stock s, float quantidade)
+        public static bool AumentarQuantidadeArmazem(Produto p, float quantidade)
         {
             if (p == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data em Produto)");
-            if (s == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em stock)");
 
             try
             {
-                s.AumentarQuantidade(p, quantidade);
+                Stock.AumentarQuantidade(p, quantidade);
             }
             catch (StockExcecoes e)
             {
@@ -105,16 +97,14 @@ namespace RegrasNegocio
         }
 
 
-        public static bool RetirarQuantidadeArmazem(Produto p, Stock s, float quantidade)
+        public static bool RetirarQuantidadeArmazem(Produto p, float quantidade)
         {
             if (p == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data em Produto)");
-            if (s == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em stock)");
 
             try
             {
-                s.RetirarQuantidade(p, quantidade);
+                Stock.RetirarQuantidade(p, quantidade);
             }
             catch (StockExcecoes e)
             {
