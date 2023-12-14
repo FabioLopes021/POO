@@ -102,6 +102,23 @@ namespace Dados
         }
 
 
+        public bool VerificaIntegridadeVenda()
+        {
+            Stock aux = null;
+
+
+            //verificar nome de armazem e id CLiente
+            //if ()
+              //  return false;
+
+            //Verificar a disponivilidade no stock do armazem indicado
+            if (!Marcas.VerificaMarcaPorId(idMarca) || !Categorias.VerificaCategoriaPorId(idMarca))
+                return false;
+
+            return true;
+        }
+
+
         #endregion
 
         #endregion

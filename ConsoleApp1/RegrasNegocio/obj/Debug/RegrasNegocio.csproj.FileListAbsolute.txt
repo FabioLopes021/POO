@@ -1,0 +1,13 @@
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\RegrasNegocio.dll
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\RegrasNegocio.pdb
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Dados.dll
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Excecoes.dll
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\ObjetosNegocio.dll
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Dados.pdb
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Excecoes.pdb
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\bin\Debug\ObjetosNegocio.pdb
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.AssemblyReference.cache
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.CoreCompileInputs.cache
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.CopyComplete
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.dll
+E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.pdb

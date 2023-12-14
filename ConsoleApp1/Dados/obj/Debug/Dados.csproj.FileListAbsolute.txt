@@ -7,3 +7,5 @@ E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.csproj.CoreCompileInputs.c
 E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.csproj.CopyComplete
 E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.dll
 E:\Repositorios\POO\ConsoleApp1\Dados\obj\Debug\Dados.pdb
+E:\Repositorios\POO\ConsoleApp1\Dados\bin\Debug\Excecoes.dll
+E:\Repositorios\POO\ConsoleApp1\Dados\bin\Debug\Excecoes.pdb

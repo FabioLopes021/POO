@@ -7,6 +7,8 @@
 *	<description></description>
 */
 
+using Dados;
+
 namespace ObjetosNegocio
 {
     /// <summary>
@@ -146,7 +148,16 @@ namespace ObjetosNegocio
 
         #region Other_Methods
 
+        public bool VerificaIntegridadeProduto()
+        {
+            if((this.nome == "") || (this.valor <= 0) || (this.garantiaAnos < 0))
+                return false;
 
+            if (!Marcas.VerificaMarcaPorId(this.MarcaId) || !Categorias.VerificaCategoriaPorId(this.CatgId))
+                return false;
+            
+            return true;
+        }
 
         #endregion
 

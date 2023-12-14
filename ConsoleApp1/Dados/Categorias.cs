@@ -102,6 +102,21 @@ namespace Dados
         }
 
 
+        public static bool VerificaCategoriaPorId(int id)
+        {
+            if (id <= 0)
+                return false;
+
+            Categoria aux = null;
+
+            aux = listaCategorias.Find(e => e.Id == id);
+
+            if (aux == null)
+                return false;
+            return true;
+
+        }
+
 
         #endregion
 

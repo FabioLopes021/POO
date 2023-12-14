@@ -102,6 +102,22 @@ namespace Dados
             return aux;
         }
 
+
+        public static bool VerificaMarcaPorId(int id)
+        {
+            if(id <= 0)
+                return false;
+
+            Marca aux = null;
+
+            aux = listaMarcas.Find(e => e.Id == id);
+
+            if(aux == null)
+                return false;
+            return true;
+
+        }
+
         #endregion
 
         #endregion

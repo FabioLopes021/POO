@@ -26,6 +26,7 @@ namespace Dados
         #region Attributes
 
         static List<Produto> listaProdutos;
+        static List<Stock> listaArmazens;
         int capacidadeMax;
         string nomeLoja;
         List<Produto> produtos;
@@ -101,6 +102,9 @@ namespace Dados
             if (p == null || this.produtos.Count >= this.CapacidadeMax)
                 throw new StockExcecoes("Falha de Stock (Capacidade do Armazem excedida)");
 
+            if(!p.VerificaIntegridadeProduto(p.Id))
+                throw new StockExcecoes("Falha de Stock (Produto com atributos em falta)");
+
             if (ReferenceEquals(this.produtos, null))
                 this.produtos = new List<Produto>();
 
@@ -121,6 +125,9 @@ namespace Dados
         {
             if (p == null) 
                 return false;
+
+            if (!p.VerificaIntegridadeProduto(p.Id))
+                throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
 
             if (ReferenceEquals(this.produtos, null) || this.produtos.Count == 0)
                 throw new StockExcecoes("Falha de Stock (Impossivel concluir operaçao. Lista vazia)");
@@ -146,6 +153,9 @@ namespace Dados
         {
             if (p == null) return false;
 
+            if (!p.VerificaIntegridadeProduto(p.Id))
+                throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
+
             if (ReferenceEquals(this.produtos, null))
                 throw new StockExcecoes("Falha de Stock (Impossivel concluir operaçao. Lista vazia)");
 
@@ -168,6 +178,9 @@ namespace Dados
         public bool AumentarQuantidade(Produto p, float quantidade)
         {
             if (p == null) return false;
+
+            if (!p.VerificaIntegridadeProduto(p.Id))
+                throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
 
             if (ReferenceEquals(this.produtos, null))
                 this.produtos = new List<Produto>();
@@ -207,6 +220,25 @@ namespace Dados
             return aux;
         }
 
+
+        public static Stock ArmazemPorNome(string nome)
+        {
+            if (ReferenceEquals(listaProdutos, null))
+                return null;
+
+            if ((nome == "") || (listaProdutos.Count < 1))
+                return null;
+
+
+            Stock aux;
+
+            aux = listaProdutos.Find(e => e.Nom == id);
+
+            if (aux == null)
+                return null;
+
+            return aux;
+        }
 
 
 

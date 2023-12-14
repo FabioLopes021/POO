@@ -7,3 +7,5 @@ E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.pdb
 E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Dados.dll
 E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Dados.pdb
 E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.csproj.CopyComplete
+E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Excecoes.dll
+E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Excecoes.pdb
