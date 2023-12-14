@@ -47,6 +47,7 @@ namespace RegrasNegocio
         {
             if (p == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data)");
+
             if (s == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data em stock)");
 
@@ -69,7 +70,7 @@ namespace RegrasNegocio
 
             if (s == null)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data em stock)");
-
+            
             try
             {
                 s.RemoverProduto(p);

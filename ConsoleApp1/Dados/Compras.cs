@@ -102,6 +102,23 @@ namespace Dados
         }
 
 
+        public static bool RegistarCompra(Compra c)
+        {
+            if (ReferenceEquals(c, null))
+                return false;
+
+            if (!c.VerificaIntegridadeCompra())
+                return false;
+
+            if (Stock.AtualizarStockCompra(c.ArtigosComprados))
+            {
+                listaCompras.Add(c);
+                return true;
+            }
+
+            return false;
+        }
+
 
         #endregion
 

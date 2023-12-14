@@ -82,7 +82,7 @@ namespace Dados
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Venda MarcaPorId(int id)
+        public static Venda MarcaPorId(int id)
         {
             if (ReferenceEquals(listaVendas, null))
                 return null;
@@ -102,21 +102,24 @@ namespace Dados
         }
 
 
-        public bool VerificaIntegridadeVenda()
+        
+        public static bool RegistarVenda(Venda v)
         {
-            Stock aux = null;
-
-
-            //verificar nome de armazem e id CLiente
-            //if ()
-              //  return false;
-
-            //Verificar a disponivilidade no stock do armazem indicado
-            if (!Marcas.VerificaMarcaPorId(idMarca) || !Categorias.VerificaCategoriaPorId(idMarca))
+            if(ReferenceEquals(v,null))
                 return false;
 
-            return true;
+            if(!v.VerificaIntegridadeVenda())
+                return false;
+
+            if (Stock.AtualizarStockVenda(v.ArtigosVendidos))
+            {
+                listaVendas.Add(v);
+                return true;
+            }
+
+            return false;
         }
+        
 
 
         #endregion

@@ -100,6 +100,24 @@ namespace Dados
             return false;
         }
 
+
+
+        public static bool VerificaFornecedorId(int id)
+        {
+            if (id < 0)
+                return false;
+
+            Fornecedor aux = null;
+
+            aux = listaFornecedores.Find(e => e.Id == id);
+
+            if (aux == null)
+                return false;
+
+            return true;
+        }
+
+
         #endregion
 
         #endregion

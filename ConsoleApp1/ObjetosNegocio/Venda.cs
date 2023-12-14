@@ -24,7 +24,6 @@ namespace ObjetosNegocio
     {
         #region Attributes
 
-        string nomeLoja;
         Dictionary<Produto, int> artigosVendidos;
         DateTime data;
         int idCliente;
@@ -38,7 +37,6 @@ namespace ObjetosNegocio
 
         public Venda()
         {
-            nomeLoja = "";
             artigosVendidos = new Dictionary<Produto, int>();
             data = DateTime.Now;
             idCliente = 0;
@@ -47,7 +45,6 @@ namespace ObjetosNegocio
 
         public Venda(string nomeLoja, DateTime data, int idCliente)
         {
-            this.nomeLoja = nomeLoja;
             artigosVendidos = new Dictionary<Produto, int>();
             this.data = data;
             this.idCliente = idCliente;
@@ -58,13 +55,6 @@ namespace ObjetosNegocio
         #endregion
 
         #region Properties
-
-
-        public string NomeLoja
-        {
-            get { return nomeLoja; }
-            set { nomeLoja = value; }
-        }
 
         public Dictionary<Produto, int> ArtigosVendidos
         {
@@ -120,7 +110,7 @@ namespace ObjetosNegocio
 
             return ++maxid;
         }
-        
+
 
         /// <summary>
         /// Funçao para adicionar produtos ao dicionario 
@@ -144,6 +134,54 @@ namespace ObjetosNegocio
             this.artigosVendidos.Add(p, quantidade);
             return true;
         }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="quantidade"></param>
+        /// <returns></returns>
+        public bool RemoverProdutoVenda(Produto p, int quantidade)
+        {
+            if (ReferenceEquals(p, null))
+                return false;
+
+            if (ReferenceEquals(this.artigosVendidos, null))
+                this.artigosVendidos = new Dictionary<Produto, int>();
+
+            if (this.artigosVendidos.ContainsKey(p))
+            {
+                if (this.ArtigosVendidos[p] < quantidade)
+                    this.artigosVendidos[p] -= quantidade;
+                else
+                    this.artigosVendidos.Remove(p);
+                return true;
+            }
+
+            return false;
+        }
+
+        
+        /// <summary>
+        /// Funçao que verifica a integridade da venda, se os artigos estao disponiveis em stock e o id do cliente esta correto
+        /// </summary>
+        /// <returns></returns>
+        public bool VerificaIntegridadeVenda()
+        {
+
+            //verificar id CLiente
+            if (!Clientes.VerificaClienteId(this.IdCliente))
+                return false;
+
+            //Verificar a disponivilidade no stock do armazem indicado
+            if (!Stock.VerificaDispProdutos(this.ArtigosVendidos))
+                return false;
+
+            return true;
+        }
+        
 
 
 

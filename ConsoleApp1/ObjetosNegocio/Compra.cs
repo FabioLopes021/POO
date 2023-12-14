@@ -25,7 +25,6 @@ namespace ObjetosNegocio
     {
         #region Attributes
 
-        string nomeLoja;
         Dictionary<Produto, int> artigosComprados;
         DateTime data;
         int idFornecedor;
@@ -39,7 +38,6 @@ namespace ObjetosNegocio
 
         public Compra()
         {
-            nomeLoja = "";
             artigosComprados = new Dictionary<Produto, int>();
             data = DateTime.Now;
             idFornecedor = 0;
@@ -48,7 +46,6 @@ namespace ObjetosNegocio
 
         public Compra(string nomeLoja, DateTime data, int idCliente)
         {
-            this.nomeLoja = nomeLoja;
             artigosComprados = new Dictionary<Produto, int>();
             this.data = data;
             this.idFornecedor = idCliente;
@@ -58,12 +55,6 @@ namespace ObjetosNegocio
         #endregion
 
         #region Properties
-
-        public string NomeLoja
-        {
-            get { return nomeLoja; }
-            set { nomeLoja = value; }
-        }
 
         public Dictionary<Produto, int> ArtigosComprados
         {
@@ -127,7 +118,7 @@ namespace ObjetosNegocio
         /// <param name="p"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
-        public bool AdicionarProdutoVenda(Produto p, int quantidade)
+        public bool AdicionarProdutoCompra(Produto p, int quantidade)
         {
             if (ReferenceEquals(p, null))
                 return false;
@@ -143,6 +134,48 @@ namespace ObjetosNegocio
             this.artigosComprados.Add(p, quantidade);
             return true;
         }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p"></param>
+        /// <param name="quantidade"></param>
+        /// <returns></returns>
+        public bool RemoverProdutoCompra(Produto p, int quantidade)
+        {
+            if (ReferenceEquals(p, null))
+                return false;
+
+            if (ReferenceEquals(this.artigosComprados, null))
+                this.artigosComprados = new Dictionary<Produto, int>();
+
+            if (this.artigosComprados.ContainsKey(p))
+            {
+                if (this.artigosComprados[p] < quantidade)
+                    this.artigosComprados[p] -= quantidade;
+                else
+                    this.artigosComprados.Remove(p);
+                return true;
+            }
+
+            return false;
+        }
+
+
+        /// <summary>
+        /// Funçao que verifica a integridade da Compra, se os artigos estao em stock ou precisam de ser inicializados
+        /// </summary>
+        /// <returns></returns>
+        public bool VerificaIntegridadeCompra()
+        {
+            //verificar id Fornecedor
+            if (!Fornecedores.VerificaFornecedorId(this.Id))
+                return false;
+
+            return true;
+        }
+
 
 
         #endregion

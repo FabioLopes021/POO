@@ -99,6 +99,20 @@ namespace Dados
             return false;
         }
 
+        public static bool VerificaClienteId(int id)
+        {
+            if(id < 0)
+                return false;
+
+            Cliente aux = null;
+
+            aux = listaClientes.Find(e => e.Id == id);
+
+            if(aux == null)
+                return false;
+
+            return true;
+        }
 
 
 
