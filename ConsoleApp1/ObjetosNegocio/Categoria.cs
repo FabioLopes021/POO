@@ -7,6 +7,7 @@
 *	<description></description>
 */
 
+using System.Collections;
 using System.Collections.Generic;
 using Dados;
 
@@ -88,7 +89,7 @@ namespace ObjetosNegocio
 
             List<Categoria> list = Categorias.ListaCategorias;
 
-            if (ReferenceEquals(list, null))
+            if (ReferenceEquals(list, null) || list.Count == 0)
                 return maxid;
 
             foreach (Categoria aux in list)

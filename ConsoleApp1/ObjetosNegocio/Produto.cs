@@ -8,6 +8,7 @@
 */
 
 using Dados;
+using System.Collections.Generic;
 
 namespace ObjetosNegocio
 {
@@ -147,6 +148,28 @@ namespace ObjetosNegocio
         #endregion
 
         #region Other_Methods
+
+        /// <summary>
+        /// Funçao para calcular id a ser atribuido a cada Produto a ser criada
+        /// </summary>
+        /// <returns></returns>
+        public static int AtribuirId()
+        {
+            int maxid = 1;
+
+            List<Produto> lista = Stock.ListaProdutos;
+
+            if (ReferenceEquals(lista, null) || lista.Count == 0)
+                return maxid;
+
+            foreach (Produto aux in lista)
+            {
+                if (aux.id > maxid)
+                    maxid = aux.id;
+            }
+
+            return ++maxid;
+        }
 
         public bool VerificaIntegridadeProduto()
         {

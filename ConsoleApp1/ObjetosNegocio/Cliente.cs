@@ -111,7 +111,7 @@ namespace ObjetosNegocio
 
             List<Cliente> lista = Clientes.ListaClientes;
 
-            if (ReferenceEquals(lista, null))
+            if (ReferenceEquals(lista, null) || lista.Count == 0)
                 return maxid;
 
             foreach (Cliente aux in lista)

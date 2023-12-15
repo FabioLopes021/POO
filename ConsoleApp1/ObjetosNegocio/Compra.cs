@@ -44,11 +44,11 @@ namespace ObjetosNegocio
             id = AtribuirId();
         }
 
-        public Compra(string nomeLoja, DateTime data, int idCliente)
+        public Compra(string nomeLoja, DateTime data, int idFornecedor)
         {
             artigosComprados = new Dictionary<Produto, int>();
             this.data = data;
-            this.idFornecedor = idCliente;
+            this.idFornecedor = idFornecedor;
             this.id = AtribuirId();
         }
 
@@ -99,7 +99,7 @@ namespace ObjetosNegocio
 
             List<Compra> lista = Compras.ListaCompras;
 
-            if (ReferenceEquals(lista, null))
+            if (ReferenceEquals(lista, null) || lista.Count == 0)
                 return maxid;
 
             foreach (Compra aux in lista)

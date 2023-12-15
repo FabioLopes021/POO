@@ -100,7 +100,7 @@ namespace ObjetosNegocio
 
             List<Marca> lista = Marcas.ListaMarcas;
 
-            if (ReferenceEquals(lista, null))
+            if (ReferenceEquals(lista, null) || lista.Count == 0)
                 return maxid;
 
             foreach (Marca aux in lista)

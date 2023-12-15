@@ -110,7 +110,7 @@ namespace ObjetosNegocio
 
             List<Fornecedor> lista = Fornecedores.ListaFornecedores;
 
-            if (ReferenceEquals(lista, null))
+            if (ReferenceEquals(lista, null) || lista.Count == 0)
                 return maxid;
 
             foreach (Fornecedor aux in lista)

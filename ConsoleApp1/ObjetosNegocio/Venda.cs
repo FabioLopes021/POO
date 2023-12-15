@@ -90,7 +90,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada marca a ser criada
+        /// Funçao para calcular id a ser atribuido a cada venda a ser criada
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()
@@ -99,7 +99,7 @@ namespace ObjetosNegocio
 
             List<Venda> lista = Vendas.ListaVendas;
 
-            if (ReferenceEquals(lista, null))
+            if (ReferenceEquals(lista, null) || lista.Count == 0)
                 return maxid;
 
             foreach (Venda aux in lista)

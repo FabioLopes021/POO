@@ -53,7 +53,7 @@ namespace Dados
 
         public static List<Produto> ListaProdutos
         {
-            get { return new List<Produto>(); }
+            get { return new List<Produto>(listaProdutos); }
         }
 
 

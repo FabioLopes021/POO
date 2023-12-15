@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontEnd", "ConsoleApp1\FrontEnd.csproj", "{393124D0-588E-4369-B693-B8E920BCF526}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RN", "RegrasNegocio\RN.csproj", "{D5D4A9E0-FE57-4A29-9D8A-7A9E0FB45091}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjetosNegocio", "ObjetosNegocio\ObjetosNegocio.csproj", "{B7BB8433-9E1D-4D4D-A80C-33CDB98FF6A4}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{393124D0-588E-4369-B693-B8E920BCF526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{393124D0-588E-4369-B693-B8E920BCF526}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{393124D0-588E-4369-B693-B8E920BCF526}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{393124D0-588E-4369-B693-B8E920BCF526}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5D4A9E0-FE57-4A29-9D8A-7A9E0FB45091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5D4A9E0-FE57-4A29-9D8A-7A9E0FB45091}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5D4A9E0-FE57-4A29-9D8A-7A9E0FB45091}.Release|Any CPU.ActiveCfg = Release|Any CPU
