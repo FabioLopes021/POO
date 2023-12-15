@@ -63,7 +63,7 @@ namespace Dados
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public static bool guardarMarca(Marca m)
+        public static bool GuardarMarca(Marca m)
         {
 
             if (ReferenceEquals(m, null) || ReferenceEquals(listaMarcas, null))

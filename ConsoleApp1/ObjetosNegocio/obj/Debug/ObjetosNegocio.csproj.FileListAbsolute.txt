@@ -9,3 +9,14 @@ E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Dados.pdb
 E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.csproj.CopyComplete
 E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Excecoes.dll
 E:\Repositorios\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Excecoes.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\ObjetosNegocio.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\ObjetosNegocio.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Dados.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Excecoes.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Dados.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\bin\Debug\Excecoes.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.csproj.AssemblyReference.cache
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.csproj.CopyComplete
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\ObjetosNegocio\obj\Debug\ObjetosNegocio.pdb

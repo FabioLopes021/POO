@@ -39,7 +39,7 @@ namespace ObjetosNegocio
             id = this.AtribuirId();
         }
 
-        public Categoria(string morada, string nome)
+        public Categoria(string nome)
         {
             this.nome = nome;
             id = this.AtribuirId();

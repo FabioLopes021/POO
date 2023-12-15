@@ -57,6 +57,7 @@ namespace Dados
         #region Other_Methods
 
 
+        /*
         /// <summary>
         /// Funçao para adicionar uma Venda a lista de Vendas
         /// </summary>
@@ -74,7 +75,7 @@ namespace Dados
             listaCompras.Add(c);
             return true;
         }
-
+        */
 
 
         /// <summary>
@@ -82,7 +83,7 @@ namespace Dados
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Compra MarcaPorId(int id)
+        public static Compra CompraPorId(int id)
         {
             if (ReferenceEquals(listaCompras, null))
                 return null;

@@ -12,7 +12,7 @@ using Dados;
 using ObjetosNegocio;
 using Excecoes;
 
-namespace RegrasNegocio
+namespace RN
 {
     /// <summary>
     /// Purpose: 
@@ -42,7 +42,8 @@ namespace RegrasNegocio
 
         #region Other_Methods
 
-
+        //Nao implementar, os produtos sao adicionados automaticamente ao registar uma compra
+        /*
         public static bool AdicionarProduto(Produto p)
         {
             if (p == null)
@@ -59,7 +60,10 @@ namespace RegrasNegocio
 
             return true;
         }
+        */
 
+        //Não implementar
+        /*
         public static bool RemoverProduto(Produto p)
         {
             if (p == null)
@@ -76,7 +80,7 @@ namespace RegrasNegocio
 
             return true;
         }
-
+        
 
 
         public static bool AumentarQuantidadeArmazem(Produto p, float quantidade)
@@ -113,6 +117,132 @@ namespace RegrasNegocio
 
             return true;
         }
+        */
+
+
+        public static bool AdicionarMarca(Marca m)
+        {
+            if (m == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data em Marca)");
+
+            bool aux = false;
+            try
+            {
+                aux = Marcas.GuardarMarca(m);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            return aux;
+        }
+
+
+
+        public static bool AdicionarCategoria(Categoria c)
+        {
+            if (c == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data em Categoria)");
+
+            bool aux = false;
+            try
+            {
+                aux = Categorias.guardarCategoria(c);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            return aux;
+        }
+
+
+
+        public static bool AdicionarFornecedor(Fornecedor f)
+        {
+            if (f == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data em Fornecedor)");
+
+            bool aux = false;
+            try
+            {
+                aux = Fornecedores.RegistarFornecedor(f);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            return aux;
+        }
+
+
+
+        public static bool AdicionarCliente(Cliente c)
+        {
+            if (c == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data em Cliente)");
+
+            bool aux = false;
+            try
+            {
+                aux = Clientes.RegistarCliente(c);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+ 
+            return aux;
+        }
+
+        
+        public static bool AdicionarCompra(Compra c)
+        {
+            if (c == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data em Compra)");
+
+            
+            bool aux = false;
+            try
+            {
+                aux = Compras.RegistarCompra(c);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            return aux;
+        }
+
+
+        public static bool AdicionarVenda(Venda v)
+        {
+            if (v == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data em Compra)");
+
+
+            bool aux = false;
+            try
+            {
+                aux = Vendas.RegistarVenda(v);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            return aux;
+        }
+
+
+
+
+
+
 
 
 

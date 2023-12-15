@@ -31,8 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dados">
-      <HintPath>..\ObjetosNegocio\bin\Debug\Dados.dll</HintPath>
+    <Reference Include="Dados, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dados\bin\Debug\Dados.dll</HintPath>
     </Reference>
     <Reference Include="Excecoes">
       <HintPath>..\Excecoes\bin\Debug\Excecoes.dll</HintPath>

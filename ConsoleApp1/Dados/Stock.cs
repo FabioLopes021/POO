@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using ObjetosNegocio;
 using Excecoes;
+using System.Runtime.Remoting.Channels;
 
 namespace Dados
 {
@@ -176,18 +177,27 @@ namespace Dados
             if(ReferenceEquals(listaVendas, null))
                 return false;
 
+            bool aux = false;
 
 
             foreach(KeyValuePair<Produto, int> parchave in listaVendas)
             {
                 Produto chave = parchave.Key;
 
-                if (!VerificaDispProduto(chave, listaVendas[chave]))
+                try
+                {
+                    aux = VerificaDispProduto(chave, listaVendas[chave]);
+                }
+                catch (StockExcecoes e)
+                {
+                    throw new StockExcecoes("Stock: Erro no metodo VerificaDispProduto " + "-" + e.Message);
+                }
+
+                if (!aux)
                 {
                     return false;
                 }
             }
-
 
             return true;
         }
@@ -246,6 +256,7 @@ namespace Dados
             if (ReferenceEquals(listaVendas, null))
                 return false;
 
+            bool aux = false;
 
 
             foreach (KeyValuePair<Produto, int> parchave in listaVendas)
@@ -254,11 +265,26 @@ namespace Dados
 
                 if (!listaProdutos.Contains(chave))
                 {
-                    if(!AdicionarProduto(chave))
+                    try
+                    {
+                        aux = AdicionarProduto(chave);
+                    }catch (StockExcecoes e)
+                    {
+                        throw new StockExcecoes("Stock: Erro no metodo AdicionarProduto " + "-" + e.Message);
+                    }
+                    if(!aux)
                         return false;
                     else
                     {
-                        if (!AumentarQuantidade(chave, listaVendas[chave]))
+                        try
+                        {
+                            aux = AumentarQuantidade(chave, listaVendas[chave]);
+                        }
+                        catch (StockExcecoes e)
+                        {
+                            throw new StockExcecoes("Stock: Erro no metodo AumentarQuantidade " + "-" + e.Message);
+                        }
+                        if (!aux)
                         {
                             return false;
                         }
@@ -266,7 +292,15 @@ namespace Dados
                 }
                 else
                 {
-                    if (!AumentarQuantidade(chave, listaVendas[chave]))
+                    try
+                    {
+                        aux = AumentarQuantidade(chave, listaVendas[chave]);
+                    }
+                    catch (StockExcecoes e)
+                    {
+                        throw new StockExcecoes("Stock: Erro no metodo AumentarQuantidade " + "-" + e.Message);
+                    }
+                    if (!aux)
                     {
                         return false;
                     }

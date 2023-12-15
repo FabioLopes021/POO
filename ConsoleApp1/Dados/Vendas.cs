@@ -82,7 +82,7 @@ namespace Dados
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public static Venda MarcaPorId(int id)
+        public static Venda VendaPorId(int id)
         {
             if (ReferenceEquals(listaVendas, null))
                 return null;

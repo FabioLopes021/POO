@@ -11,3 +11,16 @@ E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.Cor
 E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.CopyComplete
 E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.dll
 E:\Repositorios\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.AssemblyReference.cache
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\RegrasNegocio.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\RegrasNegocio.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Dados.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Excecoes.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\ObjetosNegocio.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Dados.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\Excecoes.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\bin\Debug\ObjetosNegocio.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\RegrasNegocio\obj\Debug\RegrasNegocio.csproj.CopyComplete
