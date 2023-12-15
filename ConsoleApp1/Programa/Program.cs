@@ -16,7 +16,7 @@ namespace Programa
         {
 
             #region Criar dados Teste Iniciais
-
+            /*
             // Adicionar Categoria
             Categoria categoria = new Categoria("Geral");
             RegrasNegocio.AdicionarCategoria(categoria);
@@ -62,13 +62,17 @@ namespace Programa
             RegrasNegocio.AdicionarVenda(vend);
 
 
-
+            */
             #endregion
 
 
 
+            MenuTestes.MenuRunner();
 
 
+
+
+            #region Verificar valores 
 
 
             List<Marca> marcas = new List<Marca>();
@@ -87,10 +91,10 @@ namespace Programa
             stock = Stock.ListaProdutos;
             vendas = Vendas.ListaVendas;
 
+            #endregion
 
 
 
-                 
         }
     }
 }
