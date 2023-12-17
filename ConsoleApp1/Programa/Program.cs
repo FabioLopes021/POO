@@ -73,7 +73,7 @@ namespace Programa
 
 
             #region Verificar valores 
-
+            /*
 
             List<Marca> marcas = new List<Marca>();
             List<Categoria> categorias = new List<Categoria>();
@@ -90,7 +90,7 @@ namespace Programa
             compras = Compras.ListaCompras;
             stock = Stock.ListaProdutos;
             vendas = Vendas.ListaVendas;
-
+            */
             #endregion
 
 

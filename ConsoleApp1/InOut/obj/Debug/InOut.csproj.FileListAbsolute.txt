@@ -1,0 +1,13 @@
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\InOut.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\InOut.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\Dados.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\ObjetosNegocio.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\Excecoes.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\Dados.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\ObjetosNegocio.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\bin\Debug\Excecoes.pdb
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\obj\Debug\InOut.csproj.AssemblyReference.cache
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\obj\Debug\InOut.csproj.CoreCompileInputs.cache
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\obj\Debug\InOut.csproj.CopyComplete
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\obj\Debug\InOut.dll
+C:\Users\Fábio\Desktop\ipca\2ºano\1ºsemestre\POO\gittrbalho\POO\ConsoleApp1\InOut\obj\Debug\InOut.pdb
