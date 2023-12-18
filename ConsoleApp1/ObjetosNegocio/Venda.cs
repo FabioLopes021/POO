@@ -131,9 +131,10 @@ namespace ObjetosNegocio
             if (this.artigosVendidos.ContainsKey(produtoId))
             {
                 this.artigosVendidos[produtoId] += quantidade;
-            }
+            }else
+                this.artigosVendidos.Add(produtoId, quantidade);
 
-            this.artigosVendidos.Add(produtoId, quantidade);
+
             return true;
         }
 
