@@ -42,25 +42,6 @@ namespace RN
 
         #region Other_Methods
 
-        //Nao implementar, os produtos sao adicionados automaticamente ao registar uma compra
-        /*
-        public static bool AdicionarProduto(Produto p)
-        {
-            if (p == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data)");
-
-            try
-            {
-                Stock.AdicionarProduto(p);
-            }
-            catch (StockExcecoes e)
-            {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
-            }
-
-            return true;
-        }
-        */
 
         //Não implementar
         /*
@@ -118,6 +99,7 @@ namespace RN
             return true;
         }
         */
+
 
 
         public static bool AdicionarMarca(Marca m)
@@ -178,6 +160,23 @@ namespace RN
             return aux;
         }
 
+
+        public static bool AdicionarProduto(Produto p)
+        {
+            if (p == null)
+                throw new StockExcecoes("Falha de Regras de Negocio (null data)");
+
+            try
+            {
+                Stock.AdicionarProduto(p);
+            }
+            catch (StockExcecoes e)
+            {
+                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            return true;
+        }
 
 
         public static bool AdicionarCliente(Cliente c)

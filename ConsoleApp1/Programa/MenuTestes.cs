@@ -49,6 +49,7 @@ namespace Programa
             int menu;
             do
             {
+                Console.Clear();
                 MenuShow();
                 menu = LernumeroMenuPrincipal();
                 switch (menu)
@@ -57,7 +58,7 @@ namespace Programa
                     case 0:
                         break;
                     case 1:
-                        
+                        Console.Clear();
                         Console.WriteLine("-------Criar Categoria--------");
                         Console.WriteLine("Indique um nome para a categoria: ");
                         string nomeCat = LerString();
@@ -65,6 +66,7 @@ namespace Programa
                         RegrasNegocio.AdicionarCategoria(cat);
                         break;
                     case 2:
+                        Console.Clear();
                         Console.WriteLine("-------Criar Marca--------");
                         Console.WriteLine("Indique um nome para a Marca: ");
                         string nomeMar = LerString();
@@ -77,14 +79,15 @@ namespace Programa
 
                         break;
                     case 3:
+                        Console.Clear();
                         Console.WriteLine("-------Criar Fornecedor--------");
                         Console.WriteLine("Indique um nome para o Fornecedor: ");
                         string fornNome = LerString();
-                        Console.WriteLine("Infique uma morada para o Fornecedor: ");
+                        Console.WriteLine("Indique uma morada para o Fornecedor: ");
                         string fornMorada = LerString();
-                        Console.WriteLine("Infique um NIF para o Fornecedor: ");
+                        Console.WriteLine("Indique um NIF para o Fornecedor: ");
                         int fornNIF = LerInt();
-                        Console.WriteLine("Infique um telemovel para o Fornecedor: ");
+                        Console.WriteLine("Indique um telemovel para o Fornecedor: ");
                         int fornTel = LerInt();
 
                         Fornecedor forn = new Fornecedor(fornNome, fornMorada, fornNIF, fornTel);
@@ -92,14 +95,15 @@ namespace Programa
                         RegrasNegocio.AdicionarFornecedor(forn);
                         break;
                     case 4:
+                        Console.Clear();
                         Console.WriteLine("-------Criar Cliente--------");
                         Console.WriteLine("Indique um nome para o Cliente: ");
                         string cliNome = LerString();
-                        Console.WriteLine("Infique uma morada para o Cliente: ");
+                        Console.WriteLine("Indique uma morada para o Cliente: ");
                         string cliMorada = LerString();
-                        Console.WriteLine("Infique um NIF para o Cliente: ");
+                        Console.WriteLine("Indique um NIF para o Cliente: ");
                         int cliNIF = LerInt();
-                        Console.WriteLine("Infique um telemovel para o Cliente: ");
+                        Console.WriteLine("Indique um telemovel para o Cliente: ");
                         int clinTel = LerInt();
 
                         Cliente cli = new Cliente( cliNome, cliMorada, cliNIF, clinTel);
@@ -107,34 +111,63 @@ namespace Programa
                         RegrasNegocio.AdicionarCliente(cli);
                         break;
                     case 5:
+                        Console.Clear();
+                        Console.WriteLine("-------Criar Produto--------");
+                        Console.WriteLine("Indique um nome para o Produto: ");
+                        string proNome = LerString();
+                        Console.WriteLine("Indique um Valor para o Produto: ");
+                        float valorProduto = LerFloat();
+                        Console.WriteLine("Indique os anos de garantia para o Produto: ");
+                        float anosGarantia = LerFloat();
                         IO.ListaCategorias();
+                        Console.WriteLine("Indique o Id da categoria para o produto: ");
+                        int catProdId = LerInt();
+                        IO.ListaMarcas();
+                        Console.WriteLine("Indique o id da marca para o produto: ");
+                        int marcaProdId = LerInt();
+
+                        Produto produtocriar = new Produto(proNome,valorProduto,anosGarantia,catProdId,marcaProdId);
+
+                        RegrasNegocio.AdicionarProduto(produtocriar);
                         break;
                     case 6:
-                        IO.ListaMarcas();
+                        Console.Clear();
+                        IO.ListaCategorias();
                         break;
                     case 7:
-                        IO.ListaFornecedores();
+                        Console.Clear();
+                        IO.ListaMarcas();
                         break;
                     case 8:
-                        IO.ListaClientes();
+                        Console.Clear();
+                        IO.ListaFornecedores();
                         break;
                     case 9:
+                        Console.Clear();
+                        IO.ListaClientes();
+                        break;
+                    case 10:
+                        Console.Clear();
                         IO.ListaProdutos();
                         break;
-                    case 10:     // Menu Compras 
+                    case 11:     // Menu Compras 
                         int auxMenuc = -1;
                         Compra compaux = new Compra();
                         do
                         {
+                            Console.Clear();
+                            Console.WriteLine("-------------Informaçoes compra--------------");
+                            compaux.MostraListaCompras();
+                            Console.WriteLine("-------------Informaçoes compra--------------");
                             MenuCompras();
-                            auxMenuc = LernumeroMenuCompra();
                             Compra comp;
-                            Produto pda, pdr;
+                            auxMenuc = LernumeroMenuCompra();
                             switch (auxMenuc)
                             {
                                 case 0:
                                     break;
-                                case 1:
+                                case 1:     //Criar Compra
+                                    Console.Clear();
                                     Console.WriteLine("Criar compra nova");
                                     Console.WriteLine("Indique o nome da loja");
                                     string nomeL = LerString();
@@ -143,44 +176,52 @@ namespace Programa
                                     comp = new Compra(nomeL, DateTime.Now, IDF);
                                     compaux = comp;
                                     break;
-                                case 2:
-                                    Console.WriteLine("Criar o Produto desejado");
-                                    Console.WriteLine("Indique o nome do Produto: ");
-                                    string nomepr = LerString();
-                                    Console.WriteLine("Indique o valor do produto: ");
-                                    float valorPr = LerFloat();
-                                    Console.WriteLine("Indique a garantia em anos");
-                                    float garantiaPr = LerFloat();
-                                    Console.WriteLine("Indique o id da categoria");
-                                    int idCat = LerInt();
-                                    Console.WriteLine("Indique o id da Marca");
-                                    int idMarca = LerInt();
-                                    pda = new Produto(nomepr, valorPr, garantiaPr, idCat, idMarca, 0);
-                                    Console.WriteLine("Indique a quantidade comprada");
-                                    int quantcomp = LerInt();
+                                case 2:     //Adicionar Produto a compra
+                                    Console.Clear();
+                                    IO.ListaProdutos();
+                                    Console.WriteLine("Escolha um produto identificando o seu id: ");
+                                    int idProd = -1;
+                                    do
+                                    {
+                                        idProd = LerInt();
+                                    } while (!Produto.ExisteProdutoPorId(idProd));
                                     comp = compaux;
-                                    comp.AdicionarProdutoCompra(pda, quantcomp);
-                                    break;
-                                case 3:
-                                    Console.WriteLine("Indique o Produto desejado");
-                                    Console.WriteLine("Indique o nome do Produto: ");
-                                    string nomepr1 = LerString();
-                                    Console.WriteLine("Indique o valor do produto: ");
-                                    float valorPr1 = LerFloat();
-                                    Console.WriteLine("Indique a garantia em anos");
-                                    float garantiaPr1 = LerFloat();
-                                    Console.WriteLine("Indique o id da categoria");
-                                    int idCat1 = LerInt();
-                                    Console.WriteLine("Indique o id da Marca");
-                                    int idMarca1 = LerInt();
-                                    pdr = new Produto(nomepr1, valorPr1, garantiaPr1, idCat1, idMarca1, 0);
-                                    Console.WriteLine("Indique a quantidade a remover");
-                                    int quantremover = LerInt();
+                                    Console.WriteLine("Indique a quantidade: ");
+                                    int quantProd = -1;
+                                    do
+                                    {
+                                        quantProd = LerInt();
+                                    } while (quantProd <= 0);
                                     comp = compaux;
-                                    comp.RemoverProdutoCompra(pdr, quantremover);
+                                    comp.AdicionarProdutoCompra(idProd, quantProd);
                                     break;
-                                case 4:
-                                    RegrasNegocio.AdicionarCompra(compaux);
+                                case 3:     //Remover produto da compra
+                                    Console.Clear();
+                                    comp = compaux;
+                                    if (!(comp.ArtigosComprados.Count < 1))
+                                    {
+                                        comp.MostraListaCompras();
+                                        Console.WriteLine("Escolha um produto identificando o seu id: ");
+                                        idProd = -1;
+                                        do
+                                        {
+                                            idProd = LerInt();
+                                        } while (!comp.VerificaProdutoCompra(idProd));
+                                        comp = compaux;
+                                        Console.WriteLine("Indique a quantidade a remover");
+                                        quantProd = -1;
+                                        do
+                                        {
+                                            quantProd = LerInt();
+                                        } while (quantProd <= 0);
+                                        comp.RemoverProdutoCompra(idProd, quantProd);
+                                    }else
+                                        Console.WriteLine("Nao exitem produtos adicionados a compra");
+                                    break;
+                                case 4:     // Registar Compra
+                                    bool comprabool = RegrasNegocio.AdicionarCompra(compaux);
+                                    Console.WriteLine("Inserido com {0}", comprabool.ToString());
+                                    Console.ReadKey();
                                     break;
                                 default:
                                     Console.WriteLine("Default, algo errou!!!");
@@ -188,15 +229,15 @@ namespace Programa
                             }
                         } while (auxMenuc != 0);
                         break;
-                    case 11:    // Menu Vendas
+                    case 12:    // Menu Vendas
                         int auxMenuV = -1;
                         Venda vendAux = new Venda();
                         do
                         {
-                            MenuCompras();
+                            Console.Clear();
+                            MenuVendas();
                             auxMenuV = LernumeroMenuCompra();
                             Venda vend;
-                            Produto pda, pdr;
                             switch (auxMenuV)
                             {
                                 case 0:
@@ -205,49 +246,56 @@ namespace Programa
                                     Console.WriteLine("Criar compra nova");
                                     Console.WriteLine("Indique o nome da loja");
                                     string nomeL = LerString();
-                                    Console.WriteLine("Indique o ID do fornecedor");
-                                    int IDF = LerInt();
-                                    vend = new Venda(nomeL, DateTime.Now, IDF);
+                                    Console.WriteLine("Indique o ID do Cliente");
+                                    int IDC = LerInt();
+                                    vend = new Venda(nomeL, DateTime.Now, IDC);
                                     vendAux = vend;
                                     break;
                                 case 2:
-                                    Console.WriteLine("Criar o Produto desejado");
-                                    Console.WriteLine("Indique o nome do Produto: ");
-                                    string nomepr = LerString();
-                                    Console.WriteLine("Indique o valor do produto: ");
-                                    float valorPr = LerFloat();
-                                    Console.WriteLine("Indique a garantia em anos");
-                                    float garantiaPr = LerFloat();
-                                    Console.WriteLine("Indique o id da categoria");
-                                    int idCat = LerInt();
-                                    Console.WriteLine("Indique o id da Marca");
-                                    int idMarca = LerInt();
-                                    pda = new Produto(nomepr, valorPr, garantiaPr, idCat, idMarca, 0);
-                                    Console.WriteLine("Indique a quantidade comprada");
-                                    int quantcomp = LerInt();
+                                    Console.Clear();
+                                    IO.ListaProdutos();
+                                    Console.WriteLine("Escolha um produto identificando o seu id: ");
+                                    int idProd = -1;
+                                    do
+                                    {
+                                        idProd = LerInt();
+                                    } while (!Produto.ExisteProdutoPorId(idProd));
+                                    Console.WriteLine("Indique a quantidade: ");
+                                    int quantProd = -1;
+                                    do
+                                    {
+                                        quantProd = LerInt();
+                                    } while (quantProd <= 0);
                                     vend = vendAux;
-                                    vend.AdicionarProdutoVenda(pda, quantcomp);
+                                    vend.AdicionarProdutoVenda(idProd, quantProd);
                                     break;
                                 case 3:
-                                    Console.WriteLine("Indique o Produto desejado");
-                                    Console.WriteLine("Indique o nome do Produto: ");
-                                    string nomepr1 = LerString();
-                                    Console.WriteLine("Indique o valor do produto: ");
-                                    float valorPr1 = LerFloat();
-                                    Console.WriteLine("Indique a garantia em anos");
-                                    float garantiaPr1 = LerFloat();
-                                    Console.WriteLine("Indique o id da categoria");
-                                    int idCat1 = LerInt();
-                                    Console.WriteLine("Indique o id da Marca");
-                                    int idMarca1 = LerInt();
-                                    pdr = new Produto(nomepr1, valorPr1, garantiaPr1, idCat1, idMarca1, 0);
-                                    Console.WriteLine("Indique a quantidade a remover");
-                                    int quantremover = LerInt();
+                                    Console.Clear();
                                     vend = vendAux;
-                                    vend.RemoverProdutoVenda(pdr, quantremover);
+                                    if (!(vend.ArtigosVendidos.Count < 1))
+                                    {
+                                        vend.MostraListaCompras();
+                                        Console.WriteLine("Escolha um produto identificando o seu id: ");
+                                        idProd = -1;
+                                        do
+                                        {
+                                            idProd = LerInt();
+                                        } while (!vend.VerificaProdutoVenda(idProd));
+                                        vend = vendAux;
+                                        Console.WriteLine("Indique a quantidade a remover");
+                                        quantProd = -1;
+                                        do
+                                        {
+                                            quantProd = LerInt();
+                                        } while (quantProd <= 0);
+                                        vend.RemoverProdutoVenda(idProd, quantProd);
+                                    }
+                                    else
+                                        Console.WriteLine("Nao exitem produtos adicionados a compra");
                                     break;
                                 case 4:
                                     RegrasNegocio.AdicionarVenda(vendAux);
+                                    
                                     break;
                                 default:
                                     Console.WriteLine("Default, algo errou!!!");
@@ -284,7 +332,7 @@ namespace Programa
                 {
                     Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
                 }
-            } while (num < 0 || num> 11);
+            } while (num < 0 || num> 12);
             return num;
         }
 
@@ -320,13 +368,14 @@ namespace Programa
             Console.WriteLine("- 2 - Adicionar Marca                       -");
             Console.WriteLine("- 3 - Adicionar Fornecedor                  -");
             Console.WriteLine("- 4 - Adicionar Cliente                     -");
-            Console.WriteLine("- 5 - Listar Categorias                     -");
-            Console.WriteLine("- 6 - Listar Marcas                         -");
-            Console.WriteLine("- 7 - Listar Fornecedores                   -");
-            Console.WriteLine("- 8 - Listar Clientes                       -");
-            Console.WriteLine("- 9 - Listar Produtos                       -");
-            Console.WriteLine("- 10 - Menu compras                          -");
-            Console.WriteLine("- 11 - Menu Vendas                           -");
+            Console.WriteLine("- 5 - Adicionar Produto                     -");
+            Console.WriteLine("- 6 - Listar Categorias                     -");
+            Console.WriteLine("- 7 - Listar Marcas                         -");
+            Console.WriteLine("- 8 - Listar Fornecedores                   -");
+            Console.WriteLine("- 9 - Listar Clientes                       -");
+            Console.WriteLine("- 10 - Listar Produtos                       -");
+            Console.WriteLine("- 11 - Menu compras                          -");
+            Console.WriteLine("- 12 - Menu Vendas                           -");
             Console.WriteLine("------------------Menu Testes----------------");
             
         }
@@ -337,8 +386,8 @@ namespace Programa
             Console.WriteLine("------------------Menu Compras----------------");
             Console.WriteLine("- 0 - Sair                                  -");
             Console.WriteLine("- 1 - Criar Compra                          -");
-            Console.WriteLine("- 2 - Adicionar Produto                     -");
-            Console.WriteLine("- 3 - Remover Produto                       -");
+            Console.WriteLine("- 2 - Adicionar Produto a compra            -");
+            Console.WriteLine("- 3 - Remover Produto da compra             -");
             Console.WriteLine("- 4 - Registar Compra                       -");
             Console.WriteLine("------------------Menu Compras----------------");
         }
@@ -349,8 +398,8 @@ namespace Programa
             Console.WriteLine("------------------Menu Vendas----------------");
             Console.WriteLine("- 0 - Sair                                  -");
             Console.WriteLine("- 1 - Criar Venda                           -");
-            Console.WriteLine("- 2 - Adicionar Produto                     -");
-            Console.WriteLine("- 3 - Remover Produto                       -");
+            Console.WriteLine("- 2 - Adicionar Produto a Venda             -");
+            Console.WriteLine("- 3 - Remover Produto da venda              -");
             Console.WriteLine("- 4 - Registar Venda                        -");
             Console.WriteLine("------------------Menu Vendas----------------");
         }
@@ -364,10 +413,11 @@ namespace Programa
 
 
 
+
         // Método para ler e retornar um número inteiro
         static int LerInt()
         {
-            // Loop até que o usuário insira um número válido
+            // Loop até que o utilizador insira um número válido
             while (true)
             {
                 // Tenta converter a entrada para um número inteiro
@@ -382,10 +432,12 @@ namespace Programa
             }
         }
 
+
+
         // Método para ler e retornar um número de ponto flutuante
         static float LerFloat()
         {
-            // Loop até que o usuário insira um número válido
+            // Loop até que o utilizador insira um número válido
             while (true)
             {
                 // Tenta converter a entrada para um número de ponto flutuante

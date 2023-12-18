@@ -69,7 +69,7 @@ namespace ObjetosNegocio
         /// <param name="garantia"></param>
         /// <param name="catg"></param>
         /// <param name="marca"></param>
-        public Produto(string nome, float valor, float garantia, int catgId, int marcaId, float quantidade)
+        public Produto(string nome, float valor, float garantia, int catgId, int marcaId)
         {
             this.nome = nome;
             this.valor = valor;
@@ -77,7 +77,7 @@ namespace ObjetosNegocio
             this.catgId = catgId;
             this.marcaId = marcaId;
             this.id = totProd;
-            this.quantidade = quantidade;
+            this.quantidade = 0;
             totProd++;
         }
 
@@ -181,6 +181,46 @@ namespace ObjetosNegocio
             
             return true;
         }
+
+
+
+        public static bool ExisteProdutoPorId(int produtoId)
+        {
+            List<Produto> lista = Stock.ListaProdutos;
+
+
+            if (produtoId < 0 || lista.Count < 1)
+                return false;
+
+            Produto aux = null;
+
+            aux = lista.Find(e => e.Id == produtoId);
+
+            if (aux == null)
+                return false;
+
+            return true;
+        }
+
+
+        public static Produto ProdutoPorId(int produtoId)
+        {
+            if (!ExisteProdutoPorId(produtoId))
+                return null;
+
+            List<Produto> lista = Stock.ListaProdutos;
+
+            Produto aux = null;
+
+            aux = lista.Find(e => e.Id == produtoId);
+
+            if (aux == null)
+                return null;
+
+            return aux;
+        }
+
+
 
         #endregion
 

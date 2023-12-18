@@ -105,7 +105,7 @@ namespace Dados
 
         public static bool RegistarCompra(Compra c)
         {
-            if (ReferenceEquals(c, null))
+            if (ReferenceEquals(c, null) || listaCompras.Contains(c))
                 return false;
 
             if (!c.VerificaIntegridadeCompra())

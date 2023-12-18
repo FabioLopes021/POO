@@ -89,6 +89,7 @@ namespace Dados
         }
 
 
+        /*  Nao implementar (Nao remover produtos para nao perder referencias de Compras/Vendas antigas)
         /// <summary>
         /// Funçao para remover um determinado produto de uma determinado armazem
         /// </summary>
@@ -114,6 +115,8 @@ namespace Dados
 
             return false;
         }
+        */
+
 
 
         /// <summary>
@@ -122,23 +125,28 @@ namespace Dados
         /// <param name="p"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
-        public static bool RetirarQuantidade(Produto p, float quantidade)
+        public static bool RetirarQuantidade(int produtoId, float quantidade)
         {
-            if (p == null) 
+            if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId)) 
                 return false;
 
-            if (!p.VerificaIntegridadeProduto())
-                throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
+            Produto p = Produto.ProdutoPorId(produtoId);
 
-            if (ReferenceEquals(listaProdutos, null))
-                throw new StockExcecoes("Falha de Stock (Impossivel concluir operaçao. Lista vazia)");
-
-            if ((listaProdutos.Contains(p)) && (p.Quantidade >= quantidade))
+            if(p != null)
             {
-                p.Quantidade -= quantidade;
-                return true;
-            }
+                if (!p.VerificaIntegridadeProduto())
+                    throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
 
+                if (ReferenceEquals(listaProdutos, null))
+                    throw new StockExcecoes("Falha de Stock (Impossivel concluir operaçao. Lista vazia)");
+
+                if ((listaProdutos.Contains(p)) && (p.Quantidade >= quantidade))
+                {
+                    p.Quantidade -= quantidade;
+                    return true;
+                }
+            }
+            
             return false;
         }
 
@@ -149,19 +157,26 @@ namespace Dados
         /// <param name="p"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
-        public static bool AumentarQuantidade(Produto p, float quantidade)
+        public static bool AumentarQuantidade(int produtoId, float quantidade)
         {
-            if (p == null) 
+            if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId))
                 return false;
 
-            if (!p.VerificaIntegridadeProduto())
-                throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
+            Produto p = Produto.ProdutoPorId(produtoId);
 
-            if (listaProdutos.Contains(p))
+
+            if (p != null)
             {
-                p.Quantidade += quantidade;
-                return true;
+                if (!p.VerificaIntegridadeProduto())
+                    throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
+
+                if (listaProdutos.Contains(p))
+                {
+                    p.Quantidade += quantidade;
+                    return true;
+                }
             }
+
 
             return false;
         }
@@ -172,7 +187,7 @@ namespace Dados
         /// </summary>
         /// <param name="listaCompras"></param>
         /// <returns></returns>
-        public static bool VerificaDispProdutos(Dictionary<Produto, int> listaVendas) 
+        public static bool VerificaDispProdutos(Dictionary<int, int> listaVendas) 
         {
             if(ReferenceEquals(listaVendas, null))
                 return false;
@@ -180,9 +195,9 @@ namespace Dados
             bool aux = false;
 
 
-            foreach(KeyValuePair<Produto, int> parchave in listaVendas)
+            foreach(KeyValuePair<int, int> parchave in listaVendas)
             {
-                Produto chave = parchave.Key;
+                int chave = parchave.Key;
 
                 try
                 {
@@ -202,22 +217,17 @@ namespace Dados
             return true;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p"></param>
-        /// <param name="quantidade"></param>
-        /// <returns></returns>
-        public static bool VerificaDispProduto(Produto p, int quantidade)
+
+        public static bool VerificaDispProduto(int produtoId, int quantidade)
         {
-            if (p == null) 
+            if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId))
                 return false;
 
             Produto aux = null;
 
-            aux = listaProdutos.Find(e => e.Id == p.Id);
+            aux = listaProdutos.Find(e => e.Id == produtoId);
 
-            if(aux == null)
+            if (aux == null)
                 return false;
 
             if (aux.Quantidade >= quantidade)
@@ -227,16 +237,16 @@ namespace Dados
         }
 
 
-        public static bool AtualizarStockVenda(Dictionary<Produto, int> listaVendas)
+
+        public static bool AtualizarStockVenda(Dictionary<int, int> listaVendas)
         {
             if (ReferenceEquals(listaVendas, null))
                 return false;
 
 
-
-            foreach (KeyValuePair<Produto, int> parchave in listaVendas)
+            foreach (KeyValuePair<int, int> parchave in listaVendas)
             {
-                Produto chave = parchave.Key;
+                int chave = parchave.Key;
 
                 if (!RetirarQuantidade(chave, listaVendas[chave]))
                 {
@@ -251,7 +261,7 @@ namespace Dados
 
 
         // Ver com o professor, adicionar try catch ???
-        public static bool AtualizarStockCompra(Dictionary<Produto, int> listaVendas)
+        public static bool AtualizarStockCompra(Dictionary<int, int> listaVendas)
         {
             if (ReferenceEquals(listaVendas, null))
                 return false;
@@ -259,22 +269,16 @@ namespace Dados
             bool aux = false;
 
 
-            foreach (KeyValuePair<Produto, int> parchave in listaVendas)
+            foreach (KeyValuePair<int, int> parchave in listaVendas)
             {
-                Produto chave = parchave.Key;
+                int chave = parchave.Key;
+                Produto produtoChave = null;
 
-                if (!listaProdutos.Contains(chave))
+                produtoChave = Produto.ProdutoPorId(chave);
+
+                if( produtoChave != null)
                 {
-                    try
-                    {
-                        aux = AdicionarProduto(chave);
-                    }catch (StockExcecoes e)
-                    {
-                        throw new StockExcecoes("Stock: Erro no metodo AdicionarProduto " + "-" + e.Message);
-                    }
-                    if(!aux)
-                        return false;
-                    else
+                    if (listaProdutos.Contains(produtoChave))
                     {
                         try
                         {
@@ -289,20 +293,9 @@ namespace Dados
                             return false;
                         }
                     }
-                }
-                else
-                {
-                    try
+                    else
                     {
-                        aux = AumentarQuantidade(chave, listaVendas[chave]);
-                    }
-                    catch (StockExcecoes e)
-                    {
-                        throw new StockExcecoes("Stock: Erro no metodo AumentarQuantidade " + "-" + e.Message);
-                    }
-                    if (!aux)
-                    {
-                        return false;
+                            throw new StockExcecoes("Stock: Nao é possivel aceder a um produto que nao esteja na lista ");
                     }
                 }
             }
@@ -311,7 +304,6 @@ namespace Dados
             return true;
 
         }
-
 
 
 

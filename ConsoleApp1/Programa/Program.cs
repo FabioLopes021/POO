@@ -16,7 +16,7 @@ namespace Programa
         {
 
             #region Criar dados Teste Iniciais
-            /*
+            
             // Adicionar Categoria
             Categoria categoria = new Categoria("Geral");
             RegrasNegocio.AdicionarCategoria(categoria);
@@ -45,24 +45,28 @@ namespace Programa
             #endregion
 
             #region Crias dados teste compras e vendas
-            Produto pr = new Produto("Jantes",(float)999.99, 3, 1, 1, 0);
-            Produto pr1 = new Produto("Pneus", (float)149.99, 2, 1, 2, 0);
+            Produto pr = new Produto("Jantes",(float)999.99, 3, 1, 1);
+            Produto pr1 = new Produto("Pneus", (float)149.99, 2, 1, 2);
+
+            RegrasNegocio.AdicionarProduto(pr);
+            RegrasNegocio.AdicionarProduto(pr1);
 
 
             //teste de compra
             Compra comp = new Compra("Teste", DateTime.Now, 1);
-            comp.AdicionarProdutoCompra(pr, 4);
-            comp.AdicionarProdutoCompra(pr1, 4);
+            comp.AdicionarProdutoCompra(1, 4);
+            comp.AdicionarProdutoCompra(2, 4);
             RegrasNegocio.AdicionarCompra(comp);
 
+            /*
             //teste de venda
             Venda vend = new Venda("Teste", DateTime.Now, 1);
             vend.AdicionarProdutoVenda(pr, 2);
             vend.AdicionarProdutoVenda(pr1, 1);
             RegrasNegocio.AdicionarVenda(vend);
-
-
             */
+
+            
             #endregion
 
 

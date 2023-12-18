@@ -25,7 +25,7 @@ namespace ObjetosNegocio
     {
         #region Attributes
 
-        Dictionary<Produto, int> artigosComprados;
+        Dictionary<int, int> artigosComprados;
         DateTime data;
         int idFornecedor;
         int id;
@@ -38,7 +38,7 @@ namespace ObjetosNegocio
 
         public Compra()
         {
-            artigosComprados = new Dictionary<Produto, int>();
+            artigosComprados = new Dictionary<int, int>();
             data = DateTime.Now;
             idFornecedor = 0;
             id = AtribuirId();
@@ -46,7 +46,7 @@ namespace ObjetosNegocio
 
         public Compra(string nomeLoja, DateTime data, int idFornecedor)
         {
-            artigosComprados = new Dictionary<Produto, int>();
+            artigosComprados = new Dictionary<int, int>();
             this.data = data;
             this.idFornecedor = idFornecedor;
             this.id = AtribuirId();
@@ -56,9 +56,9 @@ namespace ObjetosNegocio
 
         #region Properties
 
-        public Dictionary<Produto, int> ArtigosComprados
+        public Dictionary<int, int> ArtigosComprados
         {
-            get { return new Dictionary<Produto, int>(artigosComprados); }
+            get { return new Dictionary<int, int>(artigosComprados); }
         }
 
         public DateTime Data
@@ -118,20 +118,25 @@ namespace ObjetosNegocio
         /// <param name="p"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
-        public bool AdicionarProdutoCompra(Produto p, int quantidade)
+        public bool AdicionarProdutoCompra(int produtoId, int quantidade)
         {
-            if (ReferenceEquals(p, null))
+            if (!Produto.ExisteProdutoPorId(produtoId))
                 return false;
 
             if (ReferenceEquals(this.artigosComprados, null))
-                this.artigosComprados = new Dictionary<Produto, int>();
+                this.artigosComprados = new Dictionary<int, int>();
 
-            if (this.artigosComprados.ContainsKey(p))
+            Produto aux = Produto.ProdutoPorId(produtoId);
+
+            if(aux == null)
+                return false;
+
+            if (this.artigosComprados.ContainsKey(produtoId))
             {
-                this.artigosComprados[p] += quantidade;
+                this.artigosComprados[produtoId] += quantidade;
             }
 
-            this.artigosComprados.Add(p, quantidade);
+            this.artigosComprados.Add(produtoId, quantidade);
             return true;
         }
 
@@ -142,20 +147,25 @@ namespace ObjetosNegocio
         /// <param name="p"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
-        public bool RemoverProdutoCompra(Produto p, int quantidade)
+        public bool RemoverProdutoCompra(int produtoId, int quantidade)
         {
-            if (ReferenceEquals(p, null))
+            if (!Produto.ExisteProdutoPorId(produtoId))
                 return false;
 
             if (ReferenceEquals(this.artigosComprados, null))
-                this.artigosComprados = new Dictionary<Produto, int>();
+                this.artigosComprados = new Dictionary<int, int>();
 
-            if (this.artigosComprados.ContainsKey(p))
+            Produto aux = Produto.ProdutoPorId(produtoId);
+
+            if (aux == null)
+                return false;
+
+            if (this.artigosComprados.ContainsKey(produtoId))
             {
-                if (this.artigosComprados[p] < quantidade)
-                    this.artigosComprados[p] -= quantidade;
+                if (this.artigosComprados[produtoId] > quantidade)
+                    this.artigosComprados[produtoId] -= quantidade;
                 else
-                    this.artigosComprados.Remove(p);
+                    this.artigosComprados.Remove(produtoId);
                 return true;
             }
 
@@ -170,12 +180,47 @@ namespace ObjetosNegocio
         public bool VerificaIntegridadeCompra()
         {
             //verificar id Fornecedor
-            if (!Fornecedores.VerificaFornecedorId(this.Id))
+            if (!Fornecedores.VerificaFornecedorId(this.IdFornecedor))
                 return false;
 
             return true;
         }
 
+
+        public bool VerificaProdutoCompra(int idProduto)
+        {
+            if (!Produto.ExisteProdutoPorId(idProduto))
+                return false;
+
+            foreach(KeyValuePair<int,int> parchave in this.artigosComprados)
+            {
+                int chave = parchave.Key;
+
+                if( chave == idProduto)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public void MostraListaCompras()
+        {
+            if((this.artigosComprados.Count < 1) || ReferenceEquals(this,null))
+                return;
+
+            Console.WriteLine("-----Lista Compra-----");
+            Console.WriteLine("Id: {0}, Data: {1}",this.Id, this.data);
+            foreach (KeyValuePair<int, int > parchave in this.artigosComprados)
+            {
+                int chave = parchave.Key;
+                Produto p = Produto.ProdutoPorId(chave);
+                if(p != null)
+                    Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Quantidade Compra: {3}", p.Id, p.Nome, p.Valor, this.artigosComprados[chave]);
+            }
+
+            Console.WriteLine("----------------------");
+
+        }
 
 
         #endregion

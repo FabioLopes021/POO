@@ -105,7 +105,7 @@ namespace Dados
         
         public static bool RegistarVenda(Venda v)
         {
-            if(ReferenceEquals(v,null))
+            if(ReferenceEquals(v,null) || listaVendas.Contains(v))
                 return false;
 
             if(!v.VerificaIntegridadeVenda())
