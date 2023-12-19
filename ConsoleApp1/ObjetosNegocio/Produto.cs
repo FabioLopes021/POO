@@ -292,7 +292,7 @@ namespace ObjetosNegocio
 
             aux = lista.Find(e => e.Id == produtoId);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return false;
 
             return true;

@@ -10,7 +10,6 @@
 using Dados;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 
 namespace ObjetosNegocio
 {
@@ -52,7 +51,6 @@ namespace ObjetosNegocio
         /// <summary>
         /// Constutor com dados
         /// </summary>
-        /// <param name="nomeLoja"></param>
         /// <param name="data"></param>
         /// <param name="idFornecedor"></param>
         public Compra(DateTime data, int idFornecedor)
@@ -301,28 +299,6 @@ namespace ObjetosNegocio
             return false;
         }
 
-
-        /// <summary>
-        /// Funçao Para mostrar Lista de Compras
-        /// </summary>
-        public void MostraListaCompras()
-        {
-            if((this.artigosComprados.Count < 1) || ReferenceEquals(this,null))
-                return;
-
-            Console.WriteLine("-----Lista Compra-----");
-            Console.WriteLine("Id: {0}, Data: {1}",this.Id, this.data);
-            foreach (KeyValuePair<int, int > parchave in this.artigosComprados)
-            {
-                int chave = parchave.Key;
-                Produto p = Produto.ProdutoPorId(chave);
-                if(p != null)
-                    Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Quantidade Compra: {3}", p.Id, p.Nome, p.Valor, this.artigosComprados[chave]);
-            }
-
-            Console.WriteLine("----------------------");
-
-        }
 
 
         #endregion

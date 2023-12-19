@@ -7,11 +7,10 @@
 *	<description></description>
 */
 
-using System;
+using InOut;
 using ObjetosNegocio;
 using RN;
-using InOut;
-using System.Runtime.InteropServices;
+using System;
 
 namespace Programa
 {
@@ -66,7 +65,7 @@ namespace Programa
                         {
                             IO.EscreverMensagem(e.Message);
                         }
-                        Console.ReadKey();
+                        IO.ReadKey();
                         break;
                     case 2:     //Adicionar Marca
                         IO.ClearConsole();
@@ -129,18 +128,32 @@ namespace Programa
                         IO.ClearConsole();
                         IO.ListaProdutos();
                         break;
-                    case 11:     // Menu Compras 
+                    case 11:    //Listar produtos ascendente por valor
+                        IO.ClearConsole();
+                        IO.ListaProdutosPrecoAsc();
+                        break;
+                    case 12:    //Listar Produtos descendente por valor
+                        IO.ClearConsole();
+                        IO.ListaProdutosPrecoDesc();
+                        break;
+                    case 13:    // ListarVendas
+                        IO.ClearConsole();
+                        IO.ListaVendas();
+                        IO.ReadKey();
+                        break;
+                    case 14:    //ListarCompras
+                        IO.ClearConsole();
+                        IO.ListaCompras();
+                        IO.ReadKey();
+                        break;
+                    case 15:     // Menu Compras 
                         int auxMenuc = -1;
                         IO.ClearConsole();
                         Compra comp = IO.DadosCriarCompra();
                         do
                         {
                             IO.ClearConsole();
-
-
-                            //compaux.MostraListaCompras();                     Mudar o sitio e melhorar
-                            
-
+                            IO.MostrarDadosCompra(comp);
                             IO.MenuCompras();
                             auxMenuc = IO.LernumeroMenuCompra();
                             switch (auxMenuc)
@@ -157,13 +170,13 @@ namespace Programa
                                         IO.EscreverMensagem("Produto Adicionado Com Sucesso!");
                                     else
                                         IO.EscreverMensagem("Erro ao adicionar produto!");
-                                    Console.ReadKey();
+                                    IO.ReadKey();
                                     break;
                                 case 2:     //Remover Produto da compra
                                     IO.ClearConsole();
                                     if (!(comp.ArtigosComprados.Count < 1))
                                     {
-                                        comp.MostraListaCompras();
+                                        IO.MostrarDadosCompra(comp);
                                         int idPro, quantPro;
 
                                         idPro = IO.DadosRemoverProdutosCompra(out quantPro, comp);
@@ -174,20 +187,28 @@ namespace Programa
                                             IO.EscreverMensagem("Produto Removido Com Sucesso!");
                                         else
                                             IO.EscreverMensagem("Erro ao Remover produto!");
-                                        Console.ReadKey();
+                                        IO.ReadKey();
                                     }
                                     else
                                         IO.EscreverMensagem("Nao exitem produtos adicionados a compra");
                                     break;
-                                case 3:     //Registar Compra                                      
-                                    bool comprabool = RegrasNegocio.AdicionarCompra(comp);
-
+                                case 3:     //Registar Compra
+                                    bool comprabool = false;
+                                    try
+                                    {
+                                        comprabool = RegrasNegocio.AdicionarCompra(comp);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        IO.EscreverMensagem(e.Message);
+                                    }
+                                    
                                     if (comprabool)
                                         IO.EscreverMensagem("Compra registada com sucesso!");
                                     else
                                         IO.EscreverMensagem("Erro ao registar Compra!");
 
-                                    Console.ReadKey();
+                                    IO.ReadKey();
                                     auxMenuc = 0;
                                     break;
                                 default:
@@ -197,61 +218,86 @@ namespace Programa
                         } while (auxMenuc != 0);
                         comp = null;
                         break;
-                    case 12:    // Menu Vendas
+                    case 16:    // Menu Vendas
                         int auxMenuV = -1;
-                        Venda vendAux = new Venda();
+                        IO.ClearConsole();
+                        Venda vend = IO.DadosCriarVenda();
                         do
                         {
                             IO.ClearConsole();
+
+                            IO.MostrarDadosVenda(vend);
+
                             IO.MenuVendas();
                             auxMenuV = IO.LernumeroMenuCompra();
-                            Venda vend;
                             switch (auxMenuV)
                             {
                                 case 0:
                                     break;
-                                case 1:
-                                    vend = IO.DadosCriarVenda();
-                                    vendAux = vend;
-                                    break;
-                                case 2:
+                                case 1:     //Adicionar Produto a venda
                                     IO.ClearConsole();
                                     IO.ListaProdutos();
 
                                     int idProd, quantProd;
                                     idProd = IO.DadosAdicionarProdutosVenda(out quantProd);
-                                    
-                                    vend = vendAux;
+                                    bool auxv = vend.AdicionarProdutoVenda(idProd, quantProd);
 
-                                    vend.AdicionarProdutoVenda(idProd, quantProd);
+                                    if (auxv)
+                                        IO.EscreverMensagem("Produto adicionado com sucesso!");
+                                    else
+                                        IO.EscreverMensagem("Erro ao adicionar produto!");
+
+                                    IO.ReadKey();
                                     break;
-                                case 3:
+                                case 2:     // Remover Produto da Venda
                                     IO.ClearConsole();
-                                    vend = vendAux;
                                     if (!(vend.ArtigosVendidos.Count < 1))
                                     {
-                                        vend.MostraListaCompras();
-                                        vend = vendAux;
+                                        IO.MostrarDadosVenda(vend);
 
-                                        idProd = IO.DadosRemoverProdutosVenda(out quantProd,vend);
+                                        idProd = IO.DadosRemoverProdutosVenda(out quantProd, vend);
 
-                                        vend.RemoverProdutoVenda(idProd, quantProd);
+                                        bool auxv1 = vend.RemoverProdutoVenda(idProd, quantProd);
+
+                                        if (auxv1)
+                                            IO.EscreverMensagem("Produto removido com sucesso!");
+                                        else
+                                            IO.EscreverMensagem("Erro ao remover produto!");
+                                        IO.ReadKey();
                                     }
                                     else
-                                        Console.WriteLine("Nao exitem produtos adicionados a compra");              // mudar o consol writeline
+                                        IO.EscreverMensagem("Nao exitem produtos adicionados a compra");      
                                     break;
-                                case 4:
-                                    RegrasNegocio.AdicionarVenda(vendAux);
-                                    
+                                case 3:     // Registar Venda
+
+                                    bool vendabool = false;
+
+                                    try
+                                    {
+                                        vendabool = RegrasNegocio.AdicionarVenda(vend);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        IO.EscreverMensagem(e.Message);
+                                    }
+
+
+                                    if (vendabool)
+                                        IO.EscreverMensagem("Venda registada com sucesso!");
+                                    else
+                                        IO.EscreverMensagem("Erro ao registar venda!");
+                                    IO.ReadKey();
+                                    auxMenuV = 0;
                                     break;
                                 default:
-                                    Console.WriteLine("Default, algo errou!!!");                    // mudar o consol writeline
+                                    IO.EscreverMensagem("Default, algo errou!!!");                   
                                     break;
                             }
                         } while (auxMenuV != 0);
                         break;
+
                     default:
-                        Console.WriteLine("Default, algo errou!!!");                            // mudar o consol writeline
+                        IO.EscreverMensagem("Default, algo errou!!!");                           
                         break;
                 }
 

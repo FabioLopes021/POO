@@ -7,11 +7,10 @@
 *	<description></description>
 */
 
+using Excecoes;
+using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
-using ObjetosNegocio;
-using Excecoes;
-using System.Runtime.Remoting.Channels;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -91,14 +90,17 @@ namespace Dados
         }
 
 
-        /*  Nao implementar (Nao remover produtos para nao perder referencias de Compras/Vendas antigas)
+        
+        //  Nao implementar (Nao remover produtos para nao perder referencias de Compras/Vendas antigas)
         /// <summary>
         /// Funçao para remover um determinado produto de uma determinado armazem
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
-        public static bool RemoverProduto(Produto p)
+        public static bool RemoverProduto(int id)
         {
+            Produto p = Produto.ProdutoPorId(id);
+
             if (p == null) 
                 return false;
 
@@ -117,7 +119,7 @@ namespace Dados
 
             return false;
         }
-        */
+        
 
 
 

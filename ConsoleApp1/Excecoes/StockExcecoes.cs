@@ -27,13 +27,28 @@ namespace Excecoes
 
         #region Constructors
 
+
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public StockExcecoes() : base("Erro em Stock")
         {
 
         }
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public StockExcecoes(string s) : base(s) { }
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="StockExcecoes"></exception>
 
         public StockExcecoes(string s, Exception e)
         {

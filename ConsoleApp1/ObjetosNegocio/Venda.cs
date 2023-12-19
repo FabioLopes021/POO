@@ -21,7 +21,7 @@ namespace ObjetosNegocio
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Venda
+    public class Venda: IVenda
     {
         #region Attributes
         
@@ -51,7 +51,6 @@ namespace ObjetosNegocio
         /// <summary>
         /// Construtor com dados
         /// </summary>
-        /// <param name="nomeLoja"></param>
         /// <param name="data"></param>
         /// <param name="idCliente"></param>
         public Venda(DateTime data, int idCliente)
@@ -234,38 +233,6 @@ namespace ObjetosNegocio
         }
 
 
-
-
-
-
-        /*
-                 public bool RemoverProdutoCompra(int produtoId, int quantidade)
-        {
-            if (Produto.ExisteProdutoPorId(produtoId))
-                return false;
-
-            if (ReferenceEquals(this.artigosComprados, null))
-                this.artigosComprados = new Dictionary<int, int>();
-
-            Produto aux = Produto.ProdutoPorId(produtoId);
-
-            if (aux == null)
-                return false;
-
-            if (this.artigosComprados.ContainsKey(produtoId))
-            {
-                if (this.artigosComprados[produtoId] < quantidade)
-                    this.artigosComprados[produtoId] -= quantidade;
-                else
-                    this.artigosComprados.Remove(produtoId);
-                return true;
-            }
-
-            return false;
-        } 
-        */
-
-
         /// <summary>
         /// Funçao para Remover o id dos produtos e a respetiva quantidade do dicionario 
         /// </summary>
@@ -331,28 +298,6 @@ namespace ObjetosNegocio
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// Funçao Para mostrar Lista de Compras
-        /// </summary>
-        public void MostraListaCompras()
-        {
-            if ((this.artigosVendidos.Count < 1))
-                return;
-
-            Console.WriteLine("-----Lista Venda-----");
-            Console.WriteLine("Id: {0}, Data: {1}", this.Id, this.data);
-            foreach (KeyValuePair<int, int> parchave in this.artigosVendidos)
-            {
-                int chave = parchave.Key;
-                Produto p = Produto.ProdutoPorId(chave);
-                if (p != null)
-                    Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Garantia: {4}, Quantidae: {5}", p.Id, p.Nome, p.Valor, p.CatgId, p.GarantiaAnos, p.Quantidade);
-            }
-
-            Console.WriteLine("----------------------");
-
         }
 
 

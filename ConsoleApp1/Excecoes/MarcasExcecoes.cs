@@ -27,14 +27,29 @@ namespace Excecoes
 
         #region Constructors
 
+
+
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public MarcasExcecoes() : base("Erro em Marcas")
         {
 
         }
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public MarcasExcecoes(string s) : base(s) { }
 
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="MarcasExcecoes"></exception>
         public MarcasExcecoes(string s, Exception e)
         {
             throw new MarcasExcecoes(s + "-" + e.Message);

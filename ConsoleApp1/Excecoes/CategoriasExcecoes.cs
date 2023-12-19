@@ -27,14 +27,27 @@ namespace Excecoes
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public CategoriasExcecoes() : base("Erro em Categorias")
         {
 
         }
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public CategoriasExcecoes(string s) : base(s) { }
 
-
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="CategoriasExcecoes"></exception>
         public CategoriasExcecoes(string s, Exception e)
         {
             throw new CategoriasExcecoes(s + "-" + e.Message);

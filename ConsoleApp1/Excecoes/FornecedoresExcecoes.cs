@@ -27,14 +27,29 @@ namespace Excecoes
 
         #region Constructors
 
+
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public FornecedoresExcecoes() : base("Erro em Fornecedores")
         {
 
         }
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public FornecedoresExcecoes(string s) : base(s) { }
 
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="FornecedoresExcecoes"></exception>
         public FornecedoresExcecoes(string s, Exception e)
         {
             throw new FornecedoresExcecoes(s + "-" + e.Message);

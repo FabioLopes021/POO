@@ -125,7 +125,7 @@ namespace Dados
 
             aux = listaFornecedores.Find(e => e.Id == id);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return false;
 
             return true;

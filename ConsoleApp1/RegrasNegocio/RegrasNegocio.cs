@@ -7,10 +7,10 @@
 *	<description></description>
 */
 
-using System;
 using Dados;
-using ObjetosNegocio;
 using Excecoes;
+using ObjetosNegocio;
+using System;
 using System.Collections.Generic;
 
 namespace RN
@@ -45,34 +45,20 @@ namespace RN
 
 
         //Não implementar
-        /*
-        public static bool RemoverProduto(Produto p)
+        /// <summary>
+        /// Metodo para remover um produto do Stock
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
+        public static bool RemoverProduto(int id)
         {
-            if (p == null)
+            if (id < 0)
                 throw new StockExcecoes("Falha de Regras de Negocio (null data em Produto)");
             
             try
             {
-                Stock.RemoverProduto(p);
-            }
-            catch (StockExcecoes e)
-            {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
-            }
-
-            return true;
-        }
-        
-
-
-        public static bool AumentarQuantidadeArmazem(Produto p, float quantidade)
-        {
-            if (p == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Produto)");
-
-            try
-            {
-                Stock.AumentarQuantidade(p, quantidade);
+                Stock.RemoverProduto(id);
             }
             catch (StockExcecoes e)
             {
@@ -82,24 +68,6 @@ namespace RN
             return true;
         }
 
-
-        public static bool RetirarQuantidadeArmazem(Produto p, float quantidade)
-        {
-            if (p == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Produto)");
-
-            try
-            {
-                Stock.RetirarQuantidade(p, quantidade);
-            }
-            catch (StockExcecoes e)
-            {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
-            }
-
-            return true;
-        }
-        */
 
 
         /// <summary>
@@ -281,6 +249,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe stock
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarStock(string file)
         {
             bool aux = false;
@@ -297,6 +272,13 @@ namespace RN
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo Para carregar os dados da classe stock
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarStock(string file)
         {
             bool aux = false;
@@ -316,7 +298,12 @@ namespace RN
         }
 
 
-
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe Vendas
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarVendas(string file)
         {
             bool aux = false;
@@ -335,6 +322,13 @@ namespace RN
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo Para carregar os dados da classe Vendas
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarVendas(string file)
         {
             bool aux = false;
@@ -354,7 +348,12 @@ namespace RN
         }
 
 
-
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe Marcas
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarMarcas(string file)
         {
             bool aux = false;
@@ -373,6 +372,13 @@ namespace RN
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo Para carregar os dados da classe Marcas
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarMarcas(string file)
         {
             bool aux = false;
@@ -392,7 +398,12 @@ namespace RN
         }
 
 
-
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe Fornecedores
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarFornecedores(string file)
         {
             bool aux = false;
@@ -411,6 +422,13 @@ namespace RN
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo Para carregar os dados da classe Fornecedores
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarFornecedores(string file)
         {
             bool aux = false;
@@ -430,6 +448,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe Compras
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarCompras(string file)
         {
             bool aux = false;
@@ -448,6 +473,12 @@ namespace RN
             return aux;
         }
 
+        /// <summary>
+        /// Metodo Para carregar os dados da classe Compras
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarCompras(string file)
         {
             bool aux = false;
@@ -466,7 +497,12 @@ namespace RN
             return aux;
         }
 
-
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe Clientes
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarClientes(string file)
         {
             bool aux = false;
@@ -485,6 +521,13 @@ namespace RN
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo Para carregar os dados da classe Clientes
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarClientes(string file)
         {
             bool aux = false;
@@ -503,7 +546,12 @@ namespace RN
             return aux;
         }
 
-
+        /// <summary>
+        /// Metodo para Guardar os  dados da classe Categorias
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarCategorias(string file)
         {
             bool aux = false;
@@ -522,7 +570,12 @@ namespace RN
             return aux;
         }
 
-
+        /// <summary>
+        /// Metodo Para carregar os dados da classe Categorias
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregarCategorias(string file)
         {
             bool aux = false;
@@ -541,30 +594,91 @@ namespace RN
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de categorias
+        /// </summary>
+        /// <returns></returns>
         public static List<Categoria> ListaCategorias()
         {
             return Categorias.ListaCategorias;
         }
 
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Marcas
+        /// </summary>
+        /// <returns></returns>
         public static List<Marca> ListaMarcas()
         {
             return Marcas.ListaMarcas;
         }
 
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Fornecedores
+        /// </summary>
+        /// <returns></returns>
         public static List<Fornecedor> ListaFornecedores()
         {
             return Fornecedores.ListaFornecedores;
         }
 
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Clientes
+        /// </summary>
+        /// <returns></returns>
         public static List<Cliente> ListaClientes()
         {
             return Clientes.ListaClientes;
         }
 
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Produtos
+        /// </summary>
+        /// <returns></returns>
         public static List<Produto> ListaProdutos()
         {
             return Stock.ListaProdutos;
         }
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Vendas
+        /// </summary>
+        /// <returns></returns>
+        public static List<Venda> ListaVendas()
+        {
+            return Vendas.ListaVendas;
+        }
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Compras
+        /// </summary>
+        /// <returns></returns>
+        public static List<Compra> ListaCompras()
+        {
+            return Compras.ListaCompras;
+        }
+
+
+        
+        /// <summary>
+        /// Metodo que retorna o Produto correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static Produto ProdutoPorId(int id)
+        {
+            if(id < 0)
+            {
+                return null;
+            }
+
+            return Produto.ProdutoPorId(id);
+
+        }
+
 
         #endregion
 

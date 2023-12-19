@@ -7,10 +7,9 @@
 *	<description></description>
 */
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Dados;
+using System;
+using System.Collections.Generic;
 
 namespace ObjetosNegocio
 {

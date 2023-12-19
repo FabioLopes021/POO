@@ -27,14 +27,28 @@ namespace Excecoes
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public ClientesExcecoes() : base("Erro em Clientes")
         {
 
         }
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public ClientesExcecoes(string s) : base(s) { }
 
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="ClientesExcecoes"></exception>
         public ClientesExcecoes(string s, Exception e)
         {
             throw new ClientesExcecoes(s + "-" + e.Message);

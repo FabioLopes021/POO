@@ -7,13 +7,12 @@
 *	<description></description>
 */
 
+using Excecoes;
 using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
-using Excecoes;
 
 namespace Dados
 {
@@ -65,27 +64,6 @@ namespace Dados
         #endregion
 
         #region Other_Methods
-
-
-        /*
-        /// <summary>
-        /// Funçao para adicionar uma Venda a lista de Vendas
-        /// </summary>
-        /// <param name="v"></param>
-        /// <returns></returns>
-        public static bool AdicionarCompra(Compra c)
-        {
-
-            if (ReferenceEquals(c, null) || ReferenceEquals(listaCompras, null))
-                return false;
-
-            if (listaCompras.Contains(c))
-                return false;
-
-            listaCompras.Add(c);
-            return true;
-        }
-        */
 
 
         /// <summary>

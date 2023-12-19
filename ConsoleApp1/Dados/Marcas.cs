@@ -7,12 +7,12 @@
 *	<description></description>
 */
 
+using Excecoes;
+using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using ObjetosNegocio;
-using Excecoes;
 
 namespace Dados
 {

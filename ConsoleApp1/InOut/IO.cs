@@ -11,6 +11,7 @@ using ObjetosNegocio;
 using RN;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InOut
 {
@@ -27,6 +28,9 @@ namespace InOut
         #region MetodosListar
 
 
+        /// <summary>
+        /// Metodo que lista todas as categorias na lista de categorias
+        /// </summary>
         public static void ListaCategorias()
         {
             List<Categoria> categorias = RegrasNegocio.ListaCategorias();
@@ -41,6 +45,10 @@ namespace InOut
         }
 
 
+
+        /// <summary>
+        /// Metodo que lista todas as marcas na lista marcas
+        /// </summary>
         public static void ListaMarcas()
         {
             List<Marca> marcas = RegrasNegocio.ListaMarcas();
@@ -55,6 +63,9 @@ namespace InOut
         }
 
 
+        /// <summary>
+        /// Metodo que lista todas os Fornecedores na lista Fornecedores
+        /// </summary>
         public static void ListaFornecedores()
         {
             List<Fornecedor> fornecedores = RegrasNegocio.ListaFornecedores();
@@ -70,7 +81,9 @@ namespace InOut
 
 
 
-
+        /// <summary>
+        /// Metodo que lista todos os clientes na lista clientes
+        /// </summary>
         public static void ListaClientes()
         {
             List<Cliente> clientes = RegrasNegocio.ListaClientes();
@@ -86,7 +99,9 @@ namespace InOut
 
 
 
-
+        /// <summary>
+        /// Metodo que lista todos os produtos na lista produtos
+        /// </summary>
         public static void ListaProdutos()
         {
             List<Produto> stock = RegrasNegocio.ListaProdutos();
@@ -100,10 +115,155 @@ namespace InOut
             Console.ReadKey();
         }
 
+
+        /// <summary>
+        /// Metodo que lista todos os produtos de forma ascendente de acordo com o valor dos mesmos
+        /// </summary>
+        public static void ListaProdutosPrecoAsc()
+        {
+            List<Produto> stock = RegrasNegocio.ListaProdutos();
+            List<Produto> asc;
+
+            asc = stock.OrderBy(e => e.Valor).ToList();
+
+            Console.WriteLine("--------Lista Produtos----------");
+            foreach (Produto p in asc)
+            {
+                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Garantia: {4}, Quantidade: {5}", p.Id, p.Nome, p.Valor, p.CatgId, p.GarantiaAnos, p.Quantidade);
+            }
+            Console.WriteLine("----------------------------------");
+            Console.ReadKey();
+        }
+
+
+        /// <summary>
+        /// Metodo que lista todos os produtos de forma descendente de acordo com o valor dos mesmos
+        /// </summary>
+        public static void ListaProdutosPrecoDesc()
+        {
+            List<Produto> stock = RegrasNegocio.ListaProdutos();
+            List<Produto> asc;
+
+            asc = stock.OrderByDescending(e => e.Valor).ToList();
+
+            Console.WriteLine("--------Lista Produtos----------");
+            foreach (Produto p in asc)
+            {
+                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Garantia: {4}, Quantidade: {5}", p.Id, p.Nome, p.Valor, p.CatgId, p.GarantiaAnos, p.Quantidade);
+            }
+            Console.WriteLine("----------------------------------");
+            Console.ReadKey();
+        }
+
+
+        /// <summary>
+        /// Metodo que lista os dados de uma compra
+        /// </summary>
+        /// <param name="comp"></param>
+        public static void MostrarDadosCompra(Compra comp)
+        {
+            int count = 0;
+            Console.WriteLine("#############");
+            Console.WriteLine("Informacoes da compra: ");
+            Console.WriteLine("ID Compra: {0}, Data: {1}", comp.Id, comp.Data);
+            if (comp.ArtigosComprados.Count > 0)
+            {
+                foreach (KeyValuePair<int, int> parchave in comp.ArtigosComprados)
+                {
+                    Produto p;
+                    int chave = parchave.Key;
+                    p = RegrasNegocio.ProdutoPorId(chave);
+
+                    if (p != null)
+                    {
+                        if (count == 0)
+                            Console.WriteLine("Artigos na lista de compras: ");
+                        Console.WriteLine("id: {0}; Nome: {1}; Valor: {2}; Quantidade: {3}", p.Id, p.Nome, p.Valor, comp.ArtigosComprados[chave]);
+                    }
+                    count++;
+                }
+            }
+            Console.WriteLine("#############");
+
+        }
+
+        /// <summary>
+        /// Metodo que lista os dados de uma venda
+        /// </summary>
+        /// <param name="vend"></param>
+        public static void MostrarDadosVenda(Venda vend)
+        {
+            int count = 0;
+            Console.WriteLine("#############");
+            Console.WriteLine("Informacoes da Venda: ");
+            Console.WriteLine("ID Venda: {0}, Data: {1}", vend.Id, vend.Data);
+            if (vend.ArtigosVendidos.Count > 0)
+            {
+                foreach (KeyValuePair<int, int> parchave in vend.ArtigosVendidos)
+                {
+                    Produto p;
+                    int chave = parchave.Key;
+                    p = RegrasNegocio.ProdutoPorId(chave);
+
+                    if (p != null)
+                    {
+                        if (count == 0)
+                            Console.WriteLine("Artigos na lista de compras: ");
+                        Console.WriteLine("id: {0}; Nome: {1}; Valor: {2}; Quantidade: {3}", p.Id, p.Nome, p.Valor, vend.ArtigosVendidos[chave]);
+                    }
+                    count++;
+                }
+            }
+            Console.WriteLine("#############");
+
+        }
+
+
+        /// <summary>
+        /// Metodo que lista os dados de todas as vendas 
+        /// </summary>
+        public static void ListaVendas()
+        {
+            List<Venda> vendas = RegrasNegocio.ListaVendas();
+            Console.WriteLine("---------------Lista Vendas-------------------------");
+
+            foreach (Venda v in vendas)
+            {
+                if (!(ReferenceEquals(v, null)))
+                    MostrarDadosVenda(v);
+            }
+
+            Console.WriteLine("---------------Lista Vendas-------------------------");
+
+        }
+
+        /// <summary>
+        /// Metodo que lista os dados de todas as compras
+        /// </summary>
+        public static void ListaCompras()
+        {
+            List<Compra> compras = RegrasNegocio.ListaCompras();
+            Console.WriteLine("---------------Lista Vendas-------------------------");
+
+            foreach (Compra c in compras)
+            {
+                if (!(ReferenceEquals(c, null)))
+                    MostrarDadosCompra(c);
+            }
+
+            Console.WriteLine("---------------Lista Vendas-------------------------");
+
+        }
+
+
         #endregion
 
         #region MetodosMostrarMenus
 
+
+        /// <summary>
+        /// Metodo que apresenta o menu principal na consola
+        /// </summary>
         public static void MenuShow()
         {
 
@@ -119,13 +279,19 @@ namespace InOut
             Console.WriteLine("- 8 - Listar Fornecedores                   -");
             Console.WriteLine("- 9 - Listar Clientes                       -");
             Console.WriteLine("- 10 - Listar Produtos                      -");
-            Console.WriteLine("- 11 - Criar compra                         -");
-            Console.WriteLine("- 12 - Criar Venda                          -");
+            Console.WriteLine("- 11 - Listar Produtos asc                  -");
+            Console.WriteLine("- 12 - Listar Produtos desc                 -");
+            Console.WriteLine("- 13 - Listar Vendas                        -");
+            Console.WriteLine("- 14 - Listar Compras                       -");
+            Console.WriteLine("- 15 - Criar compra                         -");
+            Console.WriteLine("- 16 - Criar Venda                          -");
             Console.WriteLine("------------------Menu Testes----------------");
 
         }
 
-
+        /// <summary>
+        /// Metodo que apresenta o menu de compras principal na consola
+        /// </summary>
         public static void MenuCompras()
         {
             Console.WriteLine("------------------Menu Compras----------------");
@@ -137,19 +303,27 @@ namespace InOut
         }
 
 
+        /// <summary>
+        /// Metodo que apresenta o menu de vendas na consola
+        /// </summary>
         public static void MenuVendas()
         {
             Console.WriteLine("------------------Menu Vendas----------------");
             Console.WriteLine("- 0 - Sair                                  -");
             Console.WriteLine("- 1 - Adicionar Produto a Venda             -");
             Console.WriteLine("- 2 - Remover Produto da venda              -");
-            Console.WriteLine("- 2 - Registar Venda                        -");
+            Console.WriteLine("- 3 - Registar Venda                        -");
             Console.WriteLine("------------------Menu Vendas----------------");
         }
         #endregion
 
         #region LerOpçoesMenus
 
+
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu principal
+        /// </summary>
+        /// <returns></returns>
         public static int LernumeroMenuPrincipal()
         {
             int num = -1;
@@ -168,11 +342,16 @@ namespace InOut
                 {
                     Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
                 }
-            } while (num < 0 || num > 12);
+            } while (num < 0 || num > 16);
             return num;
         }
 
 
+
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu de compras e vendas 
+        /// </summary>
+        /// <returns></returns>
         public static int LernumeroMenuCompra()
         {
             int num = -1;
@@ -199,11 +378,28 @@ namespace InOut
 
         #region MetodosConsola
 
+        /// <summary>
+        /// Metodo que espera que seja pressionada  uma tecla antes de avançar
+        /// </summary>
+        public static void ReadKey()
+        {
+            Console.ReadKey();
+        }
+
+
+        /// <summary>
+        /// Metodo que limpa a consola
+        /// </summary>
         public static void ClearConsole()
         {
             Console.Clear();
         }
 
+
+        /// <summary>
+        /// Metodo que escreve uma mensagem na consola
+        /// </summary>
+        /// <param name="mensagem"></param>
         public static void EscreverMensagem(string mensagem)
         {
             Console.WriteLine(mensagem);
@@ -215,6 +411,10 @@ namespace InOut
 
 
 
+        /// <summary>
+        /// Metodo que le uma string inserida pelo utilizador
+        /// </summary>
+        /// <returns></returns>
         static string LerString()
         {
             return Console.ReadLine();
@@ -223,7 +423,10 @@ namespace InOut
 
 
 
-        
+        /// <summary>
+        /// Metodo que le um inteiro inserido pelo utilizador
+        /// </summary>
+        /// <returns></returns>
         static int LerInt()
         {
             
@@ -243,7 +446,10 @@ namespace InOut
 
 
 
-        
+        /// <summary>
+        /// Metodo que le um float inserido pelo utilizador
+        /// </summary>
+        /// <returns></returns>
         static float LerFloat()
         {
             
@@ -266,6 +472,11 @@ namespace InOut
         #region MetodosLerDadosClasses
 
 
+
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe categoria
+        /// </summary>
+        /// <returns></returns>
         public static Categoria DadosCategoria()
         {
             Console.WriteLine("-------Criar Categoria--------");
@@ -276,6 +487,10 @@ namespace InOut
             return cat;
         }
 
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe marca
+        /// </summary>
+        /// <returns></returns>
         public static Marca DadosMarca()
         {
 
@@ -290,7 +505,10 @@ namespace InOut
             return mar;
         }
 
-
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe Fornecedor
+        /// </summary>
+        /// <returns></returns>
         public static Fornecedor DadosFornecedor()
         {
             Console.WriteLine("-------Criar Fornecedor--------");
@@ -309,6 +527,11 @@ namespace InOut
         }
 
 
+
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe Cliente
+        /// </summary>
+        /// <returns></returns>
         public static Cliente DadosCliente()
         {
             Console.WriteLine("-------Criar Cliente--------");
@@ -327,6 +550,10 @@ namespace InOut
         }
 
 
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe Produto
+        /// </summary>
+        /// <returns></returns>
         public static Produto DadosProduto()
         {
             Console.WriteLine("-------Criar Produto--------");
@@ -349,9 +576,13 @@ namespace InOut
         }
 
 
-
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe Compra
+        /// </summary>
+        /// <returns></returns>
         public static Compra DadosCriarCompra()
         {
+            IO.ListaFornecedores();
             Console.WriteLine("Criar compra nova");
             Console.WriteLine("Indique o ID do fornecedor");
             int IDF = LerInt();
@@ -362,6 +593,11 @@ namespace InOut
         }
 
 
+        /// <summary>
+        /// Metodo que le os dados necessarios para adicionar um produto a uma compra
+        /// </summary>
+        /// <param name="quantProd"></param>
+        /// <returns></returns>
         public static int DadosAdicionarProdutosCompra(out int quantProd)
         {
             Console.WriteLine("Escolha um produto identificando o seu id: ");
@@ -383,7 +619,12 @@ namespace InOut
 
         }
 
-
+        /// <summary>
+        /// Metodo que le os dados necessarios para remover um produto de uma compra
+        /// </summary>
+        /// <param name="quantProd"></param>
+        /// <param name="comp"></param>
+        /// <returns></returns>
         public static int DadosRemoverProdutosCompra(out int quantProd, Compra comp)
         {
             Console.WriteLine("Escolha um produto identificando o seu id: ");
@@ -406,10 +647,13 @@ namespace InOut
 
         }
 
-
+        /// <summary>
+        /// Metodo que le os dados necessarios a criaçao de um objeto da classe Venda
+        /// </summary>
+        /// <returns></returns>
         public static Venda DadosCriarVenda()
         {
-
+            IO.ListaClientes();
             Console.WriteLine("Criar venda nova");
             Console.WriteLine("Indique o ID do Cliente");
             int IDC = LerInt();
@@ -419,7 +663,11 @@ namespace InOut
             return vend;
         }
 
-
+        /// <summary>
+        /// Metodo que le os dados necessarios para adicionar um produto a uma venda
+        /// </summary>
+        /// <param name="quantProd"></param>
+        /// <returns></returns>
         public static int DadosAdicionarProdutosVenda(out int quantProd)
         {
 
@@ -441,7 +689,12 @@ namespace InOut
             return idProd;
         }
 
-
+        /// <summary>
+        /// Metodo que le os dados necessarios para remover um produto de uma venda
+        /// </summary>
+        /// <param name="quantProd"></param>
+        /// <param name="vend"></param>
+        /// <returns></returns>
         public static int DadosRemoverProdutosVenda(out int quantProd, Venda vend)
         {
 

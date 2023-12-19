@@ -27,14 +27,28 @@ namespace Excecoes
 
         #region Constructors
 
+
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public VendasExcecoes() : base("Erro em Vendas")
         {
 
         }
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public VendasExcecoes(string s) : base(s) { }
 
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="VendasExcecoes"></exception>
         public VendasExcecoes(string s, Exception e)
         {
             throw new VendasExcecoes(s + "-" + e.Message);

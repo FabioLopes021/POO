@@ -27,14 +27,28 @@ namespace Excecoes
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public CampanhasExcecoes() : base("Erro em Campanhas")
         {
 
         }
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
         public CampanhasExcecoes(string s) : base(s) { }
 
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="e"></param>
+        /// <exception cref="CampanhasExcecoes"></exception>
         public CampanhasExcecoes(string s, Exception e)
         {
             throw new CampanhasExcecoes(s + "-" + e.Message);

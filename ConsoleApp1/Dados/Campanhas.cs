@@ -7,7 +7,6 @@
 *	<description></description>
 */
 
-using System;
 using ObjetosNegocio;
 
 namespace Dados

@@ -7,12 +7,12 @@
 *	<description></description>
 */
 
+using Excecoes;
+using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using Excecoes;
-using ObjetosNegocio;
 
 namespace Dados
 {
@@ -123,7 +123,7 @@ namespace Dados
 
             aux = listaClientes.Find(e => e.Id == id);
 
-            if(aux == null)
+            if(ReferenceEquals(aux,null))
                 return false;
 
             return true;
