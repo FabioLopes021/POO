@@ -8,7 +8,6 @@
 */
 
 using System;
-using Dados;
 using ObjetosNegocio;
 using RN;
 using InOut;
@@ -55,9 +54,9 @@ namespace Programa
                 switch (menu)
                 {
 
-                    case 0:
+                    case 0:     //Sair
                         break;
-                    case 1:
+                    case 1:     //Adicionar Categoria
                         IO.ClearConsole();
                         Categoria cat = IO.DadosCategoria();
                         try
@@ -69,7 +68,7 @@ namespace Programa
                         }
                         Console.ReadKey();
                         break;
-                    case 2:
+                    case 2:     //Adicionar Marca
                         IO.ClearConsole();
                         Marca mar = IO.DadosMarca();
                         try
@@ -81,7 +80,7 @@ namespace Programa
                             IO.EscreverMensagem(e.Message);
                         }
                         break;
-                    case 3:
+                    case 3:     //Adicionar Fornecedor
                         IO.ClearConsole();
                         Fornecedor forn = IO.DadosFornecedor();
                         try
@@ -93,12 +92,12 @@ namespace Programa
                             IO.EscreverMensagem(e.Message);
                         }
                         break;
-                    case 4:
+                    case 4:     //Adicionar Cliente
                         IO.ClearConsole();
                         Cliente cli = IO.DadosCliente();
                         RegrasNegocio.AdicionarCliente(cli);
                         break;
-                    case 5:
+                    case 5:     //Adicionar Produto
                         IO.ClearConsole();
                         Produto produtocriar = IO.DadosProduto();
                         try
@@ -110,62 +109,58 @@ namespace Programa
                             IO.EscreverMensagem(e.Message);
                         }
                         break;
-                    case 6:
+                    case 6:     //Listar Categorias
                         IO.ClearConsole();
                         IO.ListaCategorias();
                         break;
-                    case 7:
+                    case 7:     //Listar Marcas
                         IO.ClearConsole();
                         IO.ListaMarcas();
                         break;
-                    case 8:
+                    case 8:     //Listar Fornecedores
                         IO.ClearConsole();
                         IO.ListaFornecedores();
                         break;
-                    case 9:
+                    case 9:     //Listar Clientes
                         IO.ClearConsole();
                         IO.ListaClientes();
                         break;
-                    case 10:
+                    case 10:    //Listar Produtos
                         IO.ClearConsole();
                         IO.ListaProdutos();
                         break;
                     case 11:     // Menu Compras 
                         int auxMenuc = -1;
-                        Compra compaux = new Compra();
+                        IO.ClearConsole();
+                        Compra comp = IO.DadosCriarCompra();
                         do
                         {
                             IO.ClearConsole();
 
-                            Console.WriteLine("-------------Informaçoes compra--------------");
-                            compaux.MostraListaCompras();
-                            Console.WriteLine("-------------Informaçoes compra--------------");
+
+                            //compaux.MostraListaCompras();                     Mudar o sitio e melhorar
+                            
 
                             IO.MenuCompras();
-                            Compra comp;
                             auxMenuc = IO.LernumeroMenuCompra();
                             switch (auxMenuc)
                             {
                                 case 0:
                                     break;
-                                case 1:     //Criar Compra
-                                    IO.ClearConsole();
-                                    comp = IO.DadosCriarCompra();
-                                    compaux = comp;
-                                    break;
-                                case 2:     //Adicionar Produto a compra
+                                case 1:     //Adicionar Produto a compra 
                                     IO.ClearConsole();
                                     IO.ListaProdutos();
-                                    comp = compaux;
                                     int idProd, quantProd;
-
                                     idProd = IO.DadosAdicionarProdutosCompra(out quantProd);
-                                    
-                                    comp.AdicionarProdutoCompra(idProd, quantProd);
+                                    bool aux1 = comp.AdicionarProdutoCompra(idProd, quantProd);
+                                    if (aux1)
+                                        IO.EscreverMensagem("Produto Adicionado Com Sucesso!");
+                                    else
+                                        IO.EscreverMensagem("Erro ao adicionar produto!");
+                                    Console.ReadKey();
                                     break;
-                                case 3:     //Remover produto da compra
+                                case 2:     //Remover Produto da compra
                                     IO.ClearConsole();
-                                    comp = compaux;
                                     if (!(comp.ArtigosComprados.Count < 1))
                                     {
                                         comp.MostraListaCompras();
@@ -173,20 +168,34 @@ namespace Programa
 
                                         idPro = IO.DadosRemoverProdutosCompra(out quantPro, comp);
 
-                                        comp.RemoverProdutoCompra(idPro, quantPro);
+                                        bool aux2 = comp.RemoverProdutoCompra(idPro, quantPro);
+
+                                        if (aux2)
+                                            IO.EscreverMensagem("Produto Removido Com Sucesso!");
+                                        else
+                                            IO.EscreverMensagem("Erro ao Remover produto!");
+                                        Console.ReadKey();
                                     }
                                     else
                                         IO.EscreverMensagem("Nao exitem produtos adicionados a compra");
                                     break;
-                                case 4:     // Registar Compra
-                                    bool comprabool = RegrasNegocio.AdicionarCompra(compaux);
+                                case 3:     //Registar Compra                                      
+                                    bool comprabool = RegrasNegocio.AdicionarCompra(comp);
+
+                                    if (comprabool)
+                                        IO.EscreverMensagem("Compra registada com sucesso!");
+                                    else
+                                        IO.EscreverMensagem("Erro ao registar Compra!");
+
                                     Console.ReadKey();
+                                    auxMenuc = 0;
                                     break;
                                 default:
-                                    Console.WriteLine("Default, algo errou!!!");                //Alterar para o IO
+                                    IO.EscreverMensagem("Default, algo errou!!!");
                                     break;
                             }
                         } while (auxMenuc != 0);
+                        comp = null;
                         break;
                     case 12:    // Menu Vendas
                         int auxMenuV = -1;

@@ -68,7 +68,7 @@ namespace Dados
         #region Other_Methods
 
         /// <summary>
-        /// Metodo para Adicionar um cliente a lista de Clientes (Registar Cliente)
+        /// Metodo para Adicionar um Fornecedor a lista de Fornecedores (Registar Fornecedor)
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
@@ -89,7 +89,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Metodo para Remover um cliente da lista de Clientes (Remover Cliente)
+        /// Metodo para Remover um Fornecedor da lista de Fornecedores (Remover Fornecedor)
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
@@ -131,13 +131,23 @@ namespace Dados
             return true;
         }
 
+
         /// <summary>
-        /// Funçao para guardar os dados da lista fornecedores num ficheiro binario
+        /// Metodo para guardar os dados da lista fornecedores num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool GuardarFornecedores()
+        public static bool GuardarFornecedores(string file)
         {
-            Stream s = File.Open("Fornecedores", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (GuardaFornecedores) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -147,13 +157,21 @@ namespace Dados
         }
 
         /// <summary>
-        /// Funçao para carregar dados de um ficheiro binario para a lista de fornecedores
+        /// Metodo para carregar dados de um ficheiro binario para a lista de fornecedores
         /// </summary>
         /// <returns></returns>
-        public static bool CarregaFornecedores()
+        public static bool CarregaFornecedores(string file)
         {
-            Stream s = File.Open("Fornecedores", FileMode.Open);
+            Stream s;
 
+            try
+            {
+                s = File.Open(file, FileMode.Open);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaFornecedores) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 

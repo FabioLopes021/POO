@@ -1,13 +1,6 @@
-﻿using ObjetosNegocio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using InOut;
 using RN;
-using Dados;
-using System.ComponentModel;
-using System.Collections;
+using System;
 
 namespace Programa
 {
@@ -18,15 +11,69 @@ namespace Programa
 
             #region Carregadados
 
+            
+            try
+            {
+                RegrasNegocio.CarregarCategorias("Categorias");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
 
-            RegrasNegocio.CarregarCategorias();
-            RegrasNegocio.CarregarClientes();
-            RegrasNegocio.CarregarCompras();
-            RegrasNegocio.CarregarFornecedores();
-            RegrasNegocio.CarregarMarcas();
-            RegrasNegocio.CarregarStock();
-            RegrasNegocio.CarregarVendas();
+            try
+            {
+                RegrasNegocio.CarregarClientes("Clientes");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
 
+            try
+            {
+                RegrasNegocio.CarregarCompras("Compras");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.CarregarFornecedores("Fornecedores");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.CarregarMarcas("Marcas");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.CarregarStock("Stock");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.CarregarVendas("Vendas");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
 
             #endregion
 
@@ -91,46 +138,70 @@ namespace Programa
 
 
 
-
-            #region Verificar valores 
-            
-            /*
-            List<Marca> marcas = new List<Marca>();
-            List<Categoria> categorias = new List<Categoria>();
-            List<Fornecedor> fornecedores = new List<Fornecedor>();
-            List<Cliente> clientes = new List<Cliente>();
-            List<Produto> stock = new List<Produto>();
-            
-
-
-            List<Compra> compras = new List<Compra>();
-            List<Venda> vendas = new List<Venda>();
-            
-            /*
-            marcas = Marcas.ListaMarcas;
-            categorias = Categorias.ListaCategorias;
-            fornecedores = Fornecedores.ListaFornecedores;
-            clientes = Clientes.ListaClientes;
-            stock = Stock.ListaProdutos;
-            
-
-            compras = Compras.ListaCompras;
-            vendas = Vendas.ListaVendas;
-            */
-
-            #endregion
-
-
             #region guardarDados
-
             /*
-            RegrasNegocio.GuardarCategorias();
-            RegrasNegocio.GuardarClientes();
-            RegrasNegocio.GuardarCompras();
-            RegrasNegocio.GuardarFornecedores();
-            RegrasNegocio.GuardarMarcas();
-            RegrasNegocio.GuardarStock();
-            RegrasNegocio.GuardarVendas();
+            try
+            {
+                RegrasNegocio.GuardarCategorias("Categorias");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.GuardarClientes("Clientes");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.GuardarCompras("Compras");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.GuardarFornecedores("Fornecedores");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.GuardarMarcas("Marcas");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.GuardarStock("Stock");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
+
+            try
+            {
+                RegrasNegocio.GuardarVendas("Vendas");
+            }
+            catch (Exception e)
+            {
+                IO.EscreverMensagem(e.Message);
+            }
             */
 
             #endregion

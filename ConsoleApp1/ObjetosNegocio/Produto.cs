@@ -64,7 +64,7 @@ namespace ObjetosNegocio
         }
 
         /// <summary>
-        /// Construtor com dados public Produto(string nome, float valor, Categoria catg, float garantia)
+        /// Construtor com dados
         /// </summary>
         /// <param name="nome"></param>
         /// <param name="valor"></param>
@@ -151,7 +151,7 @@ namespace ObjetosNegocio
         }
 
         /// <summary>
-        /// Propriedade para aceder a variavel de classe TotProd
+        /// Propriedade para aceder a variavel estatica totProd
         /// </summary>
         public static int TotProd
         {
@@ -171,7 +171,6 @@ namespace ObjetosNegocio
         public static bool operator ==(Produto p1, Produto p2)
         {
 
-            // Se apenas um dos objetos é nulo, são diferentes
             if (ReferenceEquals(p1, null) || ReferenceEquals(p2, null))
                 return false;
 
@@ -213,7 +212,6 @@ namespace ObjetosNegocio
             {
                 Produto a = obj as Produto;
 
-                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
                 if ((a.Id == this.Id))
                 {
                     return true;

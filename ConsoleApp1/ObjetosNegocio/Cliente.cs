@@ -39,7 +39,7 @@ namespace ObjetosNegocio
         #region Constructors
 
         /// <summary>
-        /// Construtor default.
+        /// Construtor default
         /// </summary>
         public Cliente()
         {
@@ -52,7 +52,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Constutor com dados.
+        /// Constutor com dados
         /// </summary>
         /// <param name="nome"></param>
         /// <param name="morada"></param>
@@ -133,7 +133,6 @@ namespace ObjetosNegocio
         public static bool operator ==(Cliente c1, Cliente c2)
         {
 
-            // Se apenas um dos objetos é nulo, são diferentes
             if (ReferenceEquals(c1, null) || ReferenceEquals(c2, null))
                 return false;
 
@@ -173,7 +172,6 @@ namespace ObjetosNegocio
             {
                 Cliente a = obj as Cliente;
 
-                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
                 if ((a.Id == this.Id))
                 {
                     return true;

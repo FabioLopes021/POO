@@ -68,7 +68,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para adicionar uma marca a lista de marcas
+        /// Metodo para adicionar uma Categoria a lista de categorias
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
@@ -87,7 +87,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que retorma a Categoria relativa ao ID recebido 
+        /// Metodo que retorma a Categoria relativa ao ID recebido 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -111,6 +111,11 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Metodo que verifica se existe uma categoria com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool VerificaCategoriaPorId(int id)
         {
             if (id <= 0)
@@ -127,10 +132,22 @@ namespace Dados
         }
 
 
-
-        public static bool GuardarCategorias()
+        /// <summary>
+        /// Metodo para guardar os dados da lista categorias num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
+        public static bool GuardarCategorias(string file)
         {
-            Stream s = File.Open("Categorias", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (GuardarCategorias) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -140,10 +157,22 @@ namespace Dados
         }
 
 
-        public static bool CarregaCategorias()
+        /// <summary>
+        /// Metodo para carregar dados de um ficheiro binario para a lista de categorias
+        /// </summary>
+        /// <returns></returns>
+        public static bool CarregaCategorias(string file)
         {
-            Stream s = File.Open("Categorias", FileMode.Open);
+            Stream s;
 
+            try
+            {
+                s = File.Open(file, FileMode.Open);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaCategorias) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 

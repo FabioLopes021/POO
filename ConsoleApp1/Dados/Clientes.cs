@@ -132,12 +132,21 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para guardar os dados da lista Clientes num ficheiro binario
+        /// Metodo para guardar os dados da lista Clientes num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool GuardarClientes()
+        public static bool GuardarClientes(string file)
         {
-            Stream s = File.Open("Clientes", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (GuardarClientes) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -148,13 +157,21 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para carregar dados de um ficheiro binario para a lista de Clientes
+        /// Metodo para carregar dados de um ficheiro binario para a lista de Clientes
         /// </summary>
         /// <returns></returns>
-        public static bool CarregaClientes()
+        public static bool CarregaClientes(string file)
         {
-            Stream s = File.Open("Clientes", FileMode.Open);
+            Stream s;
 
+            try
+            {
+                s = File.Open(file, FileMode.Open);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaClientes) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 

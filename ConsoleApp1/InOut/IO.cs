@@ -7,8 +7,8 @@
 *	<description></description>
 */
 
-using Dados;
 using ObjetosNegocio;
+using RN;
 using System;
 using System.Collections.Generic;
 
@@ -23,29 +23,13 @@ namespace InOut
     /// <example></example>
     public class IO
     {
-        #region Attributes
-        #endregion
 
-        #region Methods
-
-        #region Constructors
-        #endregion
-
-        #region Properties
-        #endregion
-
-        #region Operators
-        #endregion
-
-        #region Overrides
-        #endregion
-
-        #region Other_Methods
+        #region MetodosListar
 
 
         public static void ListaCategorias()
         {
-            List<Categoria> categorias = Categorias.ListaCategorias;
+            List<Categoria> categorias = RegrasNegocio.ListaCategorias();
 
             Console.WriteLine("--------Lista categorias----------");
             foreach (Categoria c in categorias)
@@ -59,7 +43,7 @@ namespace InOut
 
         public static void ListaMarcas()
         {
-            List<Marca> marcas = Marcas.ListaMarcas;
+            List<Marca> marcas = RegrasNegocio.ListaMarcas();
 
             Console.WriteLine("--------Lista Marcas----------");
             foreach (Marca m in marcas)
@@ -73,7 +57,7 @@ namespace InOut
 
         public static void ListaFornecedores()
         {
-            List<Fornecedor> fornecedores = Fornecedores.ListaFornecedores;
+            List<Fornecedor> fornecedores = RegrasNegocio.ListaFornecedores();
 
             Console.WriteLine("--------Lista Fornecedores----------");
             foreach (Fornecedor f in fornecedores)
@@ -89,7 +73,7 @@ namespace InOut
 
         public static void ListaClientes()
         {
-            List<Cliente> clientes = Clientes.ListaClientes;
+            List<Cliente> clientes = RegrasNegocio.ListaClientes();
 
             Console.WriteLine("--------Lista Clientes----------");
             foreach (Cliente c in clientes)
@@ -105,7 +89,7 @@ namespace InOut
 
         public static void ListaProdutos()
         {
-            List<Produto> stock = Stock.ListaProdutos;
+            List<Produto> stock = RegrasNegocio.ListaProdutos();
 
             Console.WriteLine("--------Lista Produtos----------");
             foreach (Produto p in stock)
@@ -116,13 +100,9 @@ namespace InOut
             Console.ReadKey();
         }
 
+        #endregion
 
-        public static void ClearConsole()
-        {
-            Console.Clear();
-        }
-
-
+        #region MetodosMostrarMenus
 
         public static void MenuShow()
         {
@@ -138,9 +118,9 @@ namespace InOut
             Console.WriteLine("- 7 - Listar Marcas                         -");
             Console.WriteLine("- 8 - Listar Fornecedores                   -");
             Console.WriteLine("- 9 - Listar Clientes                       -");
-            Console.WriteLine("- 10 - Listar Produtos                       -");
-            Console.WriteLine("- 11 - Menu compras                          -");
-            Console.WriteLine("- 12 - Menu Vendas                           -");
+            Console.WriteLine("- 10 - Listar Produtos                      -");
+            Console.WriteLine("- 11 - Criar compra                         -");
+            Console.WriteLine("- 12 - Criar Venda                          -");
             Console.WriteLine("------------------Menu Testes----------------");
 
         }
@@ -150,10 +130,9 @@ namespace InOut
         {
             Console.WriteLine("------------------Menu Compras----------------");
             Console.WriteLine("- 0 - Sair                                  -");
-            Console.WriteLine("- 1 - Criar Compra                          -");
-            Console.WriteLine("- 2 - Adicionar Produto a compra            -");
-            Console.WriteLine("- 3 - Remover Produto da compra             -");
-            Console.WriteLine("- 4 - Registar Compra                       -");
+            Console.WriteLine("- 1 - Adicionar Produto a compra            -");
+            Console.WriteLine("- 2 - Remover Produto da compra             -");
+            Console.WriteLine("- 3 - Registar Compra                       -");
             Console.WriteLine("------------------Menu Compras----------------");
         }
 
@@ -162,29 +141,25 @@ namespace InOut
         {
             Console.WriteLine("------------------Menu Vendas----------------");
             Console.WriteLine("- 0 - Sair                                  -");
-            Console.WriteLine("- 1 - Criar Venda                           -");
-            Console.WriteLine("- 2 - Adicionar Produto a Venda             -");
-            Console.WriteLine("- 3 - Remover Produto da venda              -");
-            Console.WriteLine("- 4 - Registar Venda                        -");
+            Console.WriteLine("- 1 - Adicionar Produto a Venda             -");
+            Console.WriteLine("- 2 - Remover Produto da venda              -");
+            Console.WriteLine("- 2 - Registar Venda                        -");
             Console.WriteLine("------------------Menu Vendas----------------");
         }
+        #endregion
 
+        #region LerOpçoesMenus
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public static int LernumeroMenuPrincipal()
         {
             int num = -1;
             do
             {
                 Console.WriteLine("Digite um número: ");
-                // Lê a entrada do usuário como uma string
+
                 string input = Console.ReadLine();
 
-                // Tenta converter a string para um número
+
                 if (int.TryParse(input, out int numero))
                 {
                     num = numero;
@@ -204,10 +179,10 @@ namespace InOut
             do
             {
                 Console.WriteLine("Digite um número: ");
-                // Lê a entrada do usuário como uma string
+
                 string input = Console.ReadLine();
 
-                // Tenta converter a string para um número
+
                 if (int.TryParse(input, out int numero))
                 {
                     num = numero;
@@ -216,9 +191,27 @@ namespace InOut
                 {
                     Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
                 }
-            } while (num < 0 || num > 4);
+            } while (num < 0 || num > 3);
             return num;
         }
+
+        #endregion
+
+        #region MetodosConsola
+
+        public static void ClearConsole()
+        {
+            Console.Clear();
+        }
+
+        public static void EscreverMensagem(string mensagem)
+        {
+            Console.WriteLine(mensagem);
+        }
+
+        #endregion
+
+        #region MetodosAuxliaresLeitura
 
 
 
@@ -230,16 +223,16 @@ namespace InOut
 
 
 
-        // Método para ler e retornar um número inteiro
+        
         static int LerInt()
         {
-            // Loop até que o utilizador insira um número válido
+            
             while (true)
             {
-                // Tenta converter a entrada para um número inteiro
+                
                 if (int.TryParse(Console.ReadLine(), out int resultado))
                 {
-                    return resultado; // Retorna o número inteiro se a conversão for bem-sucedida
+                    return resultado; 
                 }
                 else
                 {
@@ -250,16 +243,16 @@ namespace InOut
 
 
 
-        // Método para ler e retornar um número de ponto flutuante
+        
         static float LerFloat()
         {
-            // Loop até que o utilizador insira um número válido
+            
             while (true)
             {
-                // Tenta converter a entrada para um número de ponto flutuante
+                
                 if (float.TryParse(Console.ReadLine(), out float resultado))
                 {
-                    return resultado; // Retorna o número de ponto flutuante se a conversão for bem-sucedida
+                    return resultado; 
                 }
                 else
                 {
@@ -268,11 +261,9 @@ namespace InOut
             }
         }
 
+        #endregion
 
-        public static void EscreverMensagem(string mensagem)
-        {
-            Console.WriteLine(mensagem);
-        }
+        #region MetodosLerDadosClasses
 
 
         public static Categoria DadosCategoria()
@@ -362,12 +353,10 @@ namespace InOut
         public static Compra DadosCriarCompra()
         {
             Console.WriteLine("Criar compra nova");
-            Console.WriteLine("Indique o nome da loja");
-            string nomeL = LerString();
             Console.WriteLine("Indique o ID do fornecedor");
             int IDF = LerInt();
 
-            Compra comp = new Compra(nomeL, DateTime.Now, IDF);
+            Compra comp = new Compra(DateTime.Now, IDF);
 
             return comp;
         }
@@ -422,12 +411,10 @@ namespace InOut
         {
 
             Console.WriteLine("Criar venda nova");
-            Console.WriteLine("Indique o nome da loja");
-            string nomeL = LerString();
             Console.WriteLine("Indique o ID do Cliente");
             int IDC = LerInt();
 
-            Venda vend = new Venda(nomeL, DateTime.Now, IDC);
+            Venda vend = new Venda(DateTime.Now, IDC);
 
             return vend;
         }
@@ -476,10 +463,6 @@ namespace InOut
 
             return idProd;
         }
-
-
-
-        #endregion
 
         #endregion
 

@@ -31,7 +31,6 @@ namespace Dados
 
         static List<Produto> listaProdutos;
         const int CAPACIDADEMAX = 100;
-        static string nomeArmazem;
 
         #endregion
 
@@ -52,17 +51,7 @@ namespace Dados
         #region Properties
 
         /// <summary>
-        /// Propriedade para aceder a variavel nomeArmazem
-        /// </summary>
-        public static string NomeArmazem
-        {
-            get { return nomeArmazem; }
-            set { nomeArmazem = value; }
-        }
-
-
-        /// <summary>
-        /// Propriedade para Criar um clone da lista de vendas.
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de Produtos
         /// </summary>
         public static List<Produto> ListaProdutos
         {
@@ -82,7 +71,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para adicionar produto a um determinado armazem 
+        /// Metodo para adicionar produto ao Stock
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
@@ -133,7 +122,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para dar saida de uma determinada quantidade de um produto do armazem
+        /// Metodo para dar saida de uma determinada quantidade de um produto do Stock
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -166,7 +155,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para dar entrada de uma determinada quantidade de um produto no Armazem
+        /// Metodo para dar entrada de uma determinada quantidade de um produto no Stock
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -198,7 +187,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que verifica a disponivilidade dos produtos de uma venda no stock
+        /// Metodo que verifica a disponibilidade dos produtos de uma venda no stock
         /// </summary>
         /// <param name="listaVendas"></param>
         /// <returns></returns>
@@ -235,7 +224,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que verifica a disponivilidade de um produto no stock
+        /// Metodo que verifica a disponibilidade de um produto no stock
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -260,7 +249,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para Atualizar as quantidades do stock ao registar uma venda
+        /// Metodo para Atualizar as quantidades do stock ao registar uma venda
         /// </summary>
         /// <param name="listaVendas"></param>
         /// <returns></returns>
@@ -286,10 +275,9 @@ namespace Dados
         }
 
 
-        // Ver com o professor, adicionar try catch ???
 
         /// <summary>
-        /// Funçao para Atualizar as quantidades do stock ao registar uma compra
+        /// Metodo para Atualizar as quantidades do stock ao registar uma compra
         /// </summary>
         /// <param name="listaVendas"></param>
         /// <returns></returns>
@@ -343,9 +331,18 @@ namespace Dados
         /// Funçao para guardar os dados da listaProdutos num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool GuardarStock()
+        public static bool GuardarStock(string file)
         {
-            Stream s = File.Open("Stock", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (GuardaStock) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -360,11 +357,20 @@ namespace Dados
         /// Funçao para carregar dados de um ficheiro binario para a lista de Produtos
         /// </summary>
         /// <returns></returns>
-        public static bool CarregaStock()
+        public static bool CarregaStock(string file)
         {
-            Stream s = File.Open("Stock", FileMode.Open);
+            Stream s;
 
-            
+            try
+            {
+                s = File.Open(file, FileMode.Open);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaStock) " + "-" + e.Message);
+            }
+
+
             BinaryFormatter b = new BinaryFormatter();
 
             listaProdutos = (List<Produto>)b.Deserialize(s);

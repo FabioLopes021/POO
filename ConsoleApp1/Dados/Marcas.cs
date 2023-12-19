@@ -49,7 +49,7 @@ namespace Dados
         #region Properties
 
         /// <summary>
-        /// Propriedade para Criar um clone da lista de Marcas.
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de marcas
         /// </summary>
         public static List<Marca> ListaMarcas
         {
@@ -68,7 +68,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para adicionar uma marca a lista de marcas
+        /// Metodo para adicionar uma marca a lista de marcas
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
@@ -85,11 +85,11 @@ namespace Dados
             listaMarcas.Add(m);
             return true;
         }
-            
+
 
 
         /// <summary>
-        /// Funçao que retorma a marca relativa ao ID recebido
+        /// Metodo que retorma a marca relativa ao ID recebido
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -115,7 +115,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que verifica se existe uma marca com o id indicado
+        /// Metodo que verifica se existe uma marca com o id indicado
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -137,12 +137,21 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para guardar os dados da lista marcas num ficheiro binario
+        /// Metodo para guardar os dados da lista marcas num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool GuardarMarcas()
+        public static bool GuardarMarcas(string file)
         {
-            Stream s = File.Open("Marcas", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (GuardaMarcas) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -152,12 +161,21 @@ namespace Dados
         }
 
         /// <summary>
-        /// Funçao para carregar dados de um ficheiro binario para a lista de marcas
+        /// Metodo para carregar dados de um ficheiro binario para a lista de marcas
         /// </summary>
         /// <returns></returns>
-        public static bool CarregaMarcas()
+        public static bool CarregaMarcas(string file)
         {
-            Stream s = File.Open("Marcas", FileMode.Open);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Open);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaMarcas) " + "-" + e.Message);
+            }
 
 
             BinaryFormatter b = new BinaryFormatter();

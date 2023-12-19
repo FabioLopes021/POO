@@ -89,7 +89,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que retorma a marca relativa ao ID recebido
+        /// Metodo que retorma a Compra relativa ao ID recebido
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -114,7 +114,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que regista uma Compras e a adiciona a lista Compras
+        /// Metodo que regista uma Compras e a adiciona a lista Compras
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
@@ -138,12 +138,21 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para guardar os dados da lista compras num ficheiro binario
+        /// Metodo para guardar os dados da lista compras num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool GuardarCompras()
+        public static bool GuardarCompras(string file)
         {
-            Stream s = File.Open("Compras", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (GuardarCompras) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -153,13 +162,21 @@ namespace Dados
         }
 
         /// <summary>
-        /// Funçao para guardar os dados da lista compras num ficheiro binario
+        /// Metodo para guardar os dados da lista compras num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool CarregaCompras()
+        public static bool CarregaCompras(string file)
         {
-            Stream s = File.Open("Compras", FileMode.Open);
+            Stream s;
 
+            try
+            {
+               s = File.Open(file, FileMode.Open);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaCompras) " + "-" + e.Message);
+            }
 
             BinaryFormatter b = new BinaryFormatter();
 

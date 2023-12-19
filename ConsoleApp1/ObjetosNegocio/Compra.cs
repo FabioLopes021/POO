@@ -37,6 +37,10 @@ namespace ObjetosNegocio
 
         #region Constructors
 
+
+        /// <summary>
+        /// Constutor default
+        /// </summary>
         public Compra()
         {
             artigosComprados = new Dictionary<int, int>();
@@ -45,7 +49,13 @@ namespace ObjetosNegocio
             id = AtribuirId();
         }
 
-        public Compra(string nomeLoja, DateTime data, int idFornecedor)
+        /// <summary>
+        /// Constutor com dados
+        /// </summary>
+        /// <param name="nomeLoja"></param>
+        /// <param name="data"></param>
+        /// <param name="idFornecedor"></param>
+        public Compra(DateTime data, int idFornecedor)
         {
             artigosComprados = new Dictionary<int, int>();
             this.data = data;
@@ -107,7 +117,6 @@ namespace ObjetosNegocio
         public static bool operator ==(Compra c1, Compra c2)
         {
 
-            // Se apenas um dos objetos é nulo, são diferentes
             if (ReferenceEquals(c1, null) || ReferenceEquals(c2, null))
                 return false;
 
@@ -148,7 +157,6 @@ namespace ObjetosNegocio
             {
                 Compra a = obj as Compra;
 
-                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
                 if ((a.Id == this.Id))
                 {
                     return true;
@@ -292,6 +300,7 @@ namespace ObjetosNegocio
 
             return false;
         }
+
 
         /// <summary>
         /// Funçao Para mostrar Lista de Compras

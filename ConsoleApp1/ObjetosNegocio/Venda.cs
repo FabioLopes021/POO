@@ -24,7 +24,7 @@ namespace ObjetosNegocio
     public class Venda
     {
         #region Attributes
-
+        
         Dictionary<int, int> artigosVendidos;
         DateTime data;
         int idCliente;
@@ -54,7 +54,7 @@ namespace ObjetosNegocio
         /// <param name="nomeLoja"></param>
         /// <param name="data"></param>
         /// <param name="idCliente"></param>
-        public Venda(string nomeLoja, DateTime data, int idCliente)
+        public Venda(DateTime data, int idCliente)
         {
             artigosVendidos = new Dictionary<int, int>();
             this.data = data;
@@ -159,7 +159,6 @@ namespace ObjetosNegocio
             {
                 Venda a = obj as Venda;
 
-                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
                 if ((a.Id == this.Id))
                 {
                     return true;

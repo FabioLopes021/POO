@@ -11,6 +11,7 @@ using System;
 using Dados;
 using ObjetosNegocio;
 using Excecoes;
+using System.Collections.Generic;
 
 namespace RN
 {
@@ -280,140 +281,289 @@ namespace RN
         }
 
 
-        public static bool GuardarStock()
+        public static bool GuardarStock(string file)
         {
             bool aux = false;
 
-            aux = Stock.GuardarStock();
+            try
+            {
+                aux = Stock.GuardarStock(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
 
             return aux;
         }
 
-        public static bool CarregarStock()
+        public static bool CarregarStock(string file)
         {
             bool aux = false;
 
-            aux = Stock.CarregaStock();
+            try
+            {
+                aux = Stock.CarregaStock(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
 
-            return aux;
-        }
-
-
-
-        public static bool GuardarVendas()
-        {
-            bool aux = false;
-
-            aux = Vendas.GuardarVendas();
-
-            return aux;
-        }
-
-        public static bool CarregarVendas()
-        {
-            bool aux = false;
-
-            aux = Vendas.CarregaVendas();
+            
 
             return aux;
         }
 
 
 
-        public static bool GuardarMarcas()
+        public static bool GuardarVendas(string file)
         {
             bool aux = false;
 
-            aux = Marcas.GuardarMarcas();
+            try
+            {
+                aux = Vendas.GuardarVendas(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
 
             return aux;
         }
 
-        public static bool CarregarMarcas()
+        public static bool CarregarVendas(string file)
         {
             bool aux = false;
 
-            aux = Marcas.CarregaMarcas();
+            try
+            {
+                aux = Vendas.CarregaVendas(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
 
-            return aux;
-        }
-
-
-
-        public static bool GuardarFornecedores()
-        {
-            bool aux = false;
-
-            aux = Fornecedores.GuardarFornecedores();
-
-            return aux;
-        }
-
-        public static bool CarregarFornecedores()
-        {
-            bool aux = false;
-
-            aux = Fornecedores.CarregaFornecedores();
-
-            return aux;
-        }
-
-
-        public static bool GuardarCompras()
-        {
-            bool aux = false;
-
-            aux = Compras.GuardarCompras();
-
-            return aux;
-        }
-
-        public static bool CarregarCompras()
-        {
-            bool aux = false;
-
-            aux = Compras.CarregaCompras();
+            
 
             return aux;
         }
 
 
-        public static bool GuardarClientes()
+
+        public static bool GuardarMarcas(string file)
         {
             bool aux = false;
 
-            aux = Clientes.GuardarClientes();
+            try
+            {
+                aux = Marcas.GuardarMarcas(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
 
             return aux;
         }
 
-        public static bool CarregarClientes()
+        public static bool CarregarMarcas(string file)
         {
             bool aux = false;
 
-            aux = Clientes.CarregaClientes();
+            try
+            {
+                aux = Marcas.CarregaMarcas(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
 
             return aux;
         }
 
 
-        public static bool GuardarCategorias()
+
+        public static bool GuardarFornecedores(string file)
         {
             bool aux = false;
 
-            aux = Categorias.GuardarCategorias();
+            try
+            {
+                aux = Fornecedores.GuardarFornecedores(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
+
+            return aux;
+        }
+
+        public static bool CarregarFornecedores(string file)
+        {
+            bool aux = false;
+
+            try
+            {
+                aux = Fornecedores.CarregaFornecedores(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
 
             return aux;
         }
 
 
-        public static bool CarregarCategorias()
+        public static bool GuardarCompras(string file)
         {
             bool aux = false;
 
-            aux = Categorias.CarregaCategorias();
+            try
+            {
+                aux = Compras.GuardarCompras(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
 
             return aux;
+        }
+
+        public static bool CarregarCompras(string file)
+        {
+            bool aux = false;
+
+            try
+            {
+                aux = Compras.CarregaCompras(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
+
+            return aux;
+        }
+
+
+        public static bool GuardarClientes(string file)
+        {
+            bool aux = false;
+
+            try
+            {
+                aux = Clientes.GuardarClientes(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
+
+            return aux;
+        }
+
+        public static bool CarregarClientes(string file)
+        {
+            bool aux = false;
+
+            try
+            {
+                aux = Clientes.CarregaClientes(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
+
+            return aux;
+        }
+
+
+        public static bool GuardarCategorias(string file)
+        {
+            bool aux = false;
+
+            try
+            {
+                aux = Categorias.GuardarCategorias(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
+
+            return aux;
+        }
+
+
+        public static bool CarregarCategorias(string file)
+        {
+            bool aux = false;
+
+            try
+            {
+                aux = Categorias.CarregaCategorias(file);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Passou nas Regras de Negocio " + "-" + e.Message);
+            }
+
+            
+
+            return aux;
+        }
+
+        public static List<Categoria> ListaCategorias()
+        {
+            return Categorias.ListaCategorias;
+        }
+
+        public static List<Marca> ListaMarcas()
+        {
+            return Marcas.ListaMarcas;
+        }
+
+        public static List<Fornecedor> ListaFornecedores()
+        {
+            return Fornecedores.ListaFornecedores;
+        }
+
+        public static List<Cliente> ListaClientes()
+        {
+            return Clientes.ListaClientes;
+        }
+
+        public static List<Produto> ListaProdutos()
+        {
+            return Stock.ListaProdutos;
         }
 
         #endregion

@@ -65,7 +65,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Propriedade para aceder a variavel Morada
+        /// Propriedade para aceder a variavel morada
         /// </summary>
         public string Morada
         {
@@ -106,7 +106,6 @@ namespace ObjetosNegocio
         public static bool operator ==(Marca m1, Marca m2)
         {
 
-            // Se apenas um dos objetos é nulo, são diferentes
             if (ReferenceEquals(m1, null) || ReferenceEquals(m2, null))
                 return false;
 
@@ -149,7 +148,6 @@ namespace ObjetosNegocio
             {
                 Marca a = obj as Marca;
 
-                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
                 if ((a.Id == this.Id))
                 {
                     return true;

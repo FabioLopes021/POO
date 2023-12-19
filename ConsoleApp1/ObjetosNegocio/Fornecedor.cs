@@ -37,7 +37,7 @@ namespace ObjetosNegocio
         #region Constructors
 
         /// <summary>
-        /// Constutor default.
+        /// Constutor default
         /// </summary>
         public Fornecedor()
         {
@@ -172,7 +172,6 @@ namespace ObjetosNegocio
             {
                 Fornecedor a = obj as Fornecedor;
 
-                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
                 if ((a.Id == this.Id))
                 {
                     return true;

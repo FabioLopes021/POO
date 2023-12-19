@@ -49,7 +49,7 @@ namespace Dados
         #region Properties
 
         /// <summary>
-        /// Propriedade para Criar um clone da lista de vendas.
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de vendas
         /// </summary>
         public static List<Venda> ListaVendas
         {
@@ -88,7 +88,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que retorma a marca relativa ao ID recebido
+        /// Metodo que retorma a marca relativa ao ID recebido
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
@@ -113,7 +113,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao que regista uma venda e a adiciona a listaVendas
+        /// Metodo que regista uma venda e a adiciona a listaVendas
         /// </summary>
         /// <param name="v"></param>
         /// <returns></returns>
@@ -138,12 +138,21 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para guardar os dados da lista vendas num ficheiro binario
+        /// Metodo para guardar os dados da lista vendas num ficheiro binario
         /// </summary>
         /// <returns></returns>
-        public static bool GuardarVendas()
+        public static bool GuardarVendas(string file)
         {
-            Stream s = File.Open("Vendas", FileMode.Create);
+            Stream s;
+
+            try
+            {
+                s = File.Open(file, FileMode.Create);
+            }
+            catch (Exception e) {
+                throw new Exception("Passou na funcao (GuardaVendas) " + "-" + e.Message);
+            }
+
 
             BinaryFormatter b = new BinaryFormatter();
 
@@ -154,12 +163,20 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para carregar dados de um ficheiro binario para a lista de vendas
+        /// Metodo para carregar dados de um ficheiro binario para a lista de vendas
         /// </summary>
         /// <returns></returns>
-        public static bool CarregaVendas()
+        public static bool CarregaVendas(string file)
         {
-            Stream s = File.Open("Vendas", FileMode.Open);
+            Stream s;
+            try
+            {
+                s = File.Open(file, FileMode.Open);
+            }catch (Exception e)
+            {
+                throw new Exception("Passou na funcao (CarregaVendas) " + "-" + e.Message);
+            }
+            
 
 
             BinaryFormatter b = new BinaryFormatter();

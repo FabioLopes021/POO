@@ -24,3 +24,5 @@ E:\Repositorios\POO\ConsoleApp1\InOut\obj\Debug\InOut.csproj.CoreCompileInputs.c
 E:\Repositorios\POO\ConsoleApp1\InOut\obj\Debug\InOut.csproj.CopyComplete
 E:\Repositorios\POO\ConsoleApp1\InOut\obj\Debug\InOut.dll
 E:\Repositorios\POO\ConsoleApp1\InOut\obj\Debug\InOut.pdb
+E:\Repositorios\POO\ConsoleApp1\InOut\bin\Debug\RegrasNegocio.dll
+E:\Repositorios\POO\ConsoleApp1\InOut\bin\Debug\RegrasNegocio.pdb
