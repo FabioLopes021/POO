@@ -10,6 +10,8 @@
 using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Dados
 {
@@ -117,6 +119,31 @@ namespace Dados
 
         }
 
+
+
+        public static bool GuardarCategorias()
+        {
+            Stream s = File.Open("Categorias", FileMode.Create);
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            b.Serialize(s, listaCategorias);
+            s.Close();
+            return true;
+        }
+
+
+        public static bool CarregaCategorias()
+        {
+            Stream s = File.Open("Categorias", FileMode.Open);
+
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            listaCategorias = (List<Categoria>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
 
         #endregion
 

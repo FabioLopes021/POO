@@ -11,6 +11,7 @@ using System;
 
 namespace ObjetosNegocio
 {
+    [Serializable]
     /// <summary>
     /// Purpose: Garantia de classe 
     /// Created by: Fábio Lopes
@@ -21,9 +22,11 @@ namespace ObjetosNegocio
     public class Garantia
     {
         #region Attributes
+
         private float garantiaAnos;
         private DateTime inicio;
         private Produto produto;
+
         #endregion
 
         #region Methods

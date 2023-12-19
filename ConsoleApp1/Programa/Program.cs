@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using RN;
 using Dados;
 using System.ComponentModel;
+using System.Collections;
 
 namespace Programa
 {
@@ -15,8 +16,23 @@ namespace Programa
         static void Main(string[] args)
         {
 
+            #region Carregadados
+
+
+            RegrasNegocio.CarregarCategorias();
+            RegrasNegocio.CarregarClientes();
+            RegrasNegocio.CarregarCompras();
+            RegrasNegocio.CarregarFornecedores();
+            RegrasNegocio.CarregarMarcas();
+            RegrasNegocio.CarregarStock();
+            RegrasNegocio.CarregarVendas();
+
+
+            #endregion
+
+
             #region Criar dados Teste Iniciais
-            
+            /*
             // Adicionar Categoria
             Categoria categoria = new Categoria("Geral");
             RegrasNegocio.AdicionarCategoria(categoria);
@@ -57,16 +73,16 @@ namespace Programa
             comp.AdicionarProdutoCompra(1, 4);
             comp.AdicionarProdutoCompra(2, 4);
             RegrasNegocio.AdicionarCompra(comp);
-
-            /*
+            
+            
             //teste de venda
             Venda vend = new Venda("Teste", DateTime.Now, 1);
-            vend.AdicionarProdutoVenda(pr, 2);
-            vend.AdicionarProdutoVenda(pr1, 1);
+            vend.AdicionarProdutoVenda(1, 2);
+            vend.AdicionarProdutoVenda(2, 1);
             RegrasNegocio.AdicionarVenda(vend);
             */
 
-            
+
             #endregion
 
 
@@ -77,26 +93,46 @@ namespace Programa
 
 
             #region Verificar valores 
+            
             /*
-
             List<Marca> marcas = new List<Marca>();
             List<Categoria> categorias = new List<Categoria>();
             List<Fornecedor> fornecedores = new List<Fornecedor>();
             List<Cliente> clientes = new List<Cliente>();
-            List<Compra> compras = new List<Compra>();
             List<Produto> stock = new List<Produto>();
+            
+
+
+            List<Compra> compras = new List<Compra>();
             List<Venda> vendas = new List<Venda>();
             
+            /*
             marcas = Marcas.ListaMarcas;
             categorias = Categorias.ListaCategorias;
             fornecedores = Fornecedores.ListaFornecedores;
             clientes = Clientes.ListaClientes;
-            compras = Compras.ListaCompras;
             stock = Stock.ListaProdutos;
+            
+
+            compras = Compras.ListaCompras;
             vendas = Vendas.ListaVendas;
             */
+
             #endregion
 
+
+            #region guardarDados
+            /*
+            RegrasNegocio.GuardarCategorias();
+            RegrasNegocio.GuardarClientes();
+            RegrasNegocio.GuardarCompras();
+            RegrasNegocio.GuardarFornecedores();
+            RegrasNegocio.GuardarMarcas();
+            RegrasNegocio.GuardarStock();
+            RegrasNegocio.GuardarVendas();
+            */
+
+            #endregion
 
 
         }

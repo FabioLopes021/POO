@@ -9,6 +9,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using ObjetosNegocio;
 
 namespace Dados
@@ -114,6 +116,31 @@ namespace Dados
             return true;
         }
 
+
+
+        public static bool GuardarClientes()
+        {
+            Stream s = File.Open("Clientes", FileMode.Create);
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            b.Serialize(s, listaClientes);
+            s.Close();
+            return true;
+        }
+
+
+        public static bool CarregaClientes()
+        {
+            Stream s = File.Open("Clientes", FileMode.Open);
+
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            listaClientes = (List<Cliente>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
 
 
 

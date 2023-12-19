@@ -12,9 +12,12 @@ using System.Collections.Generic;
 using ObjetosNegocio;
 using Excecoes;
 using System.Runtime.Remoting.Channels;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Dados
 {
+    [Serializable]
     /// <summary>
     /// Purpose: 
     /// Created by: Fábio Lopes & Ruben Costa
@@ -303,6 +306,34 @@ namespace Dados
 
             return true;
 
+        }
+
+
+        public static bool GuardarStock()
+        {
+            Stream s = File.Open("Stock", FileMode.Create);
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            b.Serialize(s, listaProdutos);
+            s.Close();
+            return true;
+        }
+
+
+        public static bool CarregaStock()
+        {
+            Stream s = File.Open("Stock", FileMode.Open);
+
+            
+            BinaryFormatter b = new BinaryFormatter();
+
+            listaProdutos = (List<Produto>)b.Deserialize(s);
+
+            Produto.TotProd = Produto.AtribuirId();
+
+            s.Close();
+            return true;
         }
 
 

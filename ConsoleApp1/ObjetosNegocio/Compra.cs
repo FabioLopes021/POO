@@ -14,6 +14,7 @@ using System.ComponentModel;
 
 namespace ObjetosNegocio
 {
+    [Serializable]
     /// <summary>
     /// Purpose: 
     /// Created by: Fábio Lopes & Ruben Costa
@@ -81,14 +82,62 @@ namespace ObjetosNegocio
         #endregion
 
         #region Operators
+        public static bool operator ==(Compra c1, Compra c2)
+        {
+
+            // Se apenas um dos objetos é nulo, são diferentes
+            if (ReferenceEquals(c1, null) || ReferenceEquals(c2, null))
+                return false;
+
+            if (c1.Id == c2.Id)
+                return true;
+
+            return false;
+        }
+
+
+
+        public static bool operator !=(Compra c1, Compra c2)
+        {
+            if (c1 == c2)
+                return false;
+
+            return true;
+        }
+
+
         #endregion
 
         #region Overrides
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Compra)
+            {
+                Compra a = obj as Compra;
+
+                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
+                if ((a.Id == this.Id))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public override string ToString()
+        {
+            return String.Format("ID: {0} - ID Fornecedor: {1} - Data: {2} - Artigos: {2}", this.id, this.IdFornecedor, this.Data, this.ArtigosComprados.ToString());
+        }
+
+
         #endregion
 
         #region Other_Methods
 
-        
+
         /// <summary>
         /// Funçao para calcular id a ser atribuido a cada marca a ser criada
         /// </summary>

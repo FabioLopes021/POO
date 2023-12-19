@@ -238,14 +238,141 @@ namespace RN
         }
 
 
+        public static bool GuardarStock()
+        {
+            bool aux = false;
+
+            aux = Stock.GuardarStock();
+
+            return aux;
+        }
+
+        public static bool CarregarStock()
+        {
+            bool aux = false;
+
+            aux = Stock.CarregaStock();
+
+            return aux;
+        }
 
 
 
+        public static bool GuardarVendas()
+        {
+            bool aux = false;
+
+            aux = Vendas.GuardarVendas();
+
+            return aux;
+        }
+
+        public static bool CarregarVendas()
+        {
+            bool aux = false;
+
+            aux = Vendas.CarregaVendas();
+
+            return aux;
+        }
 
 
 
+        public static bool GuardarMarcas()
+        {
+            bool aux = false;
+
+            aux = Marcas.GuardarMarcas();
+
+            return aux;
+        }
+
+        public static bool CarregarMarcas()
+        {
+            bool aux = false;
+
+            aux = Marcas.CarregaMarcas();
+
+            return aux;
+        }
 
 
+
+        public static bool GuardarFornecedores()
+        {
+            bool aux = false;
+
+            aux = Fornecedores.GuardarFornecedores();
+
+            return aux;
+        }
+
+        public static bool CarregarFornecedores()
+        {
+            bool aux = false;
+
+            aux = Fornecedores.CarregaFornecedores();
+
+            return aux;
+        }
+
+
+        public static bool GuardarCompras()
+        {
+            bool aux = false;
+
+            aux = Compras.GuardarCompras();
+
+            return aux;
+        }
+
+        public static bool CarregarCompras()
+        {
+            bool aux = false;
+
+            aux = Compras.CarregaCompras();
+
+            return aux;
+        }
+
+
+        public static bool GuardarClientes()
+        {
+            bool aux = false;
+
+            aux = Clientes.GuardarClientes();
+
+            return aux;
+        }
+
+        public static bool CarregarClientes()
+        {
+            bool aux = false;
+
+            aux = Clientes.CarregaClientes();
+
+            return aux;
+        }
+
+
+        public static bool GuardarCategorias()
+        {
+            bool aux = false;
+
+            aux = Categorias.GuardarCategorias();
+
+            return aux;
+        }
+
+
+        public static bool CarregarCategorias()
+        {
+            bool aux = false;
+
+            aux = Categorias.CarregaCategorias();
+
+            return aux;
+        }
 
         #endregion
 

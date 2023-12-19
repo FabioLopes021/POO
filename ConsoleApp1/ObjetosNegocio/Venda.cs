@@ -13,6 +13,7 @@ using System.Collections.Generic;
 
 namespace ObjetosNegocio
 {
+    [Serializable]
     /// <summary>
     /// Purpose: 
     /// Created by: Fábio Lopes & Ruben Costa
@@ -81,9 +82,59 @@ namespace ObjetosNegocio
         #endregion
 
         #region Operators
+
+
+
+        public static bool operator ==(Venda v1, Venda v2)
+        {
+
+            // Se apenas um dos objetos é nulo, são diferentes
+            if (ReferenceEquals(v1, null) || ReferenceEquals(v2, null))
+                return false;
+
+            if (v1.Id == v2.Id)
+                return true;
+
+            return false;
+        }
+
+        
+
+        public static bool operator !=(Venda v1, Venda v2)
+        {
+            if (v1 == v2)
+                return false;
+
+            return true;
+        }
+
         #endregion
 
         #region Overrides
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Venda)
+            {
+                Venda a = obj as Venda;
+
+                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
+                if ((a.Id == this.Id))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+        public override string ToString()
+        {
+            return String.Format("ID: {0} - ID Cliente: {1} - Data: {2} - Artigos vendidos: {3}", this.id, this.IdCliente, this.Data, this.ArtigosVendidos.ToString());
+        }
+
+
         #endregion
 
         #region Other_Methods
@@ -169,6 +220,8 @@ namespace ObjetosNegocio
             return false;
         } 
         */
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -215,7 +268,11 @@ namespace ObjetosNegocio
         }
 
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="idProduto"></param>
+        /// <returns></returns>
         public bool VerificaProdutoVenda(int idProduto)
         {
             if (!Produto.ExisteProdutoPorId(idProduto))

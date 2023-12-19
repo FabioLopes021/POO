@@ -7,12 +7,14 @@
 *	<description></description>
 */
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Dados;
 
 namespace ObjetosNegocio
 {
+    [Serializable]
     /// <summary>
     /// Purpose: Garantia de classe 
     /// Created by: Fábio Lopes
@@ -64,13 +66,54 @@ namespace ObjetosNegocio
         #endregion
 
         #region Operators
+
+        public static bool operator ==(Categoria c1, Categoria c2)
+        {
+
+            // Se apenas um dos objetos é nulo, são diferentes
+            if (ReferenceEquals(c1, null) || ReferenceEquals(c2, null))
+                return false;
+
+            if (c1.Id == c2.Id)
+                return true;
+
+            return false;
+        }
+
+
+
+        public static bool operator !=(Categoria c1, Categoria c2)
+        {
+            if (c1 == c2)
+                return false;
+
+            return true;
+        }
+
         #endregion
 
         #region Overrides
 
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Categoria)
+            {
+                Categoria a = obj as Categoria;
+
+                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
+                if ((a.Id == this.Id))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
         public override string ToString()
         {
-
             return string.Format("Id: {0}, Nome: {1}", this.Id, this.Nome);
         }
 

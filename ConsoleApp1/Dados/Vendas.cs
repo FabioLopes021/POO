@@ -9,6 +9,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using ObjetosNegocio;
 
 namespace Dados
@@ -119,7 +121,32 @@ namespace Dados
 
             return false;
         }
-        
+
+
+        public static bool GuardarVendas()
+        {
+            Stream s = File.Open("Vendas", FileMode.Create);
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            b.Serialize(s, listaVendas);
+            s.Close();
+            return true;
+        }
+
+
+        public static bool CarregaVendas()
+        {
+            Stream s = File.Open("Vendas", FileMode.Open);
+
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            listaVendas = (List<Venda>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
 
 
         #endregion

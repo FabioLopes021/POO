@@ -9,6 +9,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using ObjetosNegocio;
 
 namespace Dados
@@ -117,6 +119,32 @@ namespace Dados
             return true;
 
         }
+
+
+        public static bool GuardarMarcas()
+        {
+            Stream s = File.Open("Marcas", FileMode.Create);
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            b.Serialize(s, listaMarcas);
+            s.Close();
+            return true;
+        }
+
+
+        public static bool CarregaMarcas()
+        {
+            Stream s = File.Open("Marcas", FileMode.Open);
+
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            listaMarcas = (List<Marca>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
+
 
         #endregion
 

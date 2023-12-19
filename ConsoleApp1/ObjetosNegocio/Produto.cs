@@ -8,10 +8,12 @@
 */
 
 using Dados;
+using System;
 using System.Collections.Generic;
 
 namespace ObjetosNegocio
 {
+    [Serializable]
     /// <summary>
     /// Purpose: Garantia de classe 
     /// Created by: Fábio Lopes
@@ -128,12 +130,60 @@ namespace ObjetosNegocio
             get { return quantidade; }
         }
 
+        public static int TotProd
+        {
+            set { totProd = value; }
+        }
+
         #endregion
 
         #region Operators
+
+        public static bool operator ==(Produto p1, Produto p2)
+        {
+
+            // Se apenas um dos objetos é nulo, são diferentes
+            if (ReferenceEquals(p1, null) || ReferenceEquals(p2, null))
+                return false;
+
+            if (p1.Id == p2.Id)
+                return true;
+
+            return false;
+        }
+
+
+
+        public static bool operator !=(Produto p1, Produto p2)
+        {
+            if (p1 == p2)
+                return false;
+
+            return true;
+        }
+
+
         #endregion
 
         #region Overrides
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Produto)
+            {
+                Produto a = obj as Produto;
+
+                // Comparação dos atributos do objeto atual (this) com o objeto recebido (a)
+                if ((a.Id == this.Id))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
 
         /// <summary>
         /// 
@@ -141,8 +191,7 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public override string ToString()
         {
-
-            return string.Format("Id: {0}, Nome: {1},Valor: {2}, Garantia: {3}, CategoriaId: {4}, MarcaId: {5}",this.Id,this.Nome,this.Valor,this.GarantiaAnos,this.CatgId,this.MarcaId);
+            return string.Format("Id: {0}, Nome: {1},Valor: {2}, Garantia: {3}, CategoriaId: {4}, MarcaId: {5}, Quantidade: {6}",this.Id,this.Nome,this.Valor,this.GarantiaAnos,this.CatgId,this.MarcaId, this.Quantidade);
         }
 
         #endregion

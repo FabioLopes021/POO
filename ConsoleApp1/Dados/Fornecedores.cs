@@ -10,6 +10,8 @@
 using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Dados
 {
@@ -117,6 +119,30 @@ namespace Dados
             return true;
         }
 
+
+        public static bool GuardarFornecedores()
+        {
+            Stream s = File.Open("Fornecedores", FileMode.Create);
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            b.Serialize(s, listaFornecedores);
+            s.Close();
+            return true;
+        }
+
+
+        public static bool CarregaFornecedores()
+        {
+            Stream s = File.Open("Fornecedores", FileMode.Open);
+
+
+            BinaryFormatter b = new BinaryFormatter();
+
+            listaFornecedores = (List<Fornecedor>)b.Deserialize(s);
+            s.Close();
+            return true;
+        }
 
         #endregion
 
