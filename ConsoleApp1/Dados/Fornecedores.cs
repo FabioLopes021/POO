@@ -35,6 +35,9 @@ namespace Dados
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor estatico
+        /// </summary>
         static Fornecedores()
         {
             listaFornecedores = new List<Fornecedor>();
@@ -45,6 +48,10 @@ namespace Dados
 
         #region Properties
 
+
+        /// <summary>
+        /// Propriedade para Criar um clone da lista de Fornecedores.
+        /// </summary>
         public static List<Fornecedor> ListaFornecedores
         {
             get { return new List<Fornecedor>(listaFornecedores); }
@@ -82,7 +89,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Metodo para Remover um cliente da lista de Clientes( Remover Cliente)
+        /// Metodo para Remover um cliente da lista de Clientes (Remover Cliente)
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
@@ -104,7 +111,11 @@ namespace Dados
         }
 
 
-
+        /// <summary>
+        /// Metodo que verifica se existe um fornecedor com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool VerificaFornecedorId(int id)
         {
             if (id < 0)
@@ -120,7 +131,10 @@ namespace Dados
             return true;
         }
 
-
+        /// <summary>
+        /// Funçao para guardar os dados da lista fornecedores num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool GuardarFornecedores()
         {
             Stream s = File.Open("Fornecedores", FileMode.Create);
@@ -132,7 +146,10 @@ namespace Dados
             return true;
         }
 
-
+        /// <summary>
+        /// Funçao para carregar dados de um ficheiro binario para a lista de fornecedores
+        /// </summary>
+        /// <returns></returns>
         public static bool CarregaFornecedores()
         {
             Stream s = File.Open("Fornecedores", FileMode.Open);

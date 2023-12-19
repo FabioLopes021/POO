@@ -7,13 +7,10 @@
 *	<description></description>
 */
 
-using ObjetosNegocio;
 using Dados;
+using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.ComponentModel;
-using System.Threading;
 
 namespace InOut
 {

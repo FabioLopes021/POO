@@ -36,12 +36,19 @@ namespace ObjetosNegocio
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public Categoria()
         {
             nome = "";
             id = this.AtribuirId();
         }
 
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="nome"></param>
         public Categoria(string nome)
         {
             this.nome = nome;
@@ -52,12 +59,20 @@ namespace ObjetosNegocio
 
         #region Properties
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel nome
+        /// </summary>
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel id
+        /// </summary>
         public int Id
         {
             get { return id; }
@@ -67,6 +82,12 @@ namespace ObjetosNegocio
 
         #region Operators
 
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="c1"></param>
+        /// <param name="c2"></param>
+        /// <returns></returns>
         public static bool operator ==(Categoria c1, Categoria c2)
         {
 
@@ -81,7 +102,12 @@ namespace ObjetosNegocio
         }
 
 
-
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao diferentes
+        /// </summary>
+        /// <param name="c1"></param>
+        /// <param name="c2"></param>
+        /// <returns></returns>
         public static bool operator !=(Categoria c1, Categoria c2)
         {
             if (c1 == c2)
@@ -94,7 +120,11 @@ namespace ObjetosNegocio
 
         #region Overrides
 
-
+        /// <summary>
+        /// Metodo que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Categoria)
@@ -112,6 +142,10 @@ namespace ObjetosNegocio
         }
 
 
+        /// <summary>
+        /// Implementaçao do Metodo ToString() para esta classe
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Format("Id: {0}, Nome: {1}", this.Id, this.Nome);

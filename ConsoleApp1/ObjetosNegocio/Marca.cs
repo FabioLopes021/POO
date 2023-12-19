@@ -36,6 +36,9 @@ namespace ObjetosNegocio
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor default
+        /// </summary>
         public Marca()
         {
             morada = "";
@@ -43,6 +46,12 @@ namespace ObjetosNegocio
             id = 0;
         }
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="morada"></param>
+        /// <param name="nome"></param>
         public Marca(string morada, string nome)
         {
             this.morada = morada;
@@ -54,18 +63,29 @@ namespace ObjetosNegocio
 
         #region Properties
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel Morada
+        /// </summary>
         public string Morada
         {
             get { return morada; }
             set { morada = value; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel nome
+        /// </summary>
         public string Nome
         {
             get { return nome; }
             set { nome = value; }
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel id
+        /// </summary>
         public int Id
         {
             get { return id; }
@@ -76,6 +96,13 @@ namespace ObjetosNegocio
 
         #region Operators
 
+
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="m1"></param>
+        /// <param name="m2"></param>
+        /// <returns></returns>
         public static bool operator ==(Marca m1, Marca m2)
         {
 
@@ -91,6 +118,12 @@ namespace ObjetosNegocio
 
 
 
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao diferentes
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static bool operator !=(Marca m1, Marca m2)
         {
             if (m1 == m2)
@@ -105,6 +138,11 @@ namespace ObjetosNegocio
         #region Overrides
 
 
+        /// <summary>
+        /// Metodo que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Marca)
@@ -122,6 +160,10 @@ namespace ObjetosNegocio
         }
 
 
+        /// <summary>
+        /// Implementaçao do Metodo ToString() para esta classe
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
 

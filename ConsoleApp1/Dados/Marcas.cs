@@ -35,6 +35,10 @@ namespace Dados
 
         #region Constructors
 
+
+        /// <summary>
+        /// Construtor estatico
+        /// </summary>
         static Marcas()
         {
             listaMarcas = new List<Marca>();
@@ -44,7 +48,9 @@ namespace Dados
 
         #region Properties
 
-
+        /// <summary>
+        /// Propriedade para Criar um clone da lista de Marcas.
+        /// </summary>
         public static List<Marca> ListaMarcas
         {
             get { return new List<Marca>(listaMarcas); }
@@ -73,12 +79,13 @@ namespace Dados
                 return false;
 
             if (listaMarcas.Contains(m))
-                throw new MarcasExcecoes("Falha de Marca (Marca ja resgistada)");
+                throw new MarcasExcecoes("Falha de Marca (Marca ja resgistada)");       //Testar excecoes
+
 
             listaMarcas.Add(m);
             return true;
         }
-
+            
 
 
         /// <summary>
@@ -106,6 +113,12 @@ namespace Dados
         }
 
 
+
+        /// <summary>
+        /// Funçao que verifica se existe uma marca com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool VerificaMarcaPorId(int id)
         {
             if(id <= 0)
@@ -122,6 +135,11 @@ namespace Dados
         }
 
 
+
+        /// <summary>
+        /// Funçao para guardar os dados da lista marcas num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool GuardarMarcas()
         {
             Stream s = File.Open("Marcas", FileMode.Create);
@@ -133,7 +151,10 @@ namespace Dados
             return true;
         }
 
-
+        /// <summary>
+        /// Funçao para carregar dados de um ficheiro binario para a lista de marcas
+        /// </summary>
+        /// <returns></returns>
         public static bool CarregaMarcas()
         {
             Stream s = File.Open("Marcas", FileMode.Open);

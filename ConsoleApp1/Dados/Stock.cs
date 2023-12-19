@@ -39,6 +39,9 @@ namespace Dados
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor estatico
+        /// </summary>
         static Stock()
         {
             listaProdutos = new List<Produto>();
@@ -48,12 +51,19 @@ namespace Dados
 
         #region Properties
 
+        /// <summary>
+        /// Propriedade para aceder a variavel nomeArmazem
+        /// </summary>
         public static string NomeArmazem
         {
             get { return nomeArmazem; }
             set { nomeArmazem = value; }
         }
 
+
+        /// <summary>
+        /// Propriedade para Criar um clone da lista de vendas.
+        /// </summary>
         public static List<Produto> ListaProdutos
         {
             get { return new List<Produto>(listaProdutos); }
@@ -123,11 +133,12 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para dar saida de uma determinada quantidade de um produto de um determinado armazem
+        /// Funçao para dar saida de uma determinada quantidade de um produto do armazem
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool RetirarQuantidade(int produtoId, float quantidade)
         {
             if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId)) 
@@ -155,11 +166,12 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para dar entrada de uma determinada quantidade de um produto de um determinado armazem
+        /// Funçao para dar entrada de uma determinada quantidade de um produto no Armazem
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool AumentarQuantidade(int produtoId, float quantidade)
         {
             if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId))
@@ -186,10 +198,11 @@ namespace Dados
 
 
         /// <summary>
-        /// 
+        /// Funçao que verifica a disponivilidade dos produtos de uma venda no stock
         /// </summary>
-        /// <param name="listaCompras"></param>
+        /// <param name="listaVendas"></param>
         /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool VerificaDispProdutos(Dictionary<int, int> listaVendas) 
         {
             if(ReferenceEquals(listaVendas, null))
@@ -221,6 +234,12 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Funçao que verifica a disponivilidade de um produto no stock
+        /// </summary>
+        /// <param name="produtoId"></param>
+        /// <param name="quantidade"></param>
+        /// <returns></returns>
         public static bool VerificaDispProduto(int produtoId, int quantidade)
         {
             if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId))
@@ -240,7 +259,11 @@ namespace Dados
         }
 
 
-
+        /// <summary>
+        /// Funçao para Atualizar as quantidades do stock ao registar uma venda
+        /// </summary>
+        /// <param name="listaVendas"></param>
+        /// <returns></returns>
         public static bool AtualizarStockVenda(Dictionary<int, int> listaVendas)
         {
             if (ReferenceEquals(listaVendas, null))
@@ -264,6 +287,13 @@ namespace Dados
 
 
         // Ver com o professor, adicionar try catch ???
+
+        /// <summary>
+        /// Funçao para Atualizar as quantidades do stock ao registar uma compra
+        /// </summary>
+        /// <param name="listaVendas"></param>
+        /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool AtualizarStockCompra(Dictionary<int, int> listaVendas)
         {
             if (ReferenceEquals(listaVendas, null))
@@ -309,6 +339,10 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Funçao para guardar os dados da listaProdutos num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool GuardarStock()
         {
             Stream s = File.Open("Stock", FileMode.Create);
@@ -321,6 +355,11 @@ namespace Dados
         }
 
 
+
+        /// <summary>
+        /// Funçao para carregar dados de um ficheiro binario para a lista de Produtos
+        /// </summary>
+        /// <returns></returns>
         public static bool CarregaStock()
         {
             Stream s = File.Open("Stock", FileMode.Open);

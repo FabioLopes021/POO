@@ -37,7 +37,7 @@ namespace ObjetosNegocio
         #region Constructors
 
         /// <summary>
-        /// The default Constructor.
+        /// Constutor default.
         /// </summary>
         public Fornecedor()
         {
@@ -48,6 +48,14 @@ namespace ObjetosNegocio
             id = AtribuirId();
         }
 
+
+        /// <summary>
+        /// Constutor com dados
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <param name="morada"></param>
+        /// <param name="nif"></param>
+        /// <param name="telemovel"></param>
         public Fornecedor(string nome, string morada, int nif, int telemovel)
         {
             this.nome = nome;
@@ -62,7 +70,7 @@ namespace ObjetosNegocio
         #region Properties
 
         /// <summary>
-        /// 
+        /// Propriedade para aceder a variavel nome
         /// </summary>
         public string Nome
         {
@@ -70,24 +78,40 @@ namespace ObjetosNegocio
             get { return nome; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel morada
+        /// </summary>
         public string Morada
         {
             set { morada = value; }
             get { return morada; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel telemovel
+        /// </summary>
         public int Telemovel
         {
             set { telemovel = value; }
             get { return telemovel; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel nif
+        /// </summary>
         public int NIF
         {
             set { nif = value; }
             get { return nif; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel id
+        /// </summary>
         public int Id
         {
             get { return id; }
@@ -98,6 +122,12 @@ namespace ObjetosNegocio
 
         #region Operators
 
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="f1"></param>
+        /// <param name="f2"></param>
+        /// <returns></returns>
         public static bool operator ==(Fornecedor f1, Fornecedor f2)
         {
 
@@ -112,7 +142,12 @@ namespace ObjetosNegocio
         }
 
 
-
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao diferentes
+        /// </summary>
+        /// <param name="f1"></param>
+        /// <param name="f2"></param>
+        /// <returns></returns>
         public static bool operator !=(Fornecedor f1, Fornecedor f2)
         {
             if (f1 == f2)
@@ -126,7 +161,11 @@ namespace ObjetosNegocio
 
         #region Overrides
 
-
+        /// <summary>
+        /// Metodo que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Fornecedor)
@@ -143,7 +182,10 @@ namespace ObjetosNegocio
             return false;
         }
 
-
+        /// <summary>
+        /// Implementaçao do Metodo ToString() para esta classe
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
 
@@ -154,7 +196,10 @@ namespace ObjetosNegocio
 
         #region Other_Methods
 
-
+        /// <summary>
+        /// Funçao para calcular id a ser atribuido a cada Fornecedor a ser criado
+        /// </summary>
+        /// <returns></returns>
         public static int AtribuirId()
         {
             int maxid = 1;

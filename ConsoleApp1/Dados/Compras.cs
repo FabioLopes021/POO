@@ -36,6 +36,9 @@ namespace Dados
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor Estatico
+        /// </summary>
         static Compras()
         {
             listaCompras = new List<Compra>();
@@ -45,6 +48,9 @@ namespace Dados
 
         #region Properties
 
+        /// <summary>
+        /// Propriedade para Criar um clone da lista de Compras.
+        /// </summary>
         public static List<Compra> ListaCompras
         {
             get { return new List<Compra>(listaCompras); }
@@ -107,6 +113,12 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Funçao que regista uma Compras e a adiciona a lista Compras
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        /// <exception cref="ComprasExcecoes"></exception>
         public static bool RegistarCompra(Compra c)
         {
             if (ReferenceEquals(c, null) || listaCompras.Contains(c))
@@ -125,6 +137,10 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Funçao para guardar os dados da lista compras num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool GuardarCompras()
         {
             Stream s = File.Open("Compras", FileMode.Create);
@@ -136,7 +152,10 @@ namespace Dados
             return true;
         }
 
-
+        /// <summary>
+        /// Funçao para guardar os dados da lista compras num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool CarregaCompras()
         {
             Stream s = File.Open("Compras", FileMode.Open);

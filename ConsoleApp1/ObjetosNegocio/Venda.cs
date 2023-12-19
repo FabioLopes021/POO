@@ -36,6 +36,9 @@ namespace ObjetosNegocio
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor Default
+        /// </summary>
         public Venda()
         {
             artigosVendidos = new Dictionary<int, int>();
@@ -44,6 +47,13 @@ namespace ObjetosNegocio
             id = AtribuirId();
         }
 
+
+        /// <summary>
+        /// Construtor com dados
+        /// </summary>
+        /// <param name="nomeLoja"></param>
+        /// <param name="data"></param>
+        /// <param name="idCliente"></param>
         public Venda(string nomeLoja, DateTime data, int idCliente)
         {
             artigosVendidos = new Dictionary<int, int>();
@@ -57,23 +67,38 @@ namespace ObjetosNegocio
 
         #region Properties
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel artigosVendidos
+        /// </summary>
         public Dictionary<int, int> ArtigosVendidos
         {
             get { return new Dictionary<int, int>(artigosVendidos); }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel data
+        /// </summary>
         public DateTime Data
         {
             get { return data; }
             set { data = value; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel idCliente
+        /// </summary>
         public int IdCliente
         {
             get { return idCliente; }
             set { idCliente = value; }
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel id
+        /// </summary>
         public int Id
         {
             get { return id; }
@@ -85,6 +110,12 @@ namespace ObjetosNegocio
 
 
 
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static bool operator ==(Venda v1, Venda v2)
         {
 
@@ -98,8 +129,13 @@ namespace ObjetosNegocio
             return false;
         }
 
-        
 
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao diferentes
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static bool operator !=(Venda v1, Venda v2)
         {
             if (v1 == v2)
@@ -112,6 +148,11 @@ namespace ObjetosNegocio
 
         #region Overrides
 
+        /// <summary>
+        /// Metodo que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Venda)
@@ -129,6 +170,10 @@ namespace ObjetosNegocio
         }
 
 
+        /// <summary>
+        /// Implementaçao do Metodo ToString() para esta classe
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return String.Format("ID: {0} - ID Cliente: {1} - Data: {2} - Artigos vendidos: {3}", this.id, this.IdCliente, this.Data, this.ArtigosVendidos.ToString());
@@ -166,9 +211,9 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para adicionar produtos ao dicionario 
+        /// Funçao para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
         public bool AdicionarProdutoVenda(int produtoId, int quantidade)
@@ -223,9 +268,9 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// 
+        /// Funçao para Remover o id dos produtos e a respetiva quantidade do dicionario 
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
         /// <returns></returns>
         public bool RemoverProdutoVenda(int produtoId, int quantidade)
@@ -269,7 +314,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// 
+        /// Funçao que verifica se um produto esta adicionado a venda
         /// </summary>
         /// <param name="idProduto"></param>
         /// <returns></returns>
@@ -289,6 +334,9 @@ namespace ObjetosNegocio
             return false;
         }
 
+        /// <summary>
+        /// Funçao Para mostrar Lista de Compras
+        /// </summary>
         public void MostraListaCompras()
         {
             if ((this.artigosVendidos.Count < 1))

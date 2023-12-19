@@ -35,6 +35,10 @@ namespace Dados
 
         #region Constructors
 
+
+        /// <summary>
+        /// Constutor estatico
+        /// </summary>
         static Vendas()
         {
             listaVendas = new List<Venda>();
@@ -44,6 +48,9 @@ namespace Dados
 
         #region Properties
 
+        /// <summary>
+        /// Propriedade para Criar um clone da lista de vendas.
+        /// </summary>
         public static List<Venda> ListaVendas
         {
             get { return new List<Venda>(listaVendas); }
@@ -105,7 +112,12 @@ namespace Dados
         }
 
 
-        
+        /// <summary>
+        /// Funçao que regista uma venda e a adiciona a listaVendas
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        /// <exception cref="VendasExcecoes"></exception>
         public static bool RegistarVenda(Venda v)
         {
             if(ReferenceEquals(v,null) || listaVendas.Contains(v))
@@ -124,6 +136,11 @@ namespace Dados
         }
 
 
+
+        /// <summary>
+        /// Funçao para guardar os dados da lista vendas num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool GuardarVendas()
         {
             Stream s = File.Open("Vendas", FileMode.Create);
@@ -136,6 +153,10 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Funçao para carregar dados de um ficheiro binario para a lista de vendas
+        /// </summary>
+        /// <returns></returns>
         public static bool CarregaVendas()
         {
             Stream s = File.Open("Vendas", FileMode.Open);

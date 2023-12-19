@@ -35,6 +35,9 @@ namespace Dados
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor estatico
+        /// </summary>
         static Categorias()
         {
             listaCategorias = new List<Categoria>();
@@ -44,6 +47,9 @@ namespace Dados
 
         #region Properties
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static List<Categoria> ListaCategorias
         {
             get { return new List<Categoria>(listaCategorias); }

@@ -35,6 +35,9 @@ namespace Dados
 
         #region Constructors
 
+        /// <summary>
+        /// Construtor estatico
+        /// </summary>
         static Clientes()
         {
             listaClientes = new List<Cliente>();
@@ -44,6 +47,9 @@ namespace Dados
 
         #region Properties
 
+        /// <summary>
+        /// Propriedade para Criar um clone da lista de Clientes.
+        /// </summary>
         public static List<Cliente> ListaClientes
         {
             get { return new List<Cliente>(listaClientes); }
@@ -102,6 +108,12 @@ namespace Dados
             return false;
         }
 
+
+        /// <summary>
+        /// Metodo que verifica se existe um Cliente com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool VerificaClienteId(int id)
         {
             if(id < 0)
@@ -119,6 +131,10 @@ namespace Dados
 
 
 
+        /// <summary>
+        /// Funçao para guardar os dados da lista Clientes num ficheiro binario
+        /// </summary>
+        /// <returns></returns>
         public static bool GuardarClientes()
         {
             Stream s = File.Open("Clientes", FileMode.Create);
@@ -131,6 +147,10 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Funçao para carregar dados de um ficheiro binario para a lista de Clientes
+        /// </summary>
+        /// <returns></returns>
         public static bool CarregaClientes()
         {
             Stream s = File.Open("Clientes", FileMode.Open);

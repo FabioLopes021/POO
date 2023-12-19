@@ -69,8 +69,8 @@ namespace ObjetosNegocio
         /// <param name="nome"></param>
         /// <param name="valor"></param>
         /// <param name="garantia"></param>
-        /// <param name="catg"></param>
-        /// <param name="marca"></param>
+        /// <param name="catgId"></param>
+        /// <param name="marcaId"></param>
         public Produto(string nome, float valor, float garantia, int catgId, int marcaId)
         {
             this.nome = nome;
@@ -87,49 +87,72 @@ namespace ObjetosNegocio
 
         #region Properties
 
-        
+        /// <summary>
+        /// Propriedade para aceder a variavel id
+        /// </summary>
         public int Id{
             set{ id = value; }
             get{ return id;  }
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel nome
+        /// </summary>
         public string Nome
         {
             set { nome = value; }
             get { return nome; }
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel valor
+        /// </summary>
         public float Valor
         {
             set { valor = value; }
             get { return valor; }
         }
 
-
+        /// <summary>
+        /// Propriedade para aceder a variavel garantiaAnos
+        /// </summary>
         public float GarantiaAnos
         {
-            set { valor = value; }
+            set { garantiaAnos = value; }
             get { return garantiaAnos;}
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel catgId
+        /// </summary>
         public int CatgId
         {
             set { catgId = value; }
             get { return catgId; }
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel marcaId
+        /// </summary>
         public int MarcaId
         {
             set { marcaId = value; }
             get { return marcaId; }
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel quantidade
+        /// </summary>
         public float Quantidade
         {
             set { quantidade = value; }
             get { return quantidade; }
         }
 
+        /// <summary>
+        /// Propriedade para aceder a variavel de classe TotProd
+        /// </summary>
         public static int TotProd
         {
             set { totProd = value; }
@@ -139,6 +162,12 @@ namespace ObjetosNegocio
 
         #region Operators
 
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
         public static bool operator ==(Produto p1, Produto p2)
         {
 
@@ -153,7 +182,12 @@ namespace ObjetosNegocio
         }
 
 
-
+        /// <summary>
+        /// Operador que verifica se dois objetos desta classe sao diferentes
+        /// </summary>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
         public static bool operator !=(Produto p1, Produto p2)
         {
             if (p1 == p2)
@@ -167,6 +201,12 @@ namespace ObjetosNegocio
 
         #region Overrides
 
+
+        /// <summary>
+        /// Metodo que verifica se dois objetos desta classe sao iguais
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj is Produto)
@@ -186,7 +226,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// 
+        /// Implementaçao do Metodo ToString() para esta classe
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -199,7 +239,7 @@ namespace ObjetosNegocio
         #region Other_Methods
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada Produto a ser criada
+        /// Funçao para calcular id a ser atribuido a cada Produto a ser criado
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()
@@ -220,6 +260,11 @@ namespace ObjetosNegocio
             return ++maxid;
         }
 
+
+        /// <summary>
+        /// Funçao para verificar se o produto esta completo com os dados obrigatorios
+        /// </summary>
+        /// <returns></returns>
         public bool VerificaIntegridadeProduto()
         {
             if((this.nome == "") || (this.valor <= 0) || (this.garantiaAnos < 0))
@@ -232,7 +277,11 @@ namespace ObjetosNegocio
         }
 
 
-
+        /// <summary>
+        /// Funçao para verificar se o produto existe no Stock
+        /// </summary>
+        /// <param name="produtoId"></param>
+        /// <returns></returns>
         public static bool ExisteProdutoPorId(int produtoId)
         {
             List<Produto> lista = Stock.ListaProdutos;
@@ -251,7 +300,11 @@ namespace ObjetosNegocio
             return true;
         }
 
-
+        /// <summary>
+        /// Funçao que retorna o produto referente ao id recebido
+        /// </summary>
+        /// <param name="produtoId"></param>
+        /// <returns></returns>
         public static Produto ProdutoPorId(int produtoId)
         {
             if (!ExisteProdutoPorId(produtoId))
