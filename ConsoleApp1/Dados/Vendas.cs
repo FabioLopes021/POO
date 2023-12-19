@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Excecoes;
 using ObjetosNegocio;
 
 namespace Dados
@@ -58,7 +59,7 @@ namespace Dados
 
         #region Other_Methods
 
-
+        /*
         /// <summary>
         /// Funçao para adicionar uma Venda a lista de Vendas
         /// </summary>
@@ -76,7 +77,7 @@ namespace Dados
             listaVendas.Add(v);
             return true;
         }
-
+        */
 
 
         /// <summary>
@@ -111,7 +112,7 @@ namespace Dados
                 return false;
 
             if(!v.VerificaIntegridadeVenda())
-                return false;
+                throw new VendasExcecoes("Falha de Vendas (Dados invalidos na Venda)"); ;
 
             if (Stock.AtualizarStockVenda(v.ArtigosVendidos))
             {

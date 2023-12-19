@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using Excecoes;
 using ObjetosNegocio;
 
 namespace Dados
@@ -72,7 +73,7 @@ namespace Dados
                 listaClientes = new List<Cliente>();
 
             if (listaClientes.Contains(c))
-                return false;
+                throw new ClientesExcecoes("Falha de Cliente (Cliente ja registado)");
 
             listaClientes.Add(c);
             return true;

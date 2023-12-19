@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using ObjetosNegocio;
+using Excecoes;
 
 namespace Dados
 {
@@ -72,7 +73,7 @@ namespace Dados
                 return false;
 
             if (listaMarcas.Contains(m))
-                return false;
+                throw new MarcasExcecoes("Falha de Marca (Marca ja resgistada)");
 
             listaMarcas.Add(m);
             return true;

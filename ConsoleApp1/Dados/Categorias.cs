@@ -7,6 +7,7 @@
 *	<description></description>
 */
 
+using Excecoes;
 using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
@@ -72,7 +73,7 @@ namespace Dados
                 return false;
 
             if (listaCategorias.Contains(c))
-                return false;
+                throw new CategoriasExcecoes("Falha de Categoria (Categoria ja registada)");
 
             listaCategorias.Add(c);
             return true;

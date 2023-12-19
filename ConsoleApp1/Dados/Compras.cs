@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Runtime.Serialization.Formatters.Binary;
+using Excecoes;
 
 namespace Dados
 {
@@ -112,7 +113,7 @@ namespace Dados
                 return false;
 
             if (!c.VerificaIntegridadeCompra())
-                return false;
+                throw new ComprasExcecoes("Falha de Compra (Dados invalidos na compra)");
 
             if (Stock.AtualizarStockCompra(c.ArtigosComprados))
             {

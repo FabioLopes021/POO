@@ -101,69 +101,91 @@ namespace RN
         */
 
 
-
+        /// <summary>
+        /// Metodo para adicionar uma marca a lista de marcas
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        /// <exception cref="MarcasExcecoes"></exception>
         public static bool AdicionarMarca(Marca m)
         {
-            if (m == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Marca)");
+            if (ReferenceEquals(m, null))
+                throw new MarcasExcecoes("Falha de Regras de Negocio (null data em Marca)");
 
             bool aux = false;
             try
             {
                 aux = Marcas.GuardarMarca(m);
             }
-            catch (StockExcecoes e)
+            catch (MarcasExcecoes e)
             {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+                throw new MarcasExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
             }
 
             return aux;
         }
 
 
-
+        /// <summary>
+        /// Metodo para adicionar uma Categoria a lista de Categorias
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        /// <exception cref="CategoriasExcecoes"></exception>
         public static bool AdicionarCategoria(Categoria c)
         {
-            if (c == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Categoria)");
+            if (ReferenceEquals(c,null))
+                throw new CategoriasExcecoes("Falha de Regras de Negocio (null data em Categoria)");
 
             bool aux = false;
             try
             {
                 aux = Categorias.guardarCategoria(c);
             }
-            catch (StockExcecoes e)
+            catch (CategoriasExcecoes e)
             {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+                throw new CategoriasExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
             }
 
             return aux;
         }
 
 
-
+        /// <summary>
+        /// Metodo para adicionar um Fornecedor a lista de Fornecedores
+        /// </summary>
+        /// <param name="f"></param>
+        /// <returns></returns>
+        /// <exception cref="FornecedoresExcecoes"></exception>
         public static bool AdicionarFornecedor(Fornecedor f)
         {
-            if (f == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Fornecedor)");
+            if (ReferenceEquals(f, null))
+                throw new FornecedoresExcecoes("Falha de Regras de Negocio (null data em Fornecedor)");
 
             bool aux = false;
             try
             {
                 aux = Fornecedores.RegistarFornecedor(f);
             }
-            catch (StockExcecoes e)
+            catch (FornecedoresExcecoes e)
             {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+                throw new FornecedoresExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
             }
 
             return aux;
         }
 
 
+
+        /// <summary>
+        /// Metodo para adicionar um Produto a lista de Produtos
+        /// </summary>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool AdicionarProduto(Produto p)
         {
-            if (p == null)
+            if (ReferenceEquals(p, null))
                 throw new StockExcecoes("Falha de Regras de Negocio (null data)");
 
             try
@@ -179,29 +201,42 @@ namespace RN
         }
 
 
+        /// <summary>
+        /// Metodo para adicionar um Cliente a lista de Clientes
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        /// <exception cref="ClientesExcecoes"></exception>
         public static bool AdicionarCliente(Cliente c)
         {
-            if (c == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Cliente)");
+            if (ReferenceEquals(c, null))
+                throw new ClientesExcecoes("Falha de Regras de Negocio (null data em Cliente)");
 
             bool aux = false;
             try
             {
                 aux = Clientes.RegistarCliente(c);
             }
-            catch (StockExcecoes e)
+            catch (ClientesExcecoes e)
             {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+                throw new ClientesExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
             }
  
             return aux;
         }
 
-        
+
+
+        /// <summary>
+        /// Metodo para adicionar uma compra a lista de compras
+        /// </summary>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        /// <exception cref="ComprasExcecoes"></exception>
         public static bool AdicionarCompra(Compra c)
         {
-            if (c == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Compra)");
+            if (ReferenceEquals(c, null))
+                throw new ComprasExcecoes("Falha de Regras de Negocio (null data em Compra)");
 
             
             bool aux = false;
@@ -209,19 +244,26 @@ namespace RN
             {
                 aux = Compras.RegistarCompra(c);
             }
-            catch (StockExcecoes e)
+            catch (ComprasExcecoes e)
             {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+                throw new ComprasExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
             }
 
             return aux;
         }
 
 
+
+        /// <summary>
+        /// Metodo para adicionar uma venda a lista de vendas
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        /// <exception cref="VendasExcecoes"></exception>
         public static bool AdicionarVenda(Venda v)
         {
-            if (v == null)
-                throw new StockExcecoes("Falha de Regras de Negocio (null data em Compra)");
+            if (ReferenceEquals(v, null))
+                throw new VendasExcecoes("Falha de Regras de Negocio (null data em Venda)");
 
 
             bool aux = false;
@@ -229,9 +271,9 @@ namespace RN
             {
                 aux = Vendas.RegistarVenda(v);
             }
-            catch (StockExcecoes e)
+            catch (VendasExcecoes e)
             {
-                throw new StockExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
+                throw new VendasExcecoes("Passou nas Regras de Negocio " + "-" + e.Message);
             }
 
             return aux;

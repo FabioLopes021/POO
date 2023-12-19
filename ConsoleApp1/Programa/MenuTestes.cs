@@ -60,17 +60,38 @@ namespace Programa
                     case 1:
                         IO.ClearConsole();
                         Categoria cat = IO.DadosCategoria();
-                        RegrasNegocio.AdicionarCategoria(cat);
+                        try
+                        {
+                            RegrasNegocio.AdicionarCategoria(cat);
+                        }catch (Exception e)
+                        {
+                            IO.EscreverMensagem(e.Message);
+                        }
+                        Console.ReadKey();
                         break;
                     case 2:
                         IO.ClearConsole();
                         Marca mar = IO.DadosMarca();
-                        RegrasNegocio.AdicionarMarca(mar);
+                        try
+                        {
+                            RegrasNegocio.AdicionarMarca(mar);
+                        }
+                        catch (Exception e)
+                        {
+                            IO.EscreverMensagem(e.Message);
+                        }
                         break;
                     case 3:
                         IO.ClearConsole();
                         Fornecedor forn = IO.DadosFornecedor();
-                        RegrasNegocio.AdicionarFornecedor(forn);
+                        try
+                        {
+                            RegrasNegocio.AdicionarFornecedor(forn);
+                        }
+                        catch(Exception e)
+                        {
+                            IO.EscreverMensagem(e.Message);
+                        }
                         break;
                     case 4:
                         IO.ClearConsole();
@@ -80,7 +101,14 @@ namespace Programa
                     case 5:
                         IO.ClearConsole();
                         Produto produtocriar = IO.DadosProduto();
-                        RegrasNegocio.AdicionarProduto(produtocriar);
+                        try
+                        {
+                            RegrasNegocio.AdicionarProduto(produtocriar);
+                        }
+                        catch (Exception e)
+                        {
+                            IO.EscreverMensagem(e.Message);
+                        }
                         break;
                     case 6:
                         IO.ClearConsole();

@@ -7,6 +7,7 @@
 *	<description></description>
 */
 
+using Excecoes;
 using ObjetosNegocio;
 using System;
 using System.Collections.Generic;
@@ -73,7 +74,7 @@ namespace Dados
                 listaFornecedores = new List<Fornecedor>();
 
             if (listaFornecedores.Contains(f))
-                return false;
+                throw new FornecedoresExcecoes("Falha de Fornecedor (Fornecedor ja registado)");
 
             listaFornecedores.Add(f);
             return true;
