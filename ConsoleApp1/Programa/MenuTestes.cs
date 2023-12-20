@@ -2,7 +2,7 @@
 *	<copyright file="Programa.cs" company="IPCA">
 *	Copyright (c) 2023 All Rights Reserved
 *	</copyright>
-* 	<author>Fábio Lopes</author>
+* 	<author>Fábio Lopes & Ruben Costa</author>
 *   <date>12/12/2023</date>
 *	<description></description>
 */
@@ -16,7 +16,7 @@ namespace Programa
 {
     /// <summary>
     /// Purpose: 
-    /// Created by: Fábio Lopes
+    /// Created by: Fábio Lopes & Ruben Costa
     /// Created on: 12/12/2023
     /// </summary>
     /// <remarks></remarks>

@@ -2,7 +2,7 @@
 *	<copyright file="ClassLibrary1.cs" company="IPCA">
 *	Copyright (c) 2023 All Rights Reserved
 *	</copyright>
-* 	<author>Fábio Lopes</author>
+* 	<author>Fábio Lopes & Ruben Costa</author>
 *   <date>13/11/2023</date>
 *	<description></description>
 */
@@ -14,7 +14,7 @@ namespace ObjetosNegocio
     [Serializable]
     /// <summary>
     /// Purpose: Garantia de classe 
-    /// Created by: Fábio Lopes
+    /// Created by: Fábio Lopes & Ruben Costa
     /// Created on: 13/11/2023
     /// </summary>
     /// <remarks></remarks>
