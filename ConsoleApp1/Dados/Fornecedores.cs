@@ -133,6 +133,31 @@ namespace Dados
 
 
         /// <summary>
+        /// Metodo que retorna o fornecedor referente ao id recebido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static Fornecedor FornecedorPorId(int id)
+        {
+            if (ReferenceEquals(listaFornecedores, null))
+                return null;
+
+            if ((id < 0) || (listaFornecedores.Count < 1))
+                return null;
+
+
+            Fornecedor aux;
+
+            aux = listaFornecedores.Find(e => e.Id == id);
+
+            if (aux == null)
+                return null;
+
+            return aux;
+        }
+
+
+        /// <summary>
         /// Metodo para guardar os dados da lista fornecedores num ficheiro binario
         /// </summary>
         /// <returns></returns>
@@ -179,6 +204,95 @@ namespace Dados
             s.Close();
             return true;
         }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Fornecedor a qual sera alterado o nome 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public bool AlterarNomeFornecedor(int id, string nome)
+        {
+            if (!VerificaFornecedorId(id))
+                return false;
+
+            Fornecedor f = FornecedorPorId(id);
+
+            if (f == null)
+                return false;
+
+            bool aux = f.AlterarNome(nome);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Fornecedor a qual sera alterado a morada
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="morada"></param>
+        /// <returns></returns>
+        public bool AlterarMoradaFornecedor(int id, string morada)
+        {
+            if (!VerificaFornecedorId(id))
+                return false;
+
+            Fornecedor f = FornecedorPorId(id);
+
+            if (f == null)
+                return false;
+
+            bool aux = f.AlterarMorada(morada);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Fornecedor a qual sera alterado o NIF
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nif"></param>
+        /// <returns></returns>
+        public bool AlterarNIFFornecedor(int id, int nif)
+        {
+            if (!VerificaFornecedorId(id))
+                return false;
+
+            Fornecedor f = FornecedorPorId(id);
+
+            if (f == null)
+                return false;
+
+            bool aux = f.AlterarNif(nif);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Fornecedor a qual sera alterado o telemovel
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="tel"></param>
+        /// <returns></returns>
+        public bool AlterarTelemovelFornecedor(int id, int tel)
+        {
+            if (!VerificaFornecedorId(id))
+                return false;
+
+            Fornecedor f = FornecedorPorId(id);
+
+            if (f == null)
+                return false;
+
+            bool aux = f.AlterarTelemovel(tel);
+
+            return aux;
+        }
+
 
         #endregion
 

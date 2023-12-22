@@ -299,7 +299,7 @@ namespace ObjetosNegocio
         }
 
         /// <summary>
-        /// Funçao que retorna o produto referente ao id recebido
+        /// Metodo que retorna o produto referente ao id recebido
         /// </summary>
         /// <param name="produtoId"></param>
         /// <returns></returns>

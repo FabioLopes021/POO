@@ -185,6 +185,48 @@ namespace Dados
             return true;
         }
 
+        /// <summary>
+        /// Metodo para encontrar a marca a qual sera alterado o nome
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public bool AlterarNomeMarca(int id, string nome)
+        {
+            if (!VerificaMarcaPorId(id))
+                return false;
+
+            Marca m = MarcaPorId(id);
+
+            if (m == null)
+                return false;
+
+            bool aux = m.AlterarNome(nome);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar a marca a qual sera alterada a morada
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="morada"></param>
+        /// <returns></returns>
+        public bool AlterarMoradaMarca(int id, string morada)
+        {
+            if (!VerificaMarcaPorId(id))
+                return false;
+
+            Marca m = MarcaPorId(id);
+
+            if (m == null)
+                return false;
+
+            bool aux = m.AlterarMorada(morada);
+
+            return aux;
+        }
 
         #endregion
 

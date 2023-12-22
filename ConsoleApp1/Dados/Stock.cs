@@ -386,6 +386,115 @@ namespace Dados
 
 
 
+        /// <summary>
+        /// Metodo para encontrar o produto a qual sera alterado o nome
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public bool AlterarNomeProduto(int id, string nome)
+        {
+            if(!Produto.ExisteProdutoPorId(id))
+                return false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if(p == null) 
+                return false;
+
+            bool aux = p.AlterarNome(nome);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o produto a qual sera alterado o valor 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public bool AlterarValorProduto(int id, float valor)
+        {
+            if (!Produto.ExisteProdutoPorId(id))
+                return false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (p == null)
+                return false;
+
+            bool aux = p.AlterarValor(valor);
+
+            return aux;
+        }
+
+        /// <summary>
+        /// Metodo para encontrar o produto a qual sera alterado a garantia
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="garantia"></param>
+        /// <returns></returns>
+        public bool AlterarGarantiaProduto(int id, float garantia)
+        {
+            if (!Produto.ExisteProdutoPorId(id))
+                return false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (p == null)
+                return false;
+
+            bool aux = p.AlterarGarantia(garantia);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o produto a qual sera alterada a categoria 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="categoria"></param>
+        /// <returns></returns>
+        public bool AlterarCategoriaProduto(int id, int categoria)
+        {
+            if (!Produto.ExisteProdutoPorId(id))
+                return false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (p == null)
+                return false;
+
+            bool aux = p.AlterarCategoria(categoria);
+
+            return aux;
+        }
+
+        /// <summary>
+        /// Metodo para encontrar o produto a qual sera alterada a marca
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="marca"></param>
+        /// <returns></returns>
+        public bool AlterarMarcaProduto(int id, int marca)
+        {
+            if (!Produto.ExisteProdutoPorId(id))
+                return false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (p == null)
+                return false;
+
+            bool aux = p.AlterarMarca(marca);
+
+            return aux;
+        }
+
+
+
         #endregion
 
         #endregion

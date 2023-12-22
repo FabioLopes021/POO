@@ -132,6 +132,31 @@ namespace Dados
 
 
         /// <summary>
+        /// Metodo que retorna o cliente referente ao id recebido
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static Cliente ClientePorId(int id)
+        {
+            if (ReferenceEquals(listaClientes, null))
+                return null;
+
+            if ((id < 0) || (listaClientes.Count < 1))
+                return null;
+
+
+            Cliente aux;
+
+            aux = listaClientes.Find(e => e.Id == id);
+
+            if (aux == null)
+                return null;
+
+            return aux;
+        }
+
+
+        /// <summary>
         /// Metodo para guardar os dados da lista Clientes num ficheiro binario
         /// </summary>
         /// <returns></returns>
@@ -180,6 +205,93 @@ namespace Dados
             return true;
         }
 
+
+        /// <summary>
+        /// Metodo para encontrar o Cliente a qual sera alterado o nome 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public bool AlterarNomeCliente(int id, string nome)
+        {
+            if (!VerificaClienteId(id))
+                return false;
+
+            Cliente c = ClientePorId(id);
+
+            if (c == null)
+                return false;
+
+            bool aux = c.AlterarNome(nome);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Cliente a qual sera alterada a morada
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="morada"></param>
+        /// <returns></returns>
+        public bool AlterarMoradaCliente(int id, string morada)
+        {
+            if (!VerificaClienteId(id))
+                return false;
+
+            Cliente c = ClientePorId(id);
+
+            if (c == null)
+                return false;
+
+            bool aux = c.AlterarMorada(morada);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Cliente a qual sera alterado o NIF
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nif"></param>
+        /// <returns></returns>
+        public bool AlterarNIFCliente(int id, int nif)
+        {
+            if (!VerificaClienteId(id))
+                return false;
+
+            Cliente c = ClientePorId(id);
+
+            if (c == null)
+                return false;
+
+            bool aux = c.AlterarNif(nif);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Metodo para encontrar o Cliente a qual sera alterado o telemovel
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="tel"></param>
+        /// <returns></returns>
+        public bool AlterarTelemovelCliente(int id, int tel)
+        {
+            if (!VerificaClienteId(id))
+                return false;
+
+            Cliente c = ClientePorId(id);
+
+            if (c == null)
+                return false;
+
+            bool aux = c.AlterarTelemovel(tel);
+
+            return aux;
+        }
 
 
         #endregion

@@ -181,6 +181,28 @@ namespace Dados
             return true;
         }
 
+
+        /// <summary>
+        /// Metodo para encontrar a categoria a qual sera alterado o nome 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public bool AlterarNomeCategoria(int id, string nome)
+        {
+            if (!VerificaCategoriaPorId(id))
+                return false;
+
+            Categoria c = CategoriaPorId(id);
+
+            if (c == null)
+                return false;
+
+            bool aux = c.AlterarNome(nome);
+
+            return aux;
+        }
+
         #endregion
 
         #endregion
