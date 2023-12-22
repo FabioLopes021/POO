@@ -21,7 +21,7 @@ namespace ObjetosNegocio
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Categoria
+    public class Categoria: ICategoria
     {
         #region Attributes
 

@@ -6,43 +6,53 @@
 *   <date>13/12/2023</date>
 *	<description></description>
 */
-
 using Dados;
 using System.Collections.Generic;
-using System;
 
 namespace ObjetosNegocio
 {
-    public interface IVenda
+    public interface IFornecedor
     {
 
         /// <summary>
-        /// Propriedade para aceder a variavel artigosVendidos
+        /// Propriedade para aceder a variavel nome
         /// </summary>
-        Dictionary<int, int> ArtigosVendidos
+        string Nome
         {
-            get; 
-        }
-
-
-        /// <summary>
-        /// Propriedade para aceder a variavel data
-        /// </summary>
-        DateTime Data
-        {
-            get;
-            set;                                                
-        }
-
-
-        /// <summary>
-        /// Propriedade para aceder a variavel idCliente
-        /// </summary>
-        int IdCliente
-        {
-            get;
             set;
+            get;
         }
+
+
+        /// <summary>
+        /// Propriedade para aceder a variavel morada
+        /// </summary>
+        string Morada
+        {
+            set;
+            get;
+        }
+
+
+        /// <summary>
+        /// Propriedade para aceder a variavel telemovel
+        /// </summary>
+        int Telemovel
+        {
+            set;
+            get;
+        }
+
+
+        /// <summary>
+        /// Propriedade para aceder a variavel nif
+        /// </summary>
+        int NIF
+        {
+            set;
+            get;
+        }
+
 
         /// <summary>
         /// Propriedade para aceder a variavel id
@@ -52,21 +62,6 @@ namespace ObjetosNegocio
             get;
         }
 
-
-
-        bool AdicionarProdutoVenda(int produtoId, int quantidade);
-
-
-
-        bool RemoverProdutoVenda(int produtoId, int quantidade);
-
-
-
-        bool VerificaIntegridadeVenda();
-
-
-
-        bool VerificaProdutoVenda(int idProduto);
 
 
     }

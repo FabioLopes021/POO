@@ -10,19 +10,23 @@ namespace ObjetosNegocio
     internal interface ICategoria
     {
 
+        /// <summary>
+        /// Propriedade para aceder a variavel nome
+        /// </summary>
         string Nome
         {
             get;
             set;
         }
 
+
+        /// <summary>
+        /// Propriedade para aceder a variavel id
+        /// </summary>
         int Id
         {
             get;
         }
-
-
-        string ToString();
 
 
         /// <summary>
@@ -30,8 +34,6 @@ namespace ObjetosNegocio
         /// </summary>
         /// <returns></returns>
         int AtribuirId();
-
-
 
     }
 }

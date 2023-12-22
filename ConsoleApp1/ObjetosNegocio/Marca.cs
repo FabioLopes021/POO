@@ -21,7 +21,7 @@ namespace ObjetosNegocio
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Marca
+    public class Marca: IMarca
     {
         #region Attributes
 

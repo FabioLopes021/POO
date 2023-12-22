@@ -20,7 +20,7 @@ namespace ObjetosNegocio
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Fornecedor
+    public class Fornecedor: IFornecedor
     {
         #region Attributes
 

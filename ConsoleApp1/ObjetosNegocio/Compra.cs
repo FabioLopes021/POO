@@ -21,7 +21,7 @@ namespace ObjetosNegocio
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Compra
+    public class Compra: ICompra
     {
         #region Attributes
 

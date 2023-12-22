@@ -21,7 +21,7 @@ namespace ObjetosNegocio
     /// </summary>
     /// <remarks></remarks>
     /// <example></example>
-    public class Cliente
+    public class Cliente: ICliente
     {
 
         #region Attributes

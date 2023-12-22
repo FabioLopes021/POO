@@ -50,6 +50,11 @@
     <Compile Include="Fornecedor.cs" />
     <Compile Include="Garantia.cs" />
     <Compile Include="ICategoria.cs" />
+    <Compile Include="ICliente.cs" />
+    <Compile Include="ICompra.cs" />
+    <Compile Include="IFornecedor.cs" />
+    <Compile Include="IMarca.cs" />
+    <Compile Include="IProduto.cs" />
     <Compile Include="IVenda.cs" />
     <Compile Include="Marca.cs" />
     <Compile Include="Pessoa.cs" />
