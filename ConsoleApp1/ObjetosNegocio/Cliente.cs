@@ -220,6 +220,70 @@ namespace ObjetosNegocio
             return ++maxid;
         }
 
+
+        /// <summary>
+        /// Metodo para alterar o nome de um Cliente
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public bool AlterarNome(string nome)
+        {
+            if (ReferenceEquals(this, null) || nome == "")
+                return false;
+
+            this.Nome = nome;
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Metodo para alterar a morada de um Cliente
+        /// </summary>
+        /// <param name="morada"></param>
+        /// <returns></returns>
+        public bool AlterarMorada(string morada)
+        {
+            if (ReferenceEquals(this, null) || morada == "")
+                return false;
+
+            this.Morada = morada;
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Metodo para alterar o NIF de um Cliente
+        /// </summary>
+        /// <param name="nif"></param>
+        /// <returns></returns>
+        public bool AlterarNif(int nif)
+        {
+            if (ReferenceEquals(this, null) || nif < 0)
+                return false;
+
+            this.NIF = nif;
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Metodo para alterar o telemovel de um Cliente
+        /// </summary>
+        /// <param name="tel"></param>
+        /// <returns></returns>
+        public bool AlterarTelemovel(int tel)
+        {
+            if (ReferenceEquals(this, null) || tel < 0)
+                return false;
+
+            this.Telemovel = tel;
+
+            return true;
+        }
+
         #endregion
 
         #endregion

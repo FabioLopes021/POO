@@ -321,6 +321,92 @@ namespace ObjetosNegocio
         }
 
 
+        /// <summary>
+        /// Metodo para alterar o nome de um produto
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public bool AlterarNome(string nome)
+        {
+            if (ReferenceEquals(this, null) || nome == "")
+                return false;
+
+            this.Nome = nome;
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Metodo para alterar o valor de um produto
+        /// </summary>
+        /// <param name="valor"></param>
+        /// <returns></returns>
+        public bool AlterarValor(float valor)
+        {
+            if (ReferenceEquals(this, null) || valor <= 0.0)
+                return false;
+
+            this.Valor = valor;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo para alterar a garantia de um produto
+        /// </summary>
+        /// <param name="garantia"></param>
+        /// <returns></returns>
+        public bool AlterarGarantia(float garantia)
+        {
+            if (ReferenceEquals(this, null) || garantia <= 0.0)
+                return false;
+
+            this.garantiaAnos = garantia;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Metodo para alterar a categoria de um produto
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool AlterarCategoria(int id)
+        {
+            if (ReferenceEquals(this, null))
+                return false;
+
+            if (!Categorias.VerificaCategoriaPorId(id))
+                return false;
+
+
+            this.CatgId = id;
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// Metodo para alterar a marca de um produto
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public bool AlterarMarca(int id)
+        {
+            if (ReferenceEquals(this, null))
+                return false;
+
+            if (!Marcas.VerificaMarcaPorId(id))
+                return false;
+
+
+            this.MarcaId = id;
+
+            return true;
+        }
+
 
         #endregion
 

@@ -176,6 +176,20 @@ namespace ObjetosNegocio
         }
 
 
+        /// <summary>
+        /// Metodo para alterar o nome de uma Categoria
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public bool AlterarNome(string nome)
+        {
+            if (ReferenceEquals(this, null) || nome == "")
+                return false;
+
+            this.Nome = nome;
+
+            return true;
+        }
 
 
 

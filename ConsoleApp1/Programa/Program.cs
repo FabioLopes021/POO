@@ -84,7 +84,7 @@ namespace Programa
 
 
             #region guardarDados
-            
+            /*
             try
             {
                 RegrasNegocio.GuardarCategorias("Categorias");
@@ -148,7 +148,7 @@ namespace Programa
                 IO.EscreverMensagem(e.Message);
             }
             
-
+            */
             #endregion
 
 

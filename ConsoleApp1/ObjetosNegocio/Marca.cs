@@ -194,7 +194,42 @@ namespace ObjetosNegocio
 
             return ++maxid;
         }
-        
+
+
+        /// <summary>
+        /// Metodo para alterar o nome de uma marca
+        /// </summary>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public bool AlterarNome(string nome)
+        {
+            if (ReferenceEquals(this, null) || nome == "")
+                return false;
+
+            this.Nome = nome;
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// Metodo para alterar a morada de uma Marca
+        /// </summary>
+        /// <param name="morada"></param>
+        /// <returns></returns>
+        public bool AlterarMorada(string morada)
+        {
+            if (ReferenceEquals(this, null) || morada == "")
+                return false;
+
+            this.Morada = morada;
+
+            return true;
+        }
+
+
+
         #endregion
 
         #endregion
