@@ -86,8 +86,6 @@ namespace Dados
             return true;
         }
 
-
-
         /// <summary>
         /// Metodo que retorma a marca relativa ao ID recebido
         /// </summary>
@@ -121,14 +119,14 @@ namespace Dados
         /// <returns></returns>
         public static bool VerificaMarcaPorId(int id)
         {
-            if(id <= 0)
+            if (id <= 0)
                 return false;
 
             Marca aux = null;
 
             aux = listaMarcas.Find(e => e.Id == id);
 
-            if(aux == null)
+            if (aux == null)
                 return false;
             return true;
 
@@ -185,6 +183,7 @@ namespace Dados
             return true;
         }
 
+        
         /// <summary>
         /// Metodo para encontrar a marca a qual sera alterado o nome
         /// </summary>
@@ -205,7 +204,7 @@ namespace Dados
 
             return aux;
         }
-
+        
 
         /// <summary>
         /// Metodo para encontrar a marca a qual sera alterada a morada
@@ -227,6 +226,8 @@ namespace Dados
 
             return aux;
         }
+        
+
 
         #endregion
 

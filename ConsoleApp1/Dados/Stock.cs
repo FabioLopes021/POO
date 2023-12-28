@@ -99,7 +99,7 @@ namespace Dados
         /// <returns></returns>
         public static bool RemoverProduto(int id)
         {
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = ProdutoPorId(id);
 
             if (p == null) 
                 return false;
@@ -132,10 +132,10 @@ namespace Dados
         /// <exception cref="StockExcecoes"></exception>
         public static bool RetirarQuantidade(int produtoId, float quantidade)
         {
-            if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId)) 
+            if (produtoId < 1 || !ExisteProdutoPorId(produtoId)) 
                 return false;
 
-            Produto p = Produto.ProdutoPorId(produtoId);
+            Produto p = ProdutoPorId(produtoId);
 
             if(p != null)
             {
@@ -165,10 +165,10 @@ namespace Dados
         /// <exception cref="StockExcecoes"></exception>
         public static bool AumentarQuantidade(int produtoId, float quantidade)
         {
-            if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId))
+            if (produtoId < 1 || !ExisteProdutoPorId(produtoId))
                 return false;
 
-            Produto p = Produto.ProdutoPorId(produtoId);
+            Produto p = ProdutoPorId(produtoId);
 
 
             if (p != null)
@@ -233,7 +233,7 @@ namespace Dados
         /// <returns></returns>
         public static bool VerificaDispProduto(int produtoId, int quantidade)
         {
-            if (produtoId < 1 || !Produto.ExisteProdutoPorId(produtoId))
+            if (produtoId < 1 || !ExisteProdutoPorId(produtoId))
                 return false;
 
             Produto aux = null;
@@ -297,7 +297,7 @@ namespace Dados
                 int chave = parchave.Key;
                 Produto produtoChave = null;
 
-                produtoChave = Produto.ProdutoPorId(chave);
+                produtoChave = ProdutoPorId(chave);
 
                 if( produtoChave != null)
                 {
@@ -394,10 +394,10 @@ namespace Dados
         /// <returns></returns>
         public bool AlterarNomeProduto(int id, string nome)
         {
-            if(!Produto.ExisteProdutoPorId(id))
+            if(!ExisteProdutoPorId(id))
                 return false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = ProdutoPorId(id);
 
             if(p == null) 
                 return false;
@@ -416,10 +416,10 @@ namespace Dados
         /// <returns></returns>
         public bool AlterarValorProduto(int id, float valor)
         {
-            if (!Produto.ExisteProdutoPorId(id))
+            if (!ExisteProdutoPorId(id))
                 return false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = ProdutoPorId(id);
 
             if (p == null)
                 return false;
@@ -437,10 +437,10 @@ namespace Dados
         /// <returns></returns>
         public bool AlterarGarantiaProduto(int id, float garantia)
         {
-            if (!Produto.ExisteProdutoPorId(id))
+            if (!ExisteProdutoPorId(id))
                 return false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = ProdutoPorId(id);
 
             if (p == null)
                 return false;
@@ -459,10 +459,10 @@ namespace Dados
         /// <returns></returns>
         public bool AlterarCategoriaProduto(int id, int categoria)
         {
-            if (!Produto.ExisteProdutoPorId(id))
+            if (!ExisteProdutoPorId(id))
                 return false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = ProdutoPorId(id);
 
             if (p == null)
                 return false;
@@ -480,15 +480,61 @@ namespace Dados
         /// <returns></returns>
         public bool AlterarMarcaProduto(int id, int marca)
         {
-            if (!Produto.ExisteProdutoPorId(id))
+            if (!ExisteProdutoPorId(id))
                 return false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = ProdutoPorId(id);
 
             if (p == null)
                 return false;
 
             bool aux = p.AlterarMarca(marca);
+
+            return aux;
+        }
+
+
+        /// <summary>
+        /// Funçao para verificar se o produto existe no Stock
+        /// </summary>
+        /// <param name="produtoId"></param>
+        /// <returns></returns>
+        public static bool ExisteProdutoPorId(int produtoId)
+        {
+
+
+            if (produtoId < 0 || listaProdutos.Count < 1)
+                return false;
+
+            Produto aux = null;
+
+            aux = listaProdutos.Find(e => e.Id == produtoId);
+
+            if (ReferenceEquals(aux, null))
+                return false;
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// Metodo que retorna o produto referente ao id recebido
+        /// </summary>
+        /// <param name="produtoId"></param>
+        /// <returns></returns>
+        public static Produto ProdutoPorId(int produtoId)
+        {
+            if (!ExisteProdutoPorId(produtoId))
+                return null;
+            
+
+            Produto aux = null;
+
+            aux = listaProdutos.Find(e => e.Id == produtoId);
+
+            if (aux == null)
+                return null;
 
             return aux;
         }

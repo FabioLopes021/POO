@@ -880,31 +880,5 @@ namespace InOut
 
         #endregion
 
-        #region LerDadosAlterarProduto
-
-
-        #endregion
-
-
-        #region LerDadosAlterarMarca
-
-
-
-        #endregion
-
-
-        #region LerDadosAlterarFornecedor
-
-
-
-        #endregion
-
-
-        #region LerDadosAlterarCliente
-
-
-
-        #endregion
-
     }
 }

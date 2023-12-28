@@ -56,8 +56,8 @@ namespace ObjetosNegocio
             nome = "";
             valor = 0;
             garantiaAnos = 0;
-            totProd++;
             id = totProd;
+            totProd++;
             catgId = 0;
             marcaId = 0;
             quantidade = 0;
@@ -276,52 +276,6 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para verificar se o produto existe no Stock
-        /// </summary>
-        /// <param name="produtoId"></param>
-        /// <returns></returns>
-        public static bool ExisteProdutoPorId(int produtoId)
-        {
-            List<Produto> lista = Stock.ListaProdutos;
-
-
-            if (produtoId < 0 || lista.Count < 1)
-                return false;
-
-            Produto aux = null;
-
-            aux = lista.Find(e => e.Id == produtoId);
-
-            if (ReferenceEquals(aux, null))
-                return false;
-
-            return true;
-        }
-
-        /// <summary>
-        /// Metodo que retorna o produto referente ao id recebido
-        /// </summary>
-        /// <param name="produtoId"></param>
-        /// <returns></returns>
-        public static Produto ProdutoPorId(int produtoId)
-        {
-            if (!ExisteProdutoPorId(produtoId))
-                return null;
-
-            List<Produto> lista = Stock.ListaProdutos;
-
-            Produto aux = null;
-
-            aux = lista.Find(e => e.Id == produtoId);
-
-            if (aux == null)
-                return null;
-
-            return aux;
-        }
-
-
-        /// <summary>
         /// Metodo para alterar o nome de um produto
         /// </summary>
         /// <param name="nome"></param>
@@ -352,6 +306,7 @@ namespace ObjetosNegocio
             return true;
         }
 
+
         /// <summary>
         /// Metodo para alterar a garantia de um produto
         /// </summary>
@@ -366,6 +321,7 @@ namespace ObjetosNegocio
 
             return true;
         }
+
 
         /// <summary>
         /// Metodo para alterar a categoria de um produto

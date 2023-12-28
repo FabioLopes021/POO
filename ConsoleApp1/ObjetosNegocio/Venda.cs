@@ -207,7 +207,7 @@ namespace ObjetosNegocio
 
 
 
-
+        
         /// <summary>
         /// Funçao para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
         /// </summary>
@@ -216,7 +216,7 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public bool AdicionarProdutoVenda(int produtoId, int quantidade)
         {
-            if (!Produto.ExisteProdutoPorId(produtoId))
+            if (!Stock.ExisteProdutoPorId(produtoId))
                 return false;
 
             if (ReferenceEquals(this.artigosVendidos, null))
@@ -241,7 +241,7 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public bool RemoverProdutoVenda(int produtoId, int quantidade)
         {
-            if (!Produto.ExisteProdutoPorId(produtoId))
+            if (!Stock.ExisteProdutoPorId(produtoId))
                 return false;
 
             if (ReferenceEquals(this.artigosVendidos, null))
@@ -258,7 +258,7 @@ namespace ObjetosNegocio
 
             return false;
         }
-
+        
         
         /// <summary>
         /// Funçao que verifica a integridade da venda, se os artigos estao disponiveis em stock e o id do cliente esta correto
@@ -286,7 +286,7 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public bool VerificaProdutoVenda(int idProduto)
         {
-            if (!Produto.ExisteProdutoPorId(idProduto))
+            if (!Stock.ExisteProdutoPorId(idProduto))
                 return false;
 
             foreach (KeyValuePair<int, int> parchave in this.ArtigosVendidos)

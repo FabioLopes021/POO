@@ -201,7 +201,7 @@ namespace ObjetosNegocio
             return ++maxid;
         }
 
-
+        
         /// <summary>
         /// Funçao para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
         /// </summary>
@@ -210,13 +210,13 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public bool AdicionarProdutoCompra(int produtoId, int quantidade)
         {
-            if (!Produto.ExisteProdutoPorId(produtoId))
+            if (!Stock.ExisteProdutoPorId(produtoId))
                 return false;
 
             if (ReferenceEquals(this.artigosComprados, null))
                 this.artigosComprados = new Dictionary<int, int>();
 
-            Produto aux = Produto.ProdutoPorId(produtoId);
+            Produto aux = Stock.ProdutoPorId(produtoId);
 
             if(aux == null)
                 return false;
@@ -239,13 +239,13 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public bool RemoverProdutoCompra(int produtoId, int quantidade)
         {
-            if (!Produto.ExisteProdutoPorId(produtoId))
+            if (!Stock.ExisteProdutoPorId(produtoId))
                 return false;
 
             if (ReferenceEquals(this.artigosComprados, null))
                 this.artigosComprados = new Dictionary<int, int>();
 
-            Produto aux = Produto.ProdutoPorId(produtoId);
+            Produto aux = Stock.ProdutoPorId(produtoId);
 
             if (aux == null)
                 return false;
@@ -261,7 +261,7 @@ namespace ObjetosNegocio
 
             return false;
         }
-
+        
 
         /// <summary>
         /// Funçao que verifica a integridade da Compra, se os artigos estao em stock ou precisam de ser inicializados
@@ -275,7 +275,7 @@ namespace ObjetosNegocio
 
             return true;
         }
-
+        
 
 
         /// <summary>
@@ -285,7 +285,7 @@ namespace ObjetosNegocio
         /// <returns></returns>
         public bool VerificaProdutoCompra(int idProduto)
         {
-            if (!Produto.ExisteProdutoPorId(idProduto))
+            if (!Stock.ExisteProdutoPorId(idProduto))
                 return false;
 
             foreach(KeyValuePair<int,int> parchave in this.artigosComprados)
@@ -298,8 +298,7 @@ namespace ObjetosNegocio
 
             return false;
         }
-
-
+        
 
         #endregion
 

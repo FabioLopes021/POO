@@ -10,7 +10,7 @@ namespace Programa
         {
 
             #region Carregadados
-
+            
             
             try
             {
@@ -74,7 +74,7 @@ namespace Programa
             {
                 IO.EscreverMensagem(e.Message);
             }
-
+            
             #endregion
 
 

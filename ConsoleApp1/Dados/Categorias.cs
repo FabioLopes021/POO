@@ -86,6 +86,9 @@ namespace Dados
         }
 
 
+
+
+
         /// <summary>
         /// Metodo que retorma a Categoria relativa ao ID recebido 
         /// </summary>
@@ -109,6 +112,7 @@ namespace Dados
 
             return aux;
         }
+
 
 
         /// <summary>

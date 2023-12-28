@@ -298,13 +298,20 @@ namespace Programa
                     case 17:    // Alterar dados produto
                         int auxMenuAltProd = -1;
                         int idProduto;
+                        if (RegrasNegocio.NumProdutos() < 1)
+                        {
+                            IO.EscreverMensagem("Nao existem produtos em stock!");
+                            IO.ReadKey();
+                            break;
+                        }
+                            
                         IO.ClearConsole();
                         IO.ListaProdutos();
                         IO.EscreverMensagem("Escolha o Id do produto que deseja alterar: ");
                         do
                         {
                             idProduto = IO.LerInt();
-                        } while (!Produto.ExisteProdutoPorId(idProduto));
+                        } while (!RegrasNegocio.ExisteProdutoPorId(idProduto));
                         do
                         {
                             IO.ClearConsole();
@@ -365,13 +372,19 @@ namespace Programa
                     case 18:    // Alterar dados Marca
                         int auxMenuAltMarca = -1;
                         int idMarca = 0;
+                        if (RegrasNegocio.NumMarcas() < 1)
+                        {
+                            IO.EscreverMensagem("Nao existem Marcas Criadas!");
+                            IO.ReadKey();
+                            break;
+                        }
                         IO.ClearConsole();
                         IO.ListaMarcas();
                         IO.EscreverMensagem("Escolha o Id da marca que deseja alterar: ");
                         do
                         {
                             idMarca = IO.LerInt();
-                        } while (idMarca < 1);
+                        } while (!RegrasNegocio.ExisteMarcaPorId(idMarca));
                         do
                         {
                             IO.ClearConsole();
@@ -403,13 +416,19 @@ namespace Programa
                     case 19:    // Alterar dados Fornecedor
                         int auxMenuAltForn = -1;
                         int idFornecedor;
+                        if (RegrasNegocio.NumFornecedores() < 1)
+                        {
+                            IO.EscreverMensagem("Nao existem Fornecedores Criados!");
+                            IO.ReadKey();
+                            break;
+                        }
                         IO.ClearConsole();
                         IO.ListaProdutos();
                         IO.EscreverMensagem("Escolha o Id do Fornecedor que deseja alterar: ");
                         do
                         {
                             idFornecedor = IO.LerInt();
-                        } while (idFornecedor < 1);
+                        } while (!RegrasNegocio.ExisteFornecedorPorId(idFornecedor));
                         do
                         {
                             IO.ClearConsole();
@@ -452,13 +471,19 @@ namespace Programa
                     case 20:    // Alterar dados Clientes
                         int auxMenuAltCliente = -1;
                         int idCliente;
+                        if (RegrasNegocio.NumClientes() < 1)
+                        {
+                            IO.EscreverMensagem("Nao existem Clientes Criados!");
+                            IO.ReadKey();
+                            break;
+                        }
                         IO.ClearConsole();
                         IO.ListaProdutos();
                         IO.EscreverMensagem("Escolha o Id do Cliente que deseja alterar: ");
                         do
                         {
                             idCliente = IO.LerInt();
-                        } while (idCliente < 1);
+                        } while (!RegrasNegocio.ExisteClientePorId(idCliente));
                         do
                         {
                             IO.ClearConsole();

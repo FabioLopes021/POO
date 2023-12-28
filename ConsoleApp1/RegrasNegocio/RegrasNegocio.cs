@@ -662,7 +662,75 @@ namespace RN
         }
 
 
-        
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de categorias
+        /// </summary>
+        /// <returns></returns>
+        public static int NumCategorias()
+        {
+            return Categorias.ListaCategorias.Count;
+        }
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Marcas
+        /// </summary>
+        /// <returns></returns>
+        public static int NumMarcas()
+        {
+            return Marcas.ListaMarcas.Count;
+        }
+
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Fornecedores
+        /// </summary>
+        /// <returns></returns>
+        public static int NumFornecedores()
+        {
+            return Fornecedores.ListaFornecedores.Count;
+        }
+
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Clientes
+        /// </summary>
+        /// <returns></returns>
+        public static int NumClientes()
+        {
+            return Clientes.ListaClientes.Count;
+        }
+
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Produtos
+        /// </summary>
+        /// <returns></returns>
+        public static int NumProdutos()
+        {
+            return Stock.ListaProdutos.Count;
+        }
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Vendas
+        /// </summary>
+        /// <returns></returns>
+        public static int NumVendas()
+        {
+            return Vendas.ListaVendas.Count;
+        }
+
+        /// <summary>
+        /// Metodo que retorna uma copia da lista de Compras
+        /// </summary>
+        /// <returns></returns>
+        public static int NumCompras()
+        {
+            return Compras.ListaCompras.Count;
+        }
+
+
+
         /// <summary>
         /// Metodo que retorna o Produto correspondente a um determinado id
         /// </summary>
@@ -675,12 +743,113 @@ namespace RN
                 return null;
             }
 
-            return Produto.ProdutoPorId(id);
+            return Stock.ProdutoPorId(id);
+
+        }
+
+        
+        public static bool ExisteProdutoPorId(int id)
+        {
+            return Stock.ExisteProdutoPorId(id);
+        }
+
+
+        public static Venda VendaPorId(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            return Vendas.VendaPorId(id);
 
         }
 
 
-        
+        public static Marca MarcaPorId(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            return Marcas.MarcaPorId(id);
+
+        }
+
+
+        public static bool ExisteMarcaPorId(int id)
+        {
+            return Marcas.VerificaMarcaPorId(id);
+        }
+
+        public static Fornecedor FornecedorPorId(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            return Fornecedores.FornecedorPorId(id);
+        }
+
+
+        public static bool ExisteFornecedorPorId(int id)
+        {
+            return Fornecedores.VerificaFornecedorId(id);
+        }
+
+        public static Cliente ClientePorId(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            return Clientes.ClientePorId(id);
+
+        }
+
+
+        public static bool ExisteClientePorId(int id)
+        {
+            return Clientes.VerificaClienteId(id);
+        }
+
+
+        public static Categoria CategoriaPorId(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            return Categorias.CategoriaPorId(id);
+
+        }
+
+
+        public static bool ExisteCategoriaPorId(int id)
+        {
+            return Categorias.VerificaCategoriaPorId(id);
+        }
+
+
+        public static Compra CompraPorId(int id)
+        {
+            if (id < 0)
+            {
+                return null;
+            }
+
+            return Compras.CompraPorId(id);
+
+        }
+
+
+
+
+
         public static bool AlterarNomeFornecedor(int id, string nome)
         {
             if (id < 0 || nome == "")
@@ -866,7 +1035,7 @@ namespace RN
 
             bool aux = false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = Stock.ProdutoPorId(id);
 
             if (!ReferenceEquals(p, null))
                 aux = p.AlterarNome(nome);
@@ -884,7 +1053,7 @@ namespace RN
 
             bool aux = false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = Stock.ProdutoPorId(id);
 
             if (!ReferenceEquals(p, null))
                 aux = p.AlterarValor(valor);
@@ -901,7 +1070,7 @@ namespace RN
 
             bool aux = false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = Stock.ProdutoPorId(id);
 
             if (!ReferenceEquals(p, null))
                 aux = p.AlterarGarantia(garantia);
@@ -918,7 +1087,7 @@ namespace RN
 
             bool aux = false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = Stock.ProdutoPorId(id);
 
             if (!ReferenceEquals(p, null))
                 aux = p.AlterarCategoria(idCat);
@@ -936,7 +1105,7 @@ namespace RN
 
             bool aux = false;
 
-            Produto p = Produto.ProdutoPorId(id);
+            Produto p = Stock.ProdutoPorId(id);
 
             if (!ReferenceEquals(p, null))
                 aux = p.AlterarMarca(idMarca);

@@ -66,7 +66,6 @@ namespace Dados
 
         #region Other_Methods
 
-
         /// <summary>
         /// Metodo que retorma a marca relativa ao ID recebido
         /// </summary>
@@ -90,6 +89,7 @@ namespace Dados
 
             return aux;
         }
+
 
 
         /// <summary>
