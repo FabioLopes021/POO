@@ -93,7 +93,7 @@ namespace Dados
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Marca MarcaPorId(int id)
+        public static Marca MarcaPorId(int id)
         {
             if (ReferenceEquals(listaMarcas, null))
                 return null;

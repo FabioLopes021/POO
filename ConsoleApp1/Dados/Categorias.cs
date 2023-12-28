@@ -91,7 +91,7 @@ namespace Dados
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public Categoria CategoriaPorId(int id)
+        public static Categoria CategoriaPorId(int id)
         {
             if (ReferenceEquals(listaCategorias, null))
                 return null;

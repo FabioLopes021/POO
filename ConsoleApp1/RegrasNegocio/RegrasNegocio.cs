@@ -680,7 +680,271 @@ namespace RN
         }
 
 
-        public static AlterarNome
+        
+        public static bool AlterarNomeFornecedor(int id, string nome)
+        {
+            if (id < 0 || nome == "")
+                return false;
+
+            bool aux = false;
+
+            Fornecedor f = Fornecedores.FornecedorPorId(id);
+
+            if(!ReferenceEquals(f,null))
+                aux = f.AlterarNome(nome);
+
+
+            return aux;
+
+        }
+
+        public static bool AlterarMoradaFornecedor(int id, string morada)
+        {
+            if (id < 0 || morada == "")
+                return false;
+
+            bool aux = false;
+
+            Fornecedor f = Fornecedores.FornecedorPorId(id);
+
+            if (!ReferenceEquals(f, null))
+                aux = f.AlterarMorada(morada);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarNIFFornecedor(int id, int nif)
+        {
+            if (id < 0 || nif < 0)
+                return false;
+
+            bool aux = false;
+
+            Fornecedor f = Fornecedores.FornecedorPorId(id);
+
+            if (!ReferenceEquals(f, null))
+                aux = f.AlterarNif(nif);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarTelemovelFornecedor(int id, int tel)
+        {
+            if (id < 0 || tel < 0)
+                return false;
+
+            bool aux = false;
+
+            Fornecedor f = Fornecedores.FornecedorPorId(id);
+
+            if (!ReferenceEquals(f, null))
+                aux = f.AlterarTelemovel(tel);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarNomeCliente(int id, string nome)
+        {
+            if (id < 0 || nome == "")
+                return false;
+
+            bool aux = false;
+
+            Cliente c = Clientes.ClientePorId(id);
+
+            if (!ReferenceEquals(c, null))
+                aux = c.AlterarNome(nome);
+
+
+            return aux;
+
+        }
+
+        public static bool AlterarMoradaCliente(int id, string morada)
+        {
+            if (id < 0 || morada == "")
+                return false;
+
+            bool aux = false;
+
+            Cliente c = Clientes.ClientePorId(id);
+
+            if (!ReferenceEquals(c, null))
+                aux = c.AlterarMorada(morada);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarNIFCliente(int id, int nif)
+        {
+            if (id < 0 || nif < 0)
+                return false;
+
+            bool aux = false;
+
+            Cliente c = Clientes.ClientePorId(id);
+
+            if (!ReferenceEquals(c, null))
+                aux = c.AlterarNif(nif);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarTelemovelCliente(int id, int tel)
+        {
+            if (id < 0 || tel < 0)
+                return false;
+
+            bool aux = false;
+
+            Cliente c = Clientes.ClientePorId(id);
+
+            if (!ReferenceEquals(c, null))
+                aux = c.AlterarTelemovel(tel);
+
+
+            return aux;
+
+        }
+
+
+
+        public static bool AlterarNomeMarca(int id, string nome)
+        {
+            if (id < 0 || nome == "")
+                return false;
+
+            bool aux = false;
+
+            Marca m = Marcas.MarcaPorId(id);
+
+            if (!ReferenceEquals(m, null))
+                aux = m.AlterarNome(nome);
+
+
+            return aux;
+
+        }
+
+        public static bool AlterarMoradaMarca(int id, string morada)
+        {
+            if (id < 0 || morada == "")
+                return false;
+
+            bool aux = false;
+
+            Marca m = Marcas.MarcaPorId(id);
+
+            if (!ReferenceEquals(m, null))
+                aux = m.AlterarMorada(morada);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarNomeProduto(int id, string nome)
+        {
+            if (id < 0 || nome == "")
+                return false;
+
+            bool aux = false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (!ReferenceEquals(p, null))
+                aux = p.AlterarNome(nome);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarValorProduto(int id, float valor)
+        {
+            if (id < 0 || valor <= 0.0)
+                return false;
+
+            bool aux = false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (!ReferenceEquals(p, null))
+                aux = p.AlterarValor(valor);
+
+
+            return aux;
+        }
+
+
+        public static bool AlterarGarantiaProduto(int id, float garantia)
+        {
+            if (id < 0 || garantia <= 0.0)
+                return false;
+
+            bool aux = false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (!ReferenceEquals(p, null))
+                aux = p.AlterarGarantia(garantia);
+
+
+            return aux;
+
+        }
+
+        public static bool AlterarCategoriaProduto(int id, int idCat)
+        {
+            if (id < 0 || idCat < 0.0)
+                return false;
+
+            bool aux = false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (!ReferenceEquals(p, null))
+                aux = p.AlterarCategoria(idCat);
+
+
+            return aux;
+
+        }
+
+
+        public static bool AlterarMarcaProduto(int id, int idMarca)
+        {
+            if (id < 0 || idMarca < 0.0)
+                return false;
+
+            bool aux = false;
+
+            Produto p = Produto.ProdutoPorId(id);
+
+            if (!ReferenceEquals(p, null))
+                aux = p.AlterarMarca(idMarca);
+
+
+            return aux;
+
+        }
 
 
         #endregion

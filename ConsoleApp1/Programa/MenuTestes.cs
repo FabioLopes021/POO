@@ -295,12 +295,213 @@ namespace Programa
                             }
                         } while (auxMenuV != 0);
                         break;
-
+                    case 17:    // Alterar dados produto
+                        int auxMenuAltProd = -1;
+                        int idProduto;
+                        IO.ClearConsole();
+                        IO.ListaProdutos();
+                        IO.EscreverMensagem("Escolha o Id do produto que deseja alterar: ");
+                        do
+                        {
+                            idProduto = IO.LerInt();
+                        } while (!Produto.ExisteProdutoPorId(idProduto));
+                        do
+                        {
+                            IO.ClearConsole();
+                            IO.MenuAlterarProduto();
+                            auxMenuAltProd = IO.LernumeroMenuProduto();
+                            switch (auxMenuAltProd)
+                            {
+                                case 0:
+                                    break;
+                                case 1:     //Alterar Nome
+                                    string NovoNome;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovoNome = IO.LerString();
+                                    RegrasNegocio.AlterarNomeProduto(idProduto,NovoNome);
+                                    break;
+                                case 2:     //Alterar Valor
+                                    float novoValor;
+                                    IO.EscreverMensagem("Indique o novo Preço");
+                                    novoValor = IO.LerFloat();
+                                    RegrasNegocio.AlterarValorProduto(idProduto, novoValor);
+                                    IO.ClearConsole();
+                                    break;
+                                case 3:     //Alterar Garantia
+                                    float novaGarantia;
+                                    IO.EscreverMensagem("Indique a nova Garantia (em anos)");
+                                    novaGarantia = IO.LerFloat();
+                                    RegrasNegocio.AlterarGarantiaProduto(idProduto, novaGarantia);
+                                    IO.ClearConsole();
+                                    break;
+                                case 4:     //Alterar Categoria
+                                    int idNovaCat;
+                                    IO.ClearConsole();
+                                    IO.ListaCategorias();
+                                    IO.EscreverMensagem("Indique o Id da nova categoria");
+                                    do
+                                    {
+                                        idNovaCat = IO.LerInt();
+                                    } while (idNovaCat < 0);        //Alterar para verificar se existem categorias
+                                    RegrasNegocio.AlterarCategoriaProduto(idProduto, idNovaCat);
+                                    break;
+                                case 5:     //Alterar Marca
+                                    int idNovaMar;
+                                    IO.ClearConsole();
+                                    IO.ListaCategorias();
+                                    IO.EscreverMensagem("Indique o Id da nova Marca");
+                                    do
+                                    {
+                                        idNovaMar = IO.LerInt();
+                                    } while (idNovaMar < 0);        //Alterar para verificar se existem categorias
+                                    RegrasNegocio.AlterarMarcaProduto(idProduto, idNovaMar);
+                                    break;
+                                default:
+                                    IO.EscreverMensagem("Default, algo errou!!!");
+                                    break;
+                            }
+                        } while (auxMenuAltProd != 0);
+                        break;
+                    case 18:    // Alterar dados Marca
+                        int auxMenuAltMarca = -1;
+                        int idMarca = 0;
+                        IO.ClearConsole();
+                        IO.ListaMarcas();
+                        IO.EscreverMensagem("Escolha o Id da marca que deseja alterar: ");
+                        do
+                        {
+                            idMarca = IO.LerInt();
+                        } while (idMarca < 1);
+                        do
+                        {
+                            IO.ClearConsole();
+                            IO.MenuAlterarProduto();
+                            auxMenuAltMarca = IO.LernumeroMenuProduto();
+                            switch (auxMenuAltMarca)
+                            {
+                                case 0:
+                                    break;
+                                case 1:     //Alterar Nome
+                                    string NovoNome;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovoNome = IO.LerString();
+                                    RegrasNegocio.AlterarNomeMarca(idMarca, NovoNome);
+                                    break;
+                                case 2:     //Alterar Morada
+                                    IO.ClearConsole();
+                                    string NovaMorada;
+                                    IO.EscreverMensagem("Indique a nova Morada");
+                                    NovaMorada = IO.LerString();
+                                    RegrasNegocio.AlterarNomeMarca(idMarca, NovaMorada);
+                                    break;
+                                default:
+                                    IO.EscreverMensagem("Default, algo errou!!!");
+                                    break;
+                            }
+                        } while (auxMenuAltMarca != 0);
+                        break;
+                    case 19:    // Alterar dados Fornecedor
+                        int auxMenuAltForn = -1;
+                        int idFornecedor;
+                        IO.ClearConsole();
+                        IO.ListaProdutos();
+                        IO.EscreverMensagem("Escolha o Id do Fornecedor que deseja alterar: ");
+                        do
+                        {
+                            idFornecedor = IO.LerInt();
+                        } while (idFornecedor < 1);
+                        do
+                        {
+                            IO.ClearConsole();
+                            IO.MenuAlterarProduto();
+                            auxMenuAltForn = IO.LernumeroMenuProduto();
+                            switch (auxMenuAltForn)
+                            {
+                                case 0:
+                                    break;
+                                case 1:     //Alterar Nome
+                                    string NovoNome;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovoNome = IO.LerString();
+                                    RegrasNegocio.AlterarNomeFornecedor(idFornecedor, NovoNome);
+                                    break;
+                                case 2:     //Alterar Morada
+                                    string NovaMorada;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovaMorada = IO.LerString();
+                                    RegrasNegocio.AlterarMoradaFornecedor(idFornecedor, NovaMorada);
+                                    break;
+                                case 3:     //Alterar NIF
+                                    int novoNIF;
+                                    IO.EscreverMensagem("Indique o novo NIF");
+                                    novoNIF = IO.LerInt();
+                                    RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoNIF);
+                                    break;
+                                case 4:     //Alterar Telemovel
+                                    int novoTel;
+                                    IO.EscreverMensagem("Indique o novo numero de telemovel");
+                                    novoTel = IO.LerInt();
+                                    RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoTel);
+                                    break;
+                                default:
+                                    IO.EscreverMensagem("Default, algo errou!!!");
+                                    break;
+                            }
+                        } while (auxMenuAltForn != 0);
+                        break;
+                    case 20:    // Alterar dados Clientes
+                        int auxMenuAltCliente = -1;
+                        int idCliente;
+                        IO.ClearConsole();
+                        IO.ListaProdutos();
+                        IO.EscreverMensagem("Escolha o Id do Cliente que deseja alterar: ");
+                        do
+                        {
+                            idCliente = IO.LerInt();
+                        } while (idCliente < 1);
+                        do
+                        {
+                            IO.ClearConsole();
+                            IO.MenuAlterarProduto();
+                            auxMenuAltCliente = IO.LernumeroMenuProduto();
+                            switch (auxMenuAltCliente)
+                            {
+                                case 0:
+                                    break;
+                                case 1:     //Alterar Nome
+                                    string NovoNome;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovoNome = IO.LerString();
+                                    RegrasNegocio.AlterarNomeCliente(idCliente, NovoNome);
+                                    break;
+                                case 2:     //Alterar Morada
+                                    string NovaMorada;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovaMorada = IO.LerString();
+                                    RegrasNegocio.AlterarMoradaCliente(idCliente, NovaMorada);
+                                    break;
+                                case 3:     //Alterar NIF
+                                    int novoNIF;
+                                    IO.EscreverMensagem("Indique o novo NIF");
+                                    novoNIF = IO.LerInt();
+                                    RegrasNegocio.AlterarNIFCliente(idCliente, novoNIF);
+                                    break;
+                                case 4:     //Alterar Telemovel
+                                    int novoTel;
+                                    IO.EscreverMensagem("Indique o novo numero de telemovel");
+                                    novoTel = IO.LerInt();
+                                    RegrasNegocio.AlterarTelemovelCliente(idCliente, novoTel);
+                                    break;
+                                default:
+                                    IO.EscreverMensagem("Default, algo errou!!!");
+                                    break;
+                            }
+                        } while (auxMenuAltCliente != 0);
+                        break;
                     default:
                         IO.EscreverMensagem("Default, algo errou!!!");                           
                         break;
                 }
-
             } while (menu != 0);
 
             return 0;

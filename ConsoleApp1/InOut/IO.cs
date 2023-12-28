@@ -285,6 +285,10 @@ namespace InOut
             Console.WriteLine("- 14 - Listar Compras                       -");
             Console.WriteLine("- 15 - Criar compra                         -");
             Console.WriteLine("- 16 - Criar Venda                          -");
+            Console.WriteLine("- 17 - Alterar dados produto                -");
+            Console.WriteLine("- 18 - Alterar dados Marca                  -");
+            Console.WriteLine("- 19 - Alterar dados Fornecedor             -");
+            Console.WriteLine("- 20 - Alterar dados Clientes               -");
             Console.WriteLine("------------------Menu Testes----------------");
 
         }
@@ -315,6 +319,61 @@ namespace InOut
             Console.WriteLine("- 3 - Registar Venda                        -");
             Console.WriteLine("------------------Menu Vendas----------------");
         }
+
+
+
+        public static void MenuAlterarProduto()
+        {
+            Console.WriteLine("------------------Menu Alterar Produto----------------");
+            Console.WriteLine("- 0 - Sair                                           -");
+            Console.WriteLine("- 1 - Alterar Nome                                   -");
+            Console.WriteLine("- 2 - Alterar Valor                                  -");
+            Console.WriteLine("- 3 - Alterar Garantia                               -");
+            Console.WriteLine("- 4 - Alterar Categoria                              -");
+            Console.WriteLine("- 5 - Alterar Marca                                  -");
+            Console.WriteLine("------------------Menu Alterar Produto----------------");
+        }
+
+
+
+        public static void MenuAlterarMarca()
+        {
+            Console.WriteLine("------------------Menu Alterar Marca----------------");
+            Console.WriteLine("- 0 - Sair                                         -");
+            Console.WriteLine("- 1 - Alterar Nome                                 -");
+            Console.WriteLine("- 2 - Alterar Morada                               -");
+            Console.WriteLine("------------------Menu Alterar Marca----------------");
+        }
+
+
+
+        public static void MenuAlterarFornecedor()
+        {
+            Console.WriteLine("------------------Menu Alterar Fornecedor----------------");
+            Console.WriteLine("- 0 - Sair                                              -");
+            Console.WriteLine("- 1 - Alterar Nome                                      -");
+            Console.WriteLine("- 2 - Alterar Morada                                    -");
+            Console.WriteLine("- 3 - Alterar NIF                                       -");
+            Console.WriteLine("- 4 - Alterar Telemovel                                 -");
+            Console.WriteLine("------------------Menu Alterar Fornecedor----------------");
+        }
+
+
+
+
+        public static void MenuAlterarCliente()
+        {
+            Console.WriteLine("------------------Menu Alterar Cliente----------------");
+            Console.WriteLine("- 0 - Sair                                           -");
+            Console.WriteLine("- 1 - Alterar Nome                                   -");
+            Console.WriteLine("- 2 - Alterar Morada                                 -");
+            Console.WriteLine("- 3 - Alterar NIF                                    -");
+            Console.WriteLine("- 4 - Alterar Telemovel                              -");
+            Console.WriteLine("------------------Menu Alterar Cliente----------------");
+        }
+
+
+
         #endregion
 
         #region LerOpçoesMenus
@@ -342,7 +401,7 @@ namespace InOut
                 {
                     Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
                 }
-            } while (num < 0 || num > 16);
+            } while (num < 0 || num > 20);
             return num;
         }
 
@@ -373,6 +432,97 @@ namespace InOut
             } while (num < 0 || num > 3);
             return num;
         }
+
+
+        public static int LernumeroMenuCliente()
+        {
+            int num = -1;
+            do
+            {
+                Console.WriteLine("Digite um número: ");
+
+                string input = Console.ReadLine();
+
+
+                if (int.TryParse(input, out int numero))
+                {
+                    num = numero;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
+                }
+            } while (num < 0 || num > 4);
+            return num;
+        }
+
+
+        public static int LernumeroMenuFornecedor()
+        {
+            int num = -1;
+            do
+            {
+                Console.WriteLine("Digite um número: ");
+
+                string input = Console.ReadLine();
+
+
+                if (int.TryParse(input, out int numero))
+                {
+                    num = numero;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
+                }
+            } while (num < 0 || num > 4);
+            return num;
+        }
+
+        public static int LernumeroMenuMarca()
+        {
+            int num = -1;
+            do
+            {
+                Console.WriteLine("Digite um número: ");
+
+                string input = Console.ReadLine();
+
+
+                if (int.TryParse(input, out int numero))
+                {
+                    num = numero;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
+                }
+            } while (num < 0 || num > 2);
+            return num;
+        }
+
+        public static int LernumeroMenuProduto()
+        {
+            int num = -1;
+            do
+            {
+                Console.WriteLine("Digite um número: ");
+
+                string input = Console.ReadLine();
+
+
+                if (int.TryParse(input, out int numero))
+                {
+                    num = numero;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
+                }
+            } while (num < 0 || num > 5);
+            return num;
+        }
+
 
         #endregion
 
@@ -415,7 +565,7 @@ namespace InOut
         /// Metodo que le uma string inserida pelo utilizador
         /// </summary>
         /// <returns></returns>
-        static string LerString()
+        public static string LerString()
         {
             return Console.ReadLine();
         }
@@ -427,7 +577,7 @@ namespace InOut
         /// Metodo que le um inteiro inserido pelo utilizador
         /// </summary>
         /// <returns></returns>
-        static int LerInt()
+        public static int LerInt()
         {
             
             while (true)
@@ -450,7 +600,7 @@ namespace InOut
         /// Metodo que le um float inserido pelo utilizador
         /// </summary>
         /// <returns></returns>
-        static float LerFloat()
+        public static float LerFloat()
         {
             
             while (true)
@@ -486,6 +636,7 @@ namespace InOut
 
             return cat;
         }
+
 
         /// <summary>
         /// Metodo que le os dados necessarios a criaçao de um objeto da classe marca
@@ -619,6 +770,7 @@ namespace InOut
 
         }
 
+
         /// <summary>
         /// Metodo que le os dados necessarios para remover um produto de uma compra
         /// </summary>
@@ -647,6 +799,7 @@ namespace InOut
 
         }
 
+
         /// <summary>
         /// Metodo que le os dados necessarios a criaçao de um objeto da classe Venda
         /// </summary>
@@ -662,6 +815,7 @@ namespace InOut
 
             return vend;
         }
+
 
         /// <summary>
         /// Metodo que le os dados necessarios para adicionar um produto a uma venda
@@ -688,6 +842,7 @@ namespace InOut
 
             return idProd;
         }
+
 
         /// <summary>
         /// Metodo que le os dados necessarios para remover um produto de uma venda
@@ -716,6 +871,38 @@ namespace InOut
 
             return idProd;
         }
+
+
+
+
+
+
+
+        #endregion
+
+        #region LerDadosAlterarProduto
+
+
+        #endregion
+
+
+        #region LerDadosAlterarMarca
+
+
+
+        #endregion
+
+
+        #region LerDadosAlterarFornecedor
+
+
+
+        #endregion
+
+
+        #region LerDadosAlterarCliente
+
+
 
         #endregion
 
