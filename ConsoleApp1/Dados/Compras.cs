@@ -84,7 +84,7 @@ namespace Dados
 
             aux = listaCompras.Find(e => e.Id == id);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return null;
 
             return aux;

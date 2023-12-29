@@ -1,0 +1,67 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Helpteste/1.0.0": {
+        "dependencies": {
+          "Dados": "1.0.0.0",
+          "Excecoes": "1.0.0.0",
+          "ObjetosNegocio": "1.0.0.0"
+        },
+        "runtime": {
+          "Helpteste.dll": {}
+        }
+      },
+      "Dados/1.0.0.0": {
+        "runtime": {
+          "Dados.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Excecoes/1.0.0.0": {
+        "runtime": {
+          "Excecoes.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ObjetosNegocio/1.0.0.0": {
+        "runtime": {
+          "ObjetosNegocio.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Helpteste/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Dados/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Excecoes/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ObjetosNegocio/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

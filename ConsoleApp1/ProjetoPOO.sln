@@ -15,7 +15,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programa", "Programa\Progra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InOut", "InOut\InOut.csproj", "{02200116-4013-4155-8826-6209A0F01790}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestesUnitarios", "TestesUnitarios\TestesUnitarios.csproj", "{AE27EEF6-8800-4019-A94B-0C482CE38B7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestesUnitarios", "TestesUnitarios\TestesUnitarios.csproj", "{AE27EEF6-8800-4019-A94B-0C482CE38B7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpteste", "Helpteste\Helpteste.csproj", "{60781093-2413-4ABE-8578-E1D7CCDE4DCF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{AE27EEF6-8800-4019-A94B-0C482CE38B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE27EEF6-8800-4019-A94B-0C482CE38B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE27EEF6-8800-4019-A94B-0C482CE38B7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60781093-2413-4ABE-8578-E1D7CCDE4DCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60781093-2413-4ABE-8578-E1D7CCDE4DCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60781093-2413-4ABE-8578-E1D7CCDE4DCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60781093-2413-4ABE-8578-E1D7CCDE4DCF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

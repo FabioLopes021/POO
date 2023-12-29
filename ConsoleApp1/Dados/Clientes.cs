@@ -151,7 +151,7 @@ namespace Dados
 
             aux = listaClientes.Find(e => e.Id == id);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return null;
 
             return aux;

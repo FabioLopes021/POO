@@ -537,7 +537,7 @@ namespace Dados
 
             aux = listaProdutos.Find(e => e.Id == produtoId);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return null;
 
             return aux;

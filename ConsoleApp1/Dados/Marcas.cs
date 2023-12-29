@@ -105,7 +105,7 @@ namespace Dados
 
             aux = listaMarcas.Find(e => e.Id == id);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return null;
 
             return aux;
@@ -127,7 +127,7 @@ namespace Dados
 
             aux = listaMarcas.Find(e => e.Id == id);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return false;
             return true;
 
