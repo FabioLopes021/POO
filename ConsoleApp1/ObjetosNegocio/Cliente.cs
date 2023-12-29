@@ -199,7 +199,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada Cliente a ser criado
+        /// Metodo para calcular id a ser atribuido a cada Cliente a ser criado
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()

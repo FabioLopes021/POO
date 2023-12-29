@@ -47,8 +47,9 @@ namespace Dados
 
         #region Properties
 
+
         /// <summary>
-        /// 
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de Categorias
         /// </summary>
         public static List<Categoria> ListaCategorias
         {
@@ -70,8 +71,9 @@ namespace Dados
         /// <summary>
         /// Metodo para adicionar uma Categoria a lista de categorias
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="c"></param>
         /// <returns></returns>
+        /// <exception cref="CategoriasExcecoes"></exception>
         public static bool guardarCategoria(Categoria c)
         {
 
@@ -132,14 +134,15 @@ namespace Dados
             if (aux == null)
                 return false;
             return true;
-
         }
 
 
         /// <summary>
         /// Metodo para guardar os dados da lista categorias num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarCategorias(string file)
         {
             Stream s;
@@ -164,7 +167,9 @@ namespace Dados
         /// <summary>
         /// Metodo para carregar dados de um ficheiro binario para a lista de categorias
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaCategorias(string file)
         {
             Stream s;
@@ -187,10 +192,10 @@ namespace Dados
 
 
         /// <summary>
-        /// Metodo para encontrar a categoria a qual sera alterado o nome 
+        /// Metodo para encontrar a Categoria a qual sera alterado o nome
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="valor"></param>
+        /// <param name="nome"></param>
         /// <returns></returns>
         public bool AlterarNomeCategoria(int id, string nome)
         {

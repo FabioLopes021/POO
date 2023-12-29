@@ -50,7 +50,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Propriedade para Criar um clone da lista de Fornecedores.
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de Fornecedores
         /// </summary>
         public static List<Fornecedor> ListaFornecedores
         {
@@ -70,8 +70,9 @@ namespace Dados
         /// <summary>
         /// Metodo para Adicionar um Fornecedor a lista de Fornecedores (Registar Fornecedor)
         /// </summary>
-        /// <param name="c"></param>
+        /// <param name="f"></param>
         /// <returns></returns>
+        /// <exception cref="FornecedoresExcecoes"></exception>
         public static bool RegistarFornecedor(Fornecedor f)
         {
             if (f == null)
@@ -91,7 +92,7 @@ namespace Dados
         /// <summary>
         /// Metodo para Remover um Fornecedor da lista de Fornecedores (Remover Fornecedor)
         /// </summary>
-        /// <param name="c"></param>
+        /// <param name="f"></param>
         /// <returns></returns>
         public static bool RemoverFornecedor(Fornecedor f)
         {
@@ -161,7 +162,9 @@ namespace Dados
         /// <summary>
         /// Metodo para guardar os dados da lista fornecedores num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarFornecedores(string file)
         {
             Stream s;
@@ -182,10 +185,13 @@ namespace Dados
             return true;
         }
 
+
         /// <summary>
         /// Metodo para carregar dados de um ficheiro binario para a lista de fornecedores
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaFornecedores(string file)
         {
             Stream s;
@@ -230,7 +236,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Metodo para encontrar o Fornecedor a qual sera alterado a morada
+        /// Metodo para encontrar o Fornecedor a qual sera alterada a morada
         /// </summary>
         /// <param name="id"></param>
         /// <param name="morada"></param>
@@ -252,7 +258,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Metodo para encontrar o Fornecedor a qual sera alterado o NIF
+        /// Metodo para encontrar o Fornecedor ao qual sera alterado o NIF
         /// </summary>
         /// <param name="id"></param>
         /// <param name="nif"></param>

@@ -79,12 +79,13 @@ namespace Dados
                 return false;
 
             if (listaMarcas.Contains(m))
-                throw new MarcasExcecoes("Falha de Marca (Marca ja resgistada)");       //Testar excecoes
+                throw new MarcasExcecoes("Falha de Marca (Marca ja resgistada)");
 
 
             listaMarcas.Add(m);
             return true;
         }
+
 
         /// <summary>
         /// Metodo que retorma a marca relativa ao ID recebido
@@ -137,7 +138,9 @@ namespace Dados
         /// <summary>
         /// Metodo para guardar os dados da lista marcas num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarMarcas(string file)
         {
             Stream s;
@@ -161,7 +164,9 @@ namespace Dados
         /// <summary>
         /// Metodo para carregar dados de um ficheiro binario para a lista de marcas
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaMarcas(string file)
         {
             Stream s;

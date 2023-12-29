@@ -48,7 +48,7 @@ namespace Dados
         #region Properties
 
         /// <summary>
-        /// Propriedade para Criar um clone da lista de Clientes.
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de Clientes
         /// </summary>
         public static List<Cliente> ListaClientes
         {
@@ -65,11 +65,13 @@ namespace Dados
 
         #region Other_Methods
 
+
         /// <summary>
         /// Metodo para Adicionar um cliente a lista de Clientes (Registar Cliente)
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
+        /// <exception cref="ClientesExcecoes"></exception>
         public static bool RegistarCliente(Cliente c)
         {
             if (c == null)
@@ -159,7 +161,9 @@ namespace Dados
         /// <summary>
         /// Metodo para guardar os dados da lista Clientes num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarClientes(string file)
         {
             Stream s;
@@ -184,7 +188,9 @@ namespace Dados
         /// <summary>
         /// Metodo para carregar dados de um ficheiro binario para a lista de Clientes
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaClientes(string file)
         {
             Stream s;

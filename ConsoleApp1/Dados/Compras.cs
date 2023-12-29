@@ -48,7 +48,7 @@ namespace Dados
         #region Properties
 
         /// <summary>
-        /// Propriedade para Criar um clone da lista de Compras.
+        /// Propriedade para Criar uma lista nova com os mesmos dados da lista de Compras
         /// </summary>
         public static List<Compra> ListaCompras
         {
@@ -92,7 +92,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Metodo que regista uma Compras e a adiciona a lista Compras
+        /// Metodo que regista uma Compra e a adiciona a lista de Compras
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
@@ -118,7 +118,9 @@ namespace Dados
         /// <summary>
         /// Metodo para guardar os dados da lista compras num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarCompras(string file)
         {
             Stream s;
@@ -139,10 +141,13 @@ namespace Dados
             return true;
         }
 
+
         /// <summary>
-        /// Metodo para guardar os dados da lista compras num ficheiro binario
+        /// Metodo para carregar os dados da lista compras de um ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaCompras(string file)
         {
             Stream s;

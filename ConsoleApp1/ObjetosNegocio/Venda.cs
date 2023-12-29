@@ -184,7 +184,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada venda a ser criada
+        /// Metodo para calcular id a ser atribuido a cada venda a ser criada
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()
@@ -207,9 +207,9 @@ namespace ObjetosNegocio
 
 
 
-        
+
         /// <summary>
-        /// Funçao para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
+        /// Metodo para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -234,7 +234,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para Remover o id dos produtos e a respetiva quantidade do dicionario 
+        /// Metodo para Remover o id dos produtos e a respetiva quantidade do dicionario 
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -258,10 +258,10 @@ namespace ObjetosNegocio
 
             return false;
         }
-        
-        
+
+
         /// <summary>
-        /// Funçao que verifica a integridade da venda, se os artigos estao disponiveis em stock e o id do cliente esta correto
+        /// Metodo que verifica a integridade da venda, se os artigos estao disponiveis em stock e o id do cliente esta correto
         /// </summary>
         /// <returns></returns>
         public bool VerificaIntegridadeVenda()
@@ -280,7 +280,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao que verifica se um produto esta adicionado a venda
+        /// Metodo que verifica se um produto esta adicionado a venda
         /// </summary>
         /// <param name="idProduto"></param>
         /// <returns></returns>

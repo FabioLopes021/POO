@@ -74,6 +74,7 @@ namespace Dados
         /// </summary>
         /// <param name="p"></param>
         /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool AdicionarProduto(Produto p)
         {
             if (p == null || listaProdutos.Count >= CAPACIDADEMAX)
@@ -93,10 +94,11 @@ namespace Dados
         
         //  Nao implementar (Nao remover produtos para nao perder referencias de Compras/Vendas antigas)
         /// <summary>
-        /// Funçao para remover um determinado produto de uma determinado armazem
+        /// Metodo para remover um produto do Stock
         /// </summary>
-        /// <param name="p"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
+        /// <exception cref="StockExcecoes"></exception>
         public static bool RemoverProduto(int id)
         {
             Produto p = ProdutoPorId(id);
@@ -119,8 +121,6 @@ namespace Dados
 
             return false;
         }
-        
-
 
 
         /// <summary>
@@ -331,9 +331,11 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para guardar os dados da listaProdutos num ficheiro binario
+        /// Metodo para guardar os dados da lista de Produtos num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarStock(string file)
         {
             Stream s;
@@ -357,9 +359,11 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para carregar dados de um ficheiro binario para a lista de Produtos
+        /// Metodo para carregar dados de um ficheiro binario para a lista de Produtos
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaStock(string file)
         {
             Stream s;
@@ -495,7 +499,7 @@ namespace Dados
 
 
         /// <summary>
-        /// Funçao para verificar se o produto existe no Stock
+        /// Metodo para verificar se o produto existe no Stock
         /// </summary>
         /// <param name="produtoId"></param>
         /// <returns></returns>

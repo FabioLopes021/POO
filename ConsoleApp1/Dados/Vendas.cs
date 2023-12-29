@@ -120,7 +120,9 @@ namespace Dados
         /// <summary>
         /// Metodo para guardar os dados da lista vendas num ficheiro binario
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool GuardarVendas(string file)
         {
             Stream s;
@@ -145,7 +147,9 @@ namespace Dados
         /// <summary>
         /// Metodo para carregar dados de um ficheiro binario para a lista de vendas
         /// </summary>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static bool CarregaVendas(string file)
         {
             Stream s;

@@ -196,7 +196,7 @@ namespace ObjetosNegocio
         #region Other_Methods
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada Fornecedor a ser criado
+        /// Metodo para calcular id a ser atribuido a cada Fornecedor a ser criado
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()

@@ -154,7 +154,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada Categoria a ser criada
+        /// Metodo para calcular id a ser atribuido a cada Categoria a ser criada
         /// </summary>
         /// <returns></returns>
         public int AtribuirId()

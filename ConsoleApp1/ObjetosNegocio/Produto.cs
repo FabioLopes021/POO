@@ -237,7 +237,7 @@ namespace ObjetosNegocio
         #region Other_Methods
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada Produto a ser criado
+        /// Metodo para calcular id a ser atribuido a cada Produto a ser criado
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()
@@ -260,7 +260,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para verificar se o produto esta completo com os dados obrigatorios
+        /// Metodo para verificar se o produto esta completo com os dados obrigatorios
         /// </summary>
         /// <returns></returns>
         public bool VerificaIntegridadeProduto()

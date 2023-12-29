@@ -180,7 +180,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada Compra a ser criada
+        /// Metodo para calcular id a ser atribuido a cada Compra a ser criada
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()
@@ -201,9 +201,9 @@ namespace ObjetosNegocio
             return ++maxid;
         }
 
-        
+
         /// <summary>
-        /// Funçao para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
+        /// Metodo para adicionar o id dos produtos e a respetiva qunatidade ao dicionario 
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -232,7 +232,7 @@ namespace ObjetosNegocio
 
 
         /// <summary>
-        /// Funçao para Remover o id dos produtos e a respetiva qunatidade do dicionario 
+        /// Metodo para Remover o id dos produtos e a respetiva qunatidade do dicionario 
         /// </summary>
         /// <param name="produtoId"></param>
         /// <param name="quantidade"></param>
@@ -261,10 +261,10 @@ namespace ObjetosNegocio
 
             return false;
         }
-        
+
 
         /// <summary>
-        /// Funçao que verifica a integridade da Compra, se os artigos estao em stock ou precisam de ser inicializados
+        /// Metodo que verifica a integridade da Compra, se os artigos estao em stock ou precisam de ser inicializados
         /// </summary>
         /// <returns></returns>
         public bool VerificaIntegridadeCompra()
@@ -275,11 +275,11 @@ namespace ObjetosNegocio
 
             return true;
         }
-        
+
 
 
         /// <summary>
-        /// Funçao que verifica se um produto esta adicionado a compra
+        /// Metodo que verifica se um produto esta adicionado a compra
         /// </summary>
         /// <param name="idProduto"></param>
         /// <returns></returns>

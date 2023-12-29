@@ -172,9 +172,9 @@ namespace ObjetosNegocio
 
         #region Other_Methods
 
-        
+
         /// <summary>
-        /// Funçao para calcular id a ser atribuido a cada marca a ser criada
+        /// Metodo para calcular id a ser atribuido a cada marca a ser criada
         /// </summary>
         /// <returns></returns>
         public static int AtribuirId()
