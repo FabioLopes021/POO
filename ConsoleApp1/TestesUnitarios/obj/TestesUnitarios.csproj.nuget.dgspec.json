@@ -1,0 +1,140 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Repositorios\\POO\\ConsoleApp1\\TestesUnitarios\\TestesUnitarios.csproj": {}
+  },
+  "projects": {
+    "E:\\Repositorios\\POO\\ConsoleApp1\\Dados\\Dados.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\Dados\\Dados.csproj",
+        "projectName": "Dados",
+        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\Dados\\Dados.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Repositorios\\POO\\ConsoleApp1\\Excecoes\\Excecoes.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\Excecoes\\Excecoes.csproj",
+        "projectName": "Excecoes",
+        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\Excecoes\\Excecoes.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Repositorios\\POO\\ConsoleApp1\\ObjetosNegocio\\ObjetosNegocio.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\ObjetosNegocio\\ObjetosNegocio.csproj",
+        "projectName": "ObjetosNegocio",
+        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ObjetosNegocio\\ObjetosNegocio.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Repositorios\\POO\\ConsoleApp1\\TestesUnitarios\\TestesUnitarios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Repositorios\\POO\\ConsoleApp1\\TestesUnitarios\\TestesUnitarios.csproj",
+        "projectName": "TestesUnitarios",
+        "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\TestesUnitarios\\TestesUnitarios.csproj",
+        "packagesPath": "C:\\Users\\Fabio\\.nuget\\packages\\",
+        "outputPath": "E:\\Repositorios\\POO\\ConsoleApp1\\TestesUnitarios\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\Repositorios\\POO\\ConsoleApp1\\Dados\\Dados.csproj": {
+                "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\Dados\\Dados.csproj"
+              },
+              "E:\\Repositorios\\POO\\ConsoleApp1\\Excecoes\\Excecoes.csproj": {
+                "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\Excecoes\\Excecoes.csproj"
+              },
+              "E:\\Repositorios\\POO\\ConsoleApp1\\ObjetosNegocio\\ObjetosNegocio.csproj": {
+                "projectPath": "E:\\Repositorios\\POO\\ConsoleApp1\\ObjetosNegocio\\ObjetosNegocio.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.5.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.3, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[3.6.1, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.4.2, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

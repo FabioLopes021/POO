@@ -756,7 +756,7 @@ namespace InOut
             do
             {
                 idProd = LerInt();
-            } while (!Produto.ExisteProdutoPorId(idProd));
+            } while (!RegrasNegocio.ExisteProdutoPorId(idProd));
             Console.WriteLine("Indique a quantidade: ");
             int aux = -1;
             do
@@ -830,7 +830,7 @@ namespace InOut
             do
             {
                 idProd = LerInt();
-            } while (!Produto.ExisteProdutoPorId(idProd));
+            } while (!RegrasNegocio.ExisteProdutoPorId(idProd));
             Console.WriteLine("Indique a quantidade: ");
             int aux = -1;
             do
