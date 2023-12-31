@@ -18,7 +18,7 @@ namespace TestesUnitarios
             Categoria cat = new Categoria("Teste");
 
             //Act
-            bool resultado = Categorias.guardarCategoria(cat);
+            bool resultado = Categorias.GuardarCategoria(cat);
 
             //Assert
             Assert.IsTrue(resultado);
@@ -30,7 +30,7 @@ namespace TestesUnitarios
         {
             //Arrange
             Categoria cat = new Categoria("Teste");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
 
             //Act
             bool resultado = Categorias.AlterarNomeCategoria(1,"Novo");

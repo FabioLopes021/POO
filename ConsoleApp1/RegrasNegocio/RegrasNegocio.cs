@@ -286,7 +286,7 @@ namespace RN
             bool aux = false;
             try
             {
-                aux = Categorias.guardarCategoria(c);
+                aux = Categorias.GuardarCategoria(c);
             }
             catch (CategoriasExcecoes e)
             {

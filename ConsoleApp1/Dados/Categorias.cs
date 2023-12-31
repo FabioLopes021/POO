@@ -74,7 +74,7 @@ namespace Dados
         /// <param name="c"></param>
         /// <returns></returns>
         /// <exception cref="CategoriasExcecoes"></exception>
-        public static bool guardarCategoria(Categoria c)
+        public static bool GuardarCategoria(Categoria c)
         {
 
             if (ReferenceEquals(c, null) || ReferenceEquals(listaCategorias, null))
