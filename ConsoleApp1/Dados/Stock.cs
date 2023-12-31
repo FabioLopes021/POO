@@ -541,6 +541,9 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Metodo para limpar a lista de Produtos
+        /// </summary>
         public static void LimparLista()
         {
             listaProdutos = new List<Produto>();

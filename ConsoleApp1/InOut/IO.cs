@@ -321,7 +321,9 @@ namespace InOut
         }
 
 
-
+        /// <summary>
+        /// Metodo que apresenta o menu de Alteraçoes de dados de produtos na consola
+        /// </summary>
         public static void MenuAlterarProduto()
         {
             Console.WriteLine("------------------Menu Alterar Produto----------------");
@@ -335,7 +337,9 @@ namespace InOut
         }
 
 
-
+        /// <summary>
+        /// Metodo que apresenta o menu de Alteraçoes de dados de marcas na consola
+        /// </summary>
         public static void MenuAlterarMarca()
         {
             Console.WriteLine("------------------Menu Alterar Marca----------------");
@@ -346,7 +350,9 @@ namespace InOut
         }
 
 
-
+        /// <summary>
+        /// Metodo que apresenta o menu de Alteraçoes de dados de Fornecedores na consola
+        /// </summary>
         public static void MenuAlterarFornecedor()
         {
             Console.WriteLine("------------------Menu Alterar Fornecedor----------------");
@@ -360,7 +366,9 @@ namespace InOut
 
 
 
-
+        /// <summary>
+        /// Metodo que apresenta o menu de Alteraçoes de dados de Clientes na consola
+        /// </summary>
         public static void MenuAlterarCliente()
         {
             Console.WriteLine("------------------Menu Alterar Cliente----------------");
@@ -434,6 +442,10 @@ namespace InOut
         }
 
 
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu de Alteraçoes de dados de Clientes
+        /// </summary>
+        /// <returns></returns>
         public static int LernumeroMenuCliente()
         {
             int num = -1;
@@ -457,6 +469,10 @@ namespace InOut
         }
 
 
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu de Alteraçoes de dados de Fornecedores
+        /// </summary>
+        /// <returns></returns>
         public static int LernumeroMenuFornecedor()
         {
             int num = -1;
@@ -479,6 +495,11 @@ namespace InOut
             return num;
         }
 
+
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu de Alteraçoes de dados de Marcas
+        /// </summary>
+        /// <returns></returns>
         public static int LernumeroMenuMarca()
         {
             int num = -1;
@@ -501,6 +522,11 @@ namespace InOut
             return num;
         }
 
+
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu de Alteraçoes de dados de produtos  
+        /// </summary>
+        /// <returns></returns>
         public static int LernumeroMenuProduto()
         {
             int num = -1;

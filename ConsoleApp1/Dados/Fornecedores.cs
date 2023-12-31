@@ -303,6 +303,10 @@ namespace Dados
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo para limpar a lista de Fornecedores
+        /// </summary>
         public static void LimparLista()
         {
             listaFornecedores = new List<Fornecedor>();

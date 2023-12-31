@@ -10,7 +10,7 @@ namespace TestesUnitarios
         [SetUp]
         public void Setup()
         {
-            Compras.LimparLista();
+            Vendas.LimparLista();
             Clientes.LimparLista();
             Stock.LimparLista();
             Marcas.LimparLista();

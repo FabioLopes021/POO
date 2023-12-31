@@ -604,6 +604,8 @@ namespace RN
             return Categorias.ListaCategorias;
         }
 
+
+
         /// <summary>
         /// Metodo que retorna uma copia da lista de Marcas
         /// </summary>
@@ -612,6 +614,8 @@ namespace RN
         {
             return Marcas.ListaMarcas;
         }
+
+
 
 
         /// <summary>
@@ -624,6 +628,7 @@ namespace RN
         }
 
 
+
         /// <summary>
         /// Metodo que retorna uma copia da lista de Clientes
         /// </summary>
@@ -632,6 +637,7 @@ namespace RN
         {
             return Clientes.ListaClientes;
         }
+
 
 
         /// <summary>
@@ -643,6 +649,8 @@ namespace RN
             return Stock.ListaProdutos;
         }
 
+
+
         /// <summary>
         /// Metodo que retorna uma copia da lista de Vendas
         /// </summary>
@@ -651,6 +659,8 @@ namespace RN
         {
             return Vendas.ListaVendas;
         }
+
+
 
         /// <summary>
         /// Metodo que retorna uma copia da lista de Compras
@@ -672,6 +682,8 @@ namespace RN
             return Categorias.ListaCategorias.Count;
         }
 
+
+
         /// <summary>
         /// Metodo que retorna uma copia da lista de Marcas
         /// </summary>
@@ -680,6 +692,7 @@ namespace RN
         {
             return Marcas.ListaMarcas.Count;
         }
+
 
 
         /// <summary>
@@ -692,6 +705,7 @@ namespace RN
         }
 
 
+
         /// <summary>
         /// Metodo que retorna uma copia da lista de Clientes
         /// </summary>
@@ -700,6 +714,7 @@ namespace RN
         {
             return Clientes.ListaClientes.Count;
         }
+
 
 
         /// <summary>
@@ -711,6 +726,8 @@ namespace RN
             return Stock.ListaProdutos.Count;
         }
 
+
+
         /// <summary>
         /// Metodo que retorna uma copia da lista de Vendas
         /// </summary>
@@ -719,6 +736,8 @@ namespace RN
         {
             return Vendas.ListaVendas.Count;
         }
+
+
 
         /// <summary>
         /// Metodo que retorna uma copia da lista de Compras
@@ -748,12 +767,24 @@ namespace RN
         }
 
         
+
+        /// <summary>
+        /// Metodo que verifica se existe um Produto por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool ExisteProdutoPorId(int id)
         {
             return Stock.ExisteProdutoPorId(id);
         }
 
 
+
+        /// <summary>
+        /// Metodo que retorna a Venda correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Venda VendaPorId(int id)
         {
             if (id < 0)
@@ -766,6 +797,11 @@ namespace RN
         }
 
 
+        /// <summary>
+        /// Metodo que retorna a Marca correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Marca MarcaPorId(int id)
         {
             if (id < 0)
@@ -778,11 +814,23 @@ namespace RN
         }
 
 
+        /// <summary>
+        /// Metodo que verifica se existe uma Marca por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool ExisteMarcaPorId(int id)
         {
             return Marcas.VerificaMarcaPorId(id);
         }
 
+
+
+        /// <summary>
+        /// Metodo que retorna o Fornecedor correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Fornecedor FornecedorPorId(int id)
         {
             if (id < 0)
@@ -794,11 +842,23 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que verifica se existe um Fornecedor por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool ExisteFornecedorPorId(int id)
         {
             return Fornecedores.VerificaFornecedorId(id);
         }
 
+
+        /// <summary>
+        /// Metodo que retorna o Cliente correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Cliente ClientePorId(int id)
         {
             if (id < 0)
@@ -811,12 +871,24 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que verifica se existe um Cliente por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool ExisteClientePorId(int id)
         {
             return Clientes.VerificaClienteId(id);
         }
 
 
+
+        /// <summary>
+        /// Metodo que retorna a Categoria correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Categoria CategoriaPorId(int id)
         {
             if (id < 0)
@@ -829,12 +901,24 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que verifica se existe uma Categoria por id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static bool ExisteCategoriaPorId(int id)
         {
             return Categorias.VerificaCategoriaPorId(id);
         }
 
 
+
+        /// <summary>
+        /// Metodo que retorna a Compra correspondente a um determinado id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public static Compra CompraPorId(int id)
         {
             if (id < 0)
@@ -849,7 +933,12 @@ namespace RN
 
 
 
-
+        /// <summary>
+        /// Metodo que altera o nome do fornecedor com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public static bool AlterarNomeFornecedor(int id, string nome)
         {
             if (id < 0 || nome == "")
@@ -867,6 +956,14 @@ namespace RN
 
         }
 
+
+
+        /// <summary>
+        /// Metodo que altera a morada do fornecedor com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="morada"></param>
+        /// <returns></returns>
         public static bool AlterarMoradaFornecedor(int id, string morada)
         {
             if (id < 0 || morada == "")
@@ -885,6 +982,12 @@ namespace RN
         }
 
 
+        /// <summary>
+        /// Metodo que altera o NIF do fornecedor com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nif"></param>
+        /// <returns></returns>
         public static bool AlterarNIFFornecedor(int id, int nif)
         {
             if (id < 0 || nif < 0)
@@ -903,6 +1006,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que altera o telemovel do fornecedor com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="tel"></param>
+        /// <returns></returns>
         public static bool AlterarTelemovelFornecedor(int id, int tel)
         {
             if (id < 0 || tel < 0)
@@ -921,6 +1031,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que altera o nome do Cliente com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public static bool AlterarNomeCliente(int id, string nome)
         {
             if (id < 0 || nome == "")
@@ -938,6 +1055,14 @@ namespace RN
 
         }
 
+
+
+        /// <summary>
+        /// Metodo que altera a morada do Cliente com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="morada"></param>
+        /// <returns></returns>
         public static bool AlterarMoradaCliente(int id, string morada)
         {
             if (id < 0 || morada == "")
@@ -956,6 +1081,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que altera o NIF do Cliente com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nif"></param>
+        /// <returns></returns>
         public static bool AlterarNIFCliente(int id, int nif)
         {
             if (id < 0 || nif < 0)
@@ -970,10 +1102,16 @@ namespace RN
 
 
             return aux;
-
         }
 
 
+
+        /// <summary>
+        /// Metodo que altera o telemovel do Cliente com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="tel"></param>
+        /// <returns></returns>
         public static bool AlterarTelemovelCliente(int id, int tel)
         {
             if (id < 0 || tel < 0)
@@ -993,6 +1131,12 @@ namespace RN
 
 
 
+        /// <summary>
+        /// Metodo que altera o nome da marca com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public static bool AlterarNomeMarca(int id, string nome)
         {
             if (id < 0 || nome == "")
@@ -1010,6 +1154,14 @@ namespace RN
 
         }
 
+
+
+        /// <summary>
+        /// Metodo que altera a morada da marca com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="morada"></param>
+        /// <returns></returns>
         public static bool AlterarMoradaMarca(int id, string morada)
         {
             if (id < 0 || morada == "")
@@ -1028,6 +1180,12 @@ namespace RN
         }
 
 
+        /// <summary>
+        /// Metodo que altera o nome do Produto com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public static bool AlterarNomeProduto(int id, string nome)
         {
             if (id < 0 || nome == "")
@@ -1046,6 +1204,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que altera o valor do produto com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="valor"></param>
+        /// <returns></returns>
         public static bool AlterarValorProduto(int id, float valor)
         {
             if (id < 0 || valor <= 0.0)
@@ -1063,6 +1228,14 @@ namespace RN
         }
 
 
+
+
+        /// <summary>
+        /// Metodo que altera a garantia do produto com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="garantia"></param>
+        /// <returns></returns>
         public static bool AlterarGarantiaProduto(int id, float garantia)
         {
             if (id < 0 || garantia <= 0.0)
@@ -1080,6 +1253,15 @@ namespace RN
 
         }
 
+
+
+
+        /// <summary>
+        /// Metodo que altera a categoria do Produto com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="idCat"></param>
+        /// <returns></returns>
         public static bool AlterarCategoriaProduto(int id, int idCat)
         {
             if (id < 0 || idCat < 0.0)
@@ -1098,6 +1280,13 @@ namespace RN
         }
 
 
+
+        /// <summary>
+        /// Metodo que altera a Marca do Produto com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="idMarca"></param>
+        /// <returns></returns>
         public static bool AlterarMarcaProduto(int id, int idMarca)
         {
             if (id < 0 || idMarca < 0.0)

@@ -232,6 +232,10 @@ namespace Dados
             return aux;
         }
 
+
+        /// <summary>
+        /// Metodo para limpar a lista de Marcas
+        /// </summary>
         public static void LimparLista()
         {
             listaMarcas = new List<Marca>();

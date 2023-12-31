@@ -171,6 +171,13 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Metodo para limpar a lista de vendas
+        /// </summary>
+        public static void LimparLista()
+        {
+            listaVendas = new List<Venda>();
+        }
 
         #endregion
 

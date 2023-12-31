@@ -169,6 +169,9 @@ namespace Dados
             return true;
         }
 
+        /// <summary>
+        /// Metodo para limpar a lista de Compras
+        /// </summary>
         public static void LimparLista()
         {
             listaCompras = new List<Compra>();

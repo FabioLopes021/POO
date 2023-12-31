@@ -212,7 +212,9 @@ namespace Dados
             return aux;
         }
 
-
+        /// <summary>
+        /// Metodo para limpar a lista de Categorias
+        /// </summary>
         public static void LimparLista()
         {
             listaCategorias = new List<Categoria>();

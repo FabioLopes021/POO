@@ -303,6 +303,9 @@ namespace Dados
         }
 
 
+        /// <summary>
+        /// Metodo para limpar a lista de Clientes
+        /// </summary>
         public static void LimparLista()
         {
             listaClientes = new List<Cliente>();
