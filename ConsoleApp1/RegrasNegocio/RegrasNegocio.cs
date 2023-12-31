@@ -944,15 +944,7 @@ namespace RN
             if (id < 0 || nome == "")
                 return false;
 
-            bool aux = false;
-
-            Fornecedor f = Fornecedores.FornecedorPorId(id);
-
-            if(!ReferenceEquals(f,null))
-                aux = f.AlterarNome(nome);
-
-
-            return aux;
+            return Fornecedores.AlterarNomeFornecedor(id,nome);
 
         }
 
@@ -969,15 +961,8 @@ namespace RN
             if (id < 0 || morada == "")
                 return false;
 
-            bool aux = false;
 
-            Fornecedor f = Fornecedores.FornecedorPorId(id);
-
-            if (!ReferenceEquals(f, null))
-                aux = f.AlterarMorada(morada);
-
-
-            return aux;
+            return Fornecedores.AlterarMoradaFornecedor(id,morada);
 
         }
 
@@ -992,16 +977,8 @@ namespace RN
         {
             if (id < 0 || nif < 0)
                 return false;
-
-            bool aux = false;
-
-            Fornecedor f = Fornecedores.FornecedorPorId(id);
-
-            if (!ReferenceEquals(f, null))
-                aux = f.AlterarNif(nif);
-
-
-            return aux;
+          
+            return Fornecedores.AlterarNIFFornecedor(id,nif);
 
         }
 
@@ -1018,16 +995,7 @@ namespace RN
             if (id < 0 || tel < 0)
                 return false;
 
-            bool aux = false;
-
-            Fornecedor f = Fornecedores.FornecedorPorId(id);
-
-            if (!ReferenceEquals(f, null))
-                aux = f.AlterarTelemovel(tel);
-
-
-            return aux;
-
+            return Fornecedores.AlterarTelemovelFornecedor(id, tel);
         }
 
 
@@ -1043,15 +1011,7 @@ namespace RN
             if (id < 0 || nome == "")
                 return false;
 
-            bool aux = false;
-
-            Cliente c = Clientes.ClientePorId(id);
-
-            if (!ReferenceEquals(c, null))
-                aux = c.AlterarNome(nome);
-
-
-            return aux;
+            return Clientes.AlterarNomeCliente(id,nome);
 
         }
 
@@ -1068,15 +1028,7 @@ namespace RN
             if (id < 0 || morada == "")
                 return false;
 
-            bool aux = false;
-
-            Cliente c = Clientes.ClientePorId(id);
-
-            if (!ReferenceEquals(c, null))
-                aux = c.AlterarMorada(morada);
-
-
-            return aux;
+            return Clientes.AlterarMoradaCliente(id, morada);
 
         }
 
@@ -1093,15 +1045,7 @@ namespace RN
             if (id < 0 || nif < 0)
                 return false;
 
-            bool aux = false;
-
-            Cliente c = Clientes.ClientePorId(id);
-
-            if (!ReferenceEquals(c, null))
-                aux = c.AlterarNif(nif);
-
-
-            return aux;
+            return Clientes.AlterarNIFCliente(id, nif);
         }
 
 
@@ -1117,15 +1061,7 @@ namespace RN
             if (id < 0 || tel < 0)
                 return false;
 
-            bool aux = false;
-
-            Cliente c = Clientes.ClientePorId(id);
-
-            if (!ReferenceEquals(c, null))
-                aux = c.AlterarTelemovel(tel);
-
-
-            return aux;
+            return Clientes.AlterarTelemovelCliente(id, tel);
 
         }
 
@@ -1142,15 +1078,7 @@ namespace RN
             if (id < 0 || nome == "")
                 return false;
 
-            bool aux = false;
-
-            Marca m = Marcas.MarcaPorId(id);
-
-            if (!ReferenceEquals(m, null))
-                aux = m.AlterarNome(nome);
-
-
-            return aux;
+            return Marcas.AlterarNomeMarca(id,nome);
 
         }
 
@@ -1167,15 +1095,7 @@ namespace RN
             if (id < 0 || morada == "")
                 return false;
 
-            bool aux = false;
-
-            Marca m = Marcas.MarcaPorId(id);
-
-            if (!ReferenceEquals(m, null))
-                aux = m.AlterarMorada(morada);
-
-
-            return aux;
+            return Marcas.AlterarMoradaMarca(id, morada);
 
         }
 
@@ -1191,16 +1111,7 @@ namespace RN
             if (id < 0 || nome == "")
                 return false;
 
-            bool aux = false;
-
-            Produto p = Stock.ProdutoPorId(id);
-
-            if (!ReferenceEquals(p, null))
-                aux = p.AlterarNome(nome);
-
-
-            return aux;
-
+            return Stock.AlterarNomeProduto(id, nome);
         }
 
 
@@ -1216,15 +1127,7 @@ namespace RN
             if (id < 0 || valor <= 0.0)
                 return false;
 
-            bool aux = false;
-
-            Produto p = Stock.ProdutoPorId(id);
-
-            if (!ReferenceEquals(p, null))
-                aux = p.AlterarValor(valor);
-
-
-            return aux;
+            return Stock.AlterarValorProduto(id, valor);
         }
 
 
@@ -1241,16 +1144,7 @@ namespace RN
             if (id < 0 || garantia <= 0.0)
                 return false;
 
-            bool aux = false;
-
-            Produto p = Stock.ProdutoPorId(id);
-
-            if (!ReferenceEquals(p, null))
-                aux = p.AlterarGarantia(garantia);
-
-
-            return aux;
-
+            return Stock.AlterarGarantiaProduto(id, garantia);
         }
 
 
@@ -1267,15 +1161,7 @@ namespace RN
             if (id < 0 || idCat < 0.0)
                 return false;
 
-            bool aux = false;
-
-            Produto p = Stock.ProdutoPorId(id);
-
-            if (!ReferenceEquals(p, null))
-                aux = p.AlterarCategoria(idCat);
-
-
-            return aux;
+            return Stock.AlterarCategoriaProduto(id, idCat);
 
         }
 
@@ -1292,15 +1178,7 @@ namespace RN
             if (id < 0 || idMarca < 0.0)
                 return false;
 
-            bool aux = false;
-
-            Produto p = Stock.ProdutoPorId(id);
-
-            if (!ReferenceEquals(p, null))
-                aux = p.AlterarMarca(idMarca);
-
-
-            return aux;
+            return Stock.AlterarMarcaProduto(id, idMarca);
 
         }
 

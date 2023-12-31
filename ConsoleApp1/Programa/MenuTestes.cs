@@ -325,21 +325,34 @@ namespace Programa
                                     string NovoNome;
                                     IO.EscreverMensagem("Indique o novo nome");
                                     NovoNome = IO.LerString();
-                                    RegrasNegocio.AlterarNomeProduto(idProduto,NovoNome);
+                                    bool aux1 = RegrasNegocio.AlterarNomeProduto(idProduto,NovoNome);
+                                    if (aux1)
+                                        IO.EscreverMensagem("Nome Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o nome!");
+                                    IO.ReadKey();
                                     break;
                                 case 2:     //Alterar Valor
                                     float novoValor;
                                     IO.EscreverMensagem("Indique o novo Preço");
                                     novoValor = IO.LerFloat();
-                                    RegrasNegocio.AlterarValorProduto(idProduto, novoValor);
-                                    IO.ClearConsole();
+                                    bool aux2 = RegrasNegocio.AlterarValorProduto(idProduto, novoValor);
+                                    if (aux2)
+                                        IO.EscreverMensagem("Preço Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o Preço!");
+                                    IO.ReadKey();
                                     break;
                                 case 3:     //Alterar Garantia
                                     float novaGarantia;
                                     IO.EscreverMensagem("Indique a nova Garantia (em anos)");
                                     novaGarantia = IO.LerFloat();
-                                    RegrasNegocio.AlterarGarantiaProduto(idProduto, novaGarantia);
-                                    IO.ClearConsole();
+                                    bool aux3 = RegrasNegocio.AlterarGarantiaProduto(idProduto, novaGarantia);
+                                    if (aux3)
+                                        IO.EscreverMensagem("Garantia Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o Garantia!");
+                                    IO.ReadKey();
                                     break;
                                 case 4:     //Alterar Categoria
                                     int idNovaCat;
@@ -350,7 +363,12 @@ namespace Programa
                                     {
                                         idNovaCat = IO.LerInt();
                                     } while (idNovaCat < 0);        //Alterar para verificar se existem categorias
-                                    RegrasNegocio.AlterarCategoriaProduto(idProduto, idNovaCat);
+                                    bool aux4 = RegrasNegocio.AlterarCategoriaProduto(idProduto, idNovaCat);
+                                    if (aux4)
+                                        IO.EscreverMensagem("Categoria Alterada com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o Categoria!");
+                                    IO.ReadKey();
                                     break;
                                 case 5:     //Alterar Marca
                                     int idNovaMar;
@@ -361,7 +379,12 @@ namespace Programa
                                     {
                                         idNovaMar = IO.LerInt();
                                     } while (idNovaMar < 0);        //Alterar para verificar se existem categorias
-                                    RegrasNegocio.AlterarMarcaProduto(idProduto, idNovaMar);
+                                    bool aux5 = RegrasNegocio.AlterarMarcaProduto(idProduto, idNovaMar);
+                                    if (aux5)
+                                        IO.EscreverMensagem("Marcas Alterada com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Marcas!");
+                                    IO.ReadKey();
                                     break;
                                 default:
                                     IO.EscreverMensagem("Default, algo errou!!!");
@@ -388,8 +411,8 @@ namespace Programa
                         do
                         {
                             IO.ClearConsole();
-                            IO.MenuAlterarProduto();
-                            auxMenuAltMarca = IO.LernumeroMenuProduto();
+                            IO.MenuAlterarMarca();
+                            auxMenuAltMarca = IO.LernumeroMenuMarca();
                             switch (auxMenuAltMarca)
                             {
                                 case 0:
@@ -398,14 +421,24 @@ namespace Programa
                                     string NovoNome;
                                     IO.EscreverMensagem("Indique o novo nome");
                                     NovoNome = IO.LerString();
-                                    RegrasNegocio.AlterarNomeMarca(idMarca, NovoNome);
+                                    bool aux1 = RegrasNegocio.AlterarNomeMarca(idMarca, NovoNome);
+                                    if (aux1)
+                                        IO.EscreverMensagem("Nome Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o nome!");
+                                    IO.ReadKey();
                                     break;
                                 case 2:     //Alterar Morada
                                     IO.ClearConsole();
                                     string NovaMorada;
                                     IO.EscreverMensagem("Indique a nova Morada");
                                     NovaMorada = IO.LerString();
-                                    RegrasNegocio.AlterarNomeMarca(idMarca, NovaMorada);
+                                    bool aux2 = RegrasNegocio.AlterarNomeMarca(idMarca, NovaMorada);
+                                    if (aux2)
+                                        IO.EscreverMensagem("Morada Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Morada!");
+                                    IO.ReadKey();
                                     break;
                                 default:
                                     IO.EscreverMensagem("Default, algo errou!!!");
@@ -432,8 +465,8 @@ namespace Programa
                         do
                         {
                             IO.ClearConsole();
-                            IO.MenuAlterarProduto();
-                            auxMenuAltForn = IO.LernumeroMenuProduto();
+                            IO.MenuAlterarFornecedor();
+                            auxMenuAltForn = IO.LernumeroMenuFornecedor();
                             switch (auxMenuAltForn)
                             {
                                 case 0:
@@ -442,25 +475,45 @@ namespace Programa
                                     string NovoNome;
                                     IO.EscreverMensagem("Indique o novo nome");
                                     NovoNome = IO.LerString();
-                                    RegrasNegocio.AlterarNomeFornecedor(idFornecedor, NovoNome);
+                                    bool aux1 = RegrasNegocio.AlterarNomeFornecedor(idFornecedor, NovoNome);
+                                    if (aux1)
+                                        IO.EscreverMensagem("Nome Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o nome!");
+                                    IO.ReadKey();
                                     break;
                                 case 2:     //Alterar Morada
                                     string NovaMorada;
-                                    IO.EscreverMensagem("Indique o novo nome");
+                                    IO.EscreverMensagem("Indique a nova Morada");
                                     NovaMorada = IO.LerString();
-                                    RegrasNegocio.AlterarMoradaFornecedor(idFornecedor, NovaMorada);
+                                    bool aux2 = RegrasNegocio.AlterarMoradaFornecedor(idFornecedor, NovaMorada);
+                                    if (aux2)
+                                        IO.EscreverMensagem("Morada Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Morada!");
+                                    IO.ReadKey();
                                     break;
                                 case 3:     //Alterar NIF
                                     int novoNIF;
                                     IO.EscreverMensagem("Indique o novo NIF");
                                     novoNIF = IO.LerInt();
-                                    RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoNIF);
+                                    bool aux3 = RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoNIF);
+                                    if (aux3)
+                                        IO.EscreverMensagem("NIF Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a NIF!");
+                                    IO.ReadKey();
                                     break;
                                 case 4:     //Alterar Telemovel
                                     int novoTel;
                                     IO.EscreverMensagem("Indique o novo numero de telemovel");
                                     novoTel = IO.LerInt();
-                                    RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoTel);
+                                    bool aux4 = RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoTel);
+                                    if (aux4)
+                                        IO.EscreverMensagem("Telemovel Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Telemovel!");
+                                    IO.ReadKey();
                                     break;
                                 default:
                                     IO.EscreverMensagem("Default, algo errou!!!");
@@ -478,7 +531,7 @@ namespace Programa
                             break;
                         }
                         IO.ClearConsole();
-                        IO.ListaProdutos();
+                        IO.ListaClientes();
                         IO.EscreverMensagem("Escolha o Id do Cliente que deseja alterar: ");
                         do
                         {
@@ -487,8 +540,8 @@ namespace Programa
                         do
                         {
                             IO.ClearConsole();
-                            IO.MenuAlterarProduto();
-                            auxMenuAltCliente = IO.LernumeroMenuProduto();
+                            IO.MenuAlterarCliente();
+                            auxMenuAltCliente = IO.LernumeroMenuCliente();
                             switch (auxMenuAltCliente)
                             {
                                 case 0:
@@ -497,25 +550,45 @@ namespace Programa
                                     string NovoNome;
                                     IO.EscreverMensagem("Indique o novo nome");
                                     NovoNome = IO.LerString();
-                                    RegrasNegocio.AlterarNomeCliente(idCliente, NovoNome);
+                                    bool aux1 = RegrasNegocio.AlterarNomeCliente(idCliente, NovoNome);
+                                    if (aux1)
+                                        IO.EscreverMensagem("Nome Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o Nome!");
+                                    IO.ReadKey();
                                     break;
                                 case 2:     //Alterar Morada
                                     string NovaMorada;
                                     IO.EscreverMensagem("Indique o novo nome");
                                     NovaMorada = IO.LerString();
-                                    RegrasNegocio.AlterarMoradaCliente(idCliente, NovaMorada);
+                                    bool aux2 = RegrasNegocio.AlterarMoradaCliente(idCliente, NovaMorada);
+                                    if (aux2)
+                                        IO.EscreverMensagem("Morada Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Morada!");
+                                    IO.ReadKey();
                                     break;
                                 case 3:     //Alterar NIF
                                     int novoNIF;
                                     IO.EscreverMensagem("Indique o novo NIF");
                                     novoNIF = IO.LerInt();
-                                    RegrasNegocio.AlterarNIFCliente(idCliente, novoNIF);
+                                    bool aux3 = RegrasNegocio.AlterarNIFCliente(idCliente, novoNIF);
+                                    if (aux3)
+                                        IO.EscreverMensagem("NIF Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o NIF!");
+                                    IO.ReadKey();
                                     break;
                                 case 4:     //Alterar Telemovel
                                     int novoTel;
                                     IO.EscreverMensagem("Indique o novo numero de telemovel");
                                     novoTel = IO.LerInt();
-                                    RegrasNegocio.AlterarTelemovelCliente(idCliente, novoTel);
+                                    bool aux4 = RegrasNegocio.AlterarTelemovelCliente(idCliente, novoTel);
+                                    if (aux4)
+                                        IO.EscreverMensagem("Telemovel Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o Telemovel!");
+                                    IO.ReadKey();
                                     break;
                                 default:
                                     IO.EscreverMensagem("Default, algo errou!!!");

@@ -229,7 +229,7 @@ namespace Dados
 
             Fornecedor f = FornecedorPorId(id);
 
-            if (f == null)
+            if (ReferenceEquals(f,null))
                 return false;
 
             bool aux = f.AlterarNome(nome);
@@ -251,7 +251,7 @@ namespace Dados
 
             Fornecedor f = FornecedorPorId(id);
 
-            if (f == null)
+            if (ReferenceEquals(f, null))
                 return false;
 
             bool aux = f.AlterarMorada(morada);
@@ -273,7 +273,7 @@ namespace Dados
 
             Fornecedor f = FornecedorPorId(id);
 
-            if (f == null)
+            if (ReferenceEquals(f, null))
                 return false;
 
             bool aux = f.AlterarNif(nif);
@@ -295,7 +295,7 @@ namespace Dados
 
             Fornecedor f = FornecedorPorId(id);
 
-            if (f == null)
+            if (ReferenceEquals(f, null))
                 return false;
 
             bool aux = f.AlterarTelemovel(tel);

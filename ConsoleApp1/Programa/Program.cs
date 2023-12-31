@@ -47,7 +47,7 @@ namespace Programa
             {
                 IO.EscreverMensagem(e.Message);
             }
-
+            
             try
             {
                 RegrasNegocio.CarregarMarcas("Marcas");
@@ -56,7 +56,7 @@ namespace Programa
             {
                 IO.EscreverMensagem(e.Message);
             }
-
+            
             try
             {
                 RegrasNegocio.CarregarStock("Stock");
@@ -84,7 +84,7 @@ namespace Programa
 
 
             #region guardarDados
-            /*
+            
             try
             {
                 RegrasNegocio.GuardarCategorias("Categorias");
@@ -120,7 +120,7 @@ namespace Programa
             {
                 IO.EscreverMensagem(e.Message);
             }
-
+            
             try
             {
                 RegrasNegocio.GuardarMarcas("Marcas");
@@ -129,7 +129,7 @@ namespace Programa
             {
                 IO.EscreverMensagem(e.Message);
             }
-
+            
             try
             {
                 RegrasNegocio.GuardarStock("Stock");
@@ -148,7 +148,7 @@ namespace Programa
                 IO.EscreverMensagem(e.Message);
             }
             
-            */
+            
             #endregion
 
 
