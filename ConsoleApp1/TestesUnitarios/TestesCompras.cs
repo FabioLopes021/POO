@@ -23,7 +23,7 @@ namespace TestesUnitarios
             Fornecedor forn = new Fornecedor("Teste", "Braga", 321, 123123);
             Fornecedores.RegistarFornecedor(forn);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -45,7 +45,7 @@ namespace TestesUnitarios
             Fornecedor forn = new Fornecedor("Teste", "Braga", 321, 123123);
             Fornecedores.RegistarFornecedor(forn);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -68,7 +68,7 @@ namespace TestesUnitarios
             Fornecedor forn = new Fornecedor("Teste", "Braga", 321, 123123);
             Fornecedores.RegistarFornecedor(forn);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -90,7 +90,7 @@ namespace TestesUnitarios
             Fornecedor forn = new Fornecedor("Teste", "Braga", 321, 123123);
             Fornecedores.RegistarFornecedor(forn);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -114,7 +114,7 @@ namespace TestesUnitarios
             Fornecedor forn = new Fornecedor("Teste", "Braga", 321, 123123);
             Fornecedores.RegistarFornecedor(forn);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);

@@ -24,7 +24,7 @@ namespace TestesUnitarios
             Cliente cli = new Cliente("Teste", "barcelos", 123, 123456);
             Clientes.RegistarCliente(cli);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -46,7 +46,7 @@ namespace TestesUnitarios
             Cliente cli = new Cliente("Teste", "barcelos", 123, 123456);
             Clientes.RegistarCliente(cli);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -69,7 +69,7 @@ namespace TestesUnitarios
             Cliente cli = new Cliente("Teste", "barcelos", 123, 123456);
             Clientes.RegistarCliente(cli);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -91,7 +91,7 @@ namespace TestesUnitarios
             Cliente cli = new Cliente("Teste", "barcelos", 123, 123456);
             Clientes.RegistarCliente(cli);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
@@ -115,7 +115,7 @@ namespace TestesUnitarios
             Cliente cli = new Cliente("Teste", "barcelos", 123, 123456);
             Clientes.RegistarCliente(cli);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);

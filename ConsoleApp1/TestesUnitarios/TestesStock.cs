@@ -26,7 +26,7 @@ namespace TestesUnitarios
 
             //Act
             Marcas.GuardarMarca(mar);
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Stock.AdicionarProduto(prod);
             bool resultado = Stock.RemoverProduto(1);
 
@@ -54,7 +54,7 @@ namespace TestesUnitarios
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Produto p = new Produto("Teste1", (float)10.1,2,1,1);
             Stock.AdicionarProduto(p);
 
@@ -74,7 +74,7 @@ namespace TestesUnitarios
             Marca mar = new Marca("Barcelos", "Nike");
             Marcas.GuardarMarca(mar);
             Categoria cat = new Categoria("Geral");
-            Categorias.guardarCategoria(cat);
+            Categorias.GuardarCategoria(cat);
             Produto p = new Produto("Teste1", (float)10.1, 2, 1, 1);
             Stock.AdicionarProduto(p);
 
