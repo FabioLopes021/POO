@@ -204,7 +204,7 @@ namespace Dados
 
             Categoria c = CategoriaPorId(id);
 
-            if (c == null)
+            if (ReferenceEquals(c,null))
                 return false;
 
             bool aux = c.AlterarNome(nome);

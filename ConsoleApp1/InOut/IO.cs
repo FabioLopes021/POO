@@ -109,7 +109,7 @@ namespace InOut
             Console.WriteLine("--------Lista Produtos----------");
             foreach (Produto p in stock)
             {
-                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Garantia: {4}, Quantidade: {5}", p.Id, p.Nome, p.Valor, p.CatgId, p.GarantiaAnos, p.Quantidade);
+                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Marca: {4}, Garantia: {5}, Quantidade: {6}", p.Id, p.Nome, p.Valor, p.CatgId,p.MarcaId ,p.GarantiaAnos, p.Quantidade);
             }
             Console.WriteLine("----------------------------------");
             Console.ReadKey();
@@ -129,7 +129,7 @@ namespace InOut
             Console.WriteLine("--------Lista Produtos----------");
             foreach (Produto p in asc)
             {
-                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Garantia: {4}, Quantidade: {5}", p.Id, p.Nome, p.Valor, p.CatgId, p.GarantiaAnos, p.Quantidade);
+                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Marca: {4}, Garantia: {5}, Quantidade: {6}", p.Id, p.Nome, p.Valor, p.CatgId, p.MarcaId, p.GarantiaAnos, p.Quantidade);
             }
             Console.WriteLine("----------------------------------");
             Console.ReadKey();
@@ -149,7 +149,7 @@ namespace InOut
             Console.WriteLine("--------Lista Produtos----------");
             foreach (Produto p in asc)
             {
-                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Garantia: {4}, Quantidade: {5}", p.Id, p.Nome, p.Valor, p.CatgId, p.GarantiaAnos, p.Quantidade);
+                Console.WriteLine("Id: {0}, Nome: {1}, Valor: {2}, Categoria: {3}, Marca: {4}, Garantia: {5}, Quantidade: {6}", p.Id, p.Nome, p.Valor, p.CatgId, p.MarcaId, p.GarantiaAnos, p.Quantidade);
             }
             Console.WriteLine("----------------------------------");
             Console.ReadKey();
@@ -289,6 +289,7 @@ namespace InOut
             Console.WriteLine("- 18 - Alterar dados Marca                  -");
             Console.WriteLine("- 19 - Alterar dados Fornecedor             -");
             Console.WriteLine("- 20 - Alterar dados Clientes               -");
+            Console.WriteLine("- 21 - Alterar dados Categorias             -");
             Console.WriteLine("------------------Menu Testes----------------");
 
         }
@@ -351,6 +352,19 @@ namespace InOut
 
 
         /// <summary>
+        /// Metodo que apresenta o menu de Alteraçoes de dados de categorias na consola
+        /// </summary>
+        public static void MenuAlterarCategoria()
+        {
+            Console.WriteLine("------------------Menu Alterar Categoria----------------");
+            Console.WriteLine("- 0 - Sair                                             -");
+            Console.WriteLine("- 1 - Alterar Nome                                     -");
+            Console.WriteLine("------------------Menu Alterar Categoria----------------");
+        }
+
+
+
+        /// <summary>
         /// Metodo que apresenta o menu de Alteraçoes de dados de Fornecedores na consola
         /// </summary>
         public static void MenuAlterarFornecedor()
@@ -409,7 +423,7 @@ namespace InOut
                 {
                     Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
                 }
-            } while (num < 0 || num > 20);
+            } while (num < 0 || num > 21);
             return num;
         }
 
@@ -519,6 +533,34 @@ namespace InOut
                     Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
                 }
             } while (num < 0 || num > 2);
+            return num;
+        }
+
+
+
+        /// <summary>
+        /// Metodo que le a opçao escolhida pelo utilizador relativa ao menu de Alteraçoes de dados de Categorias
+        /// </summary>
+        /// <returns></returns>
+        public static int LernumeroMenuCategoria()
+        {
+            int num = -1;
+            do
+            {
+                Console.WriteLine("Digite um número: ");
+
+                string input = Console.ReadLine();
+
+
+                if (int.TryParse(input, out int numero))
+                {
+                    num = numero;
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro válido.");
+                }
+            } while (num < 0 || num > 1);
             return num;
         }
 

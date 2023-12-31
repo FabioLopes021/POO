@@ -60,7 +60,11 @@ namespace Programa
                         Categoria cat = IO.DadosCategoria();
                         try
                         {
-                            RegrasNegocio.AdicionarCategoria(cat);
+                            bool aux = RegrasNegocio.AdicionarCategoria(cat);
+                            if (aux)
+                                IO.EscreverMensagem("Categoria Adicionada Com sucesso!");
+                            else
+                                IO.EscreverMensagem("Erro ao criar Categoria!");
                         }catch (Exception e)
                         {
                             IO.EscreverMensagem(e.Message);
@@ -72,41 +76,68 @@ namespace Programa
                         Marca mar = IO.DadosMarca();
                         try
                         {
-                            RegrasNegocio.AdicionarMarca(mar);
+                            bool aux = RegrasNegocio.AdicionarMarca(mar);
+                            if (aux)
+                                IO.EscreverMensagem("Marca Adicionada Com sucesso!");
+                            else
+                                IO.EscreverMensagem("Erro ao criar marca!");
                         }
                         catch (Exception e)
                         {
                             IO.EscreverMensagem(e.Message);
                         }
+                        IO.ReadKey();
                         break;
                     case 3:     //Adicionar Fornecedor
                         IO.ClearConsole();
                         Fornecedor forn = IO.DadosFornecedor();
                         try
                         {
-                            RegrasNegocio.AdicionarFornecedor(forn);
+                            bool aux = RegrasNegocio.AdicionarFornecedor(forn);
+                            if (aux)
+                                IO.EscreverMensagem("Fornecedor Adicionado Com sucesso!");
+                            else
+                                IO.EscreverMensagem("Erro ao criar Fornecedor!");
                         }
                         catch(Exception e)
                         {
                             IO.EscreverMensagem(e.Message);
                         }
+                        IO.ReadKey();
                         break;
                     case 4:     //Adicionar Cliente
                         IO.ClearConsole();
                         Cliente cli = IO.DadosCliente();
-                        RegrasNegocio.AdicionarCliente(cli);
+                        try
+                        {
+                            bool aux = RegrasNegocio.AdicionarCliente(cli);
+                            if (aux)
+                                IO.EscreverMensagem("Cliente Adicionado Com sucesso!");
+                            else
+                                IO.EscreverMensagem("Erro ao criar Cliente!");
+                        }
+                        catch (Exception e)
+                        {
+                            IO.EscreverMensagem(e.Message);
+                        }
+                        IO.ReadKey();
                         break;
                     case 5:     //Adicionar Produto
                         IO.ClearConsole();
                         Produto produtocriar = IO.DadosProduto();
                         try
                         {
-                            RegrasNegocio.AdicionarProduto(produtocriar);
+                            bool aux = RegrasNegocio.AdicionarProduto(produtocriar);
+                            if (aux)
+                                IO.EscreverMensagem("Produto Adicionado Com sucesso!");
+                            else
+                                IO.EscreverMensagem("Erro ao criar Produto!");
                         }
                         catch (Exception e)
                         {
                             IO.EscreverMensagem(e.Message);
                         }
+                        IO.ReadKey();
                         break;
                     case 6:     //Listar Categorias
                         IO.ClearConsole();
@@ -373,7 +404,7 @@ namespace Programa
                                 case 5:     //Alterar Marca
                                     int idNovaMar;
                                     IO.ClearConsole();
-                                    IO.ListaCategorias();
+                                    IO.ListaMarcas();
                                     IO.EscreverMensagem("Indique o Id da nova Marca");
                                     do
                                     {
@@ -381,9 +412,9 @@ namespace Programa
                                     } while (idNovaMar < 0);        //Alterar para verificar se existem categorias
                                     bool aux5 = RegrasNegocio.AlterarMarcaProduto(idProduto, idNovaMar);
                                     if (aux5)
-                                        IO.EscreverMensagem("Marcas Alterada com sucesso! ");
+                                        IO.EscreverMensagem("Marca Alterada com sucesso! ");
                                     else
-                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Marcas!");
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar a Marca!");
                                     IO.ReadKey();
                                     break;
                                 default:
@@ -433,7 +464,7 @@ namespace Programa
                                     string NovaMorada;
                                     IO.EscreverMensagem("Indique a nova Morada");
                                     NovaMorada = IO.LerString();
-                                    bool aux2 = RegrasNegocio.AlterarNomeMarca(idMarca, NovaMorada);
+                                    bool aux2 = RegrasNegocio.AlterarMoradaMarca(idMarca, NovaMorada);
                                     if (aux2)
                                         IO.EscreverMensagem("Morada Alterado com sucesso! ");
                                     else
@@ -456,7 +487,7 @@ namespace Programa
                             break;
                         }
                         IO.ClearConsole();
-                        IO.ListaProdutos();
+                        IO.ListaFornecedores();
                         IO.EscreverMensagem("Escolha o Id do Fornecedor que deseja alterar: ");
                         do
                         {
@@ -508,7 +539,7 @@ namespace Programa
                                     int novoTel;
                                     IO.EscreverMensagem("Indique o novo numero de telemovel");
                                     novoTel = IO.LerInt();
-                                    bool aux4 = RegrasNegocio.AlterarNIFFornecedor(idFornecedor, novoTel);
+                                    bool aux4 = RegrasNegocio.AlterarTelemovelFornecedor(idFornecedor, novoTel);
                                     if (aux4)
                                         IO.EscreverMensagem("Telemovel Alterado com sucesso! ");
                                     else
@@ -595,6 +626,48 @@ namespace Programa
                                     break;
                             }
                         } while (auxMenuAltCliente != 0);
+                        break;
+                    case 21:    // Alterar dados Categorias
+                        int auxMenuAltCat = -1;
+                        int idCat = 0;
+                        if (RegrasNegocio.NumMarcas() < 1)
+                        {
+                            IO.EscreverMensagem("Nao existem categorias Criadas!");
+                            IO.ReadKey();
+                            break;
+                        }
+                        IO.ClearConsole();
+                        IO.ListaCategorias();
+                        IO.EscreverMensagem("Escolha o Id da categoria que deseja alterar: ");
+                        do
+                        {
+                            idCat = IO.LerInt();
+                        } while (!RegrasNegocio.ExisteCategoriaPorId(idCat));
+                        do
+                        {
+                            IO.ClearConsole();
+                            IO.MenuAlterarCategoria();
+                            auxMenuAltCat = IO.LernumeroMenuCategoria();
+                            switch (auxMenuAltCat)
+                            {
+                                case 0:
+                                    break;
+                                case 1:     //Alterar Nome
+                                    string NovoNome;
+                                    IO.EscreverMensagem("Indique o novo nome");
+                                    NovoNome = IO.LerString();
+                                    bool aux1 = RegrasNegocio.AlterarNomeCategoria(idCat, NovoNome);
+                                    if (aux1)
+                                        IO.EscreverMensagem("Nome Alterado com sucesso! ");
+                                    else
+                                        IO.EscreverMensagem("Ocurreu um erro ao alterar o nome!");
+                                    IO.ReadKey();
+                                    break;
+                                default:
+                                    IO.EscreverMensagem("Default, algo errou!!!");
+                                    break;
+                            }
+                        } while (auxMenuAltCat != 0);
                         break;
                     default:
                         IO.EscreverMensagem("Default, algo errou!!!");                           

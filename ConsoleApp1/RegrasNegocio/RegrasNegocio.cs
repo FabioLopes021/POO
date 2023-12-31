@@ -349,6 +349,21 @@ namespace RN
         }
 
 
+        /// <summary>
+        /// Metodo que altera o nome da categoria com o id indicado
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
+        public static bool AlterarNomeCategoria(int id, string nome)
+        {
+            if (id < 0 || nome == "")
+                return false;
+
+            return Categorias.AlterarNomeCategoria(id, nome);
+
+        }
+
 
         /// <summary>
         /// Metodo para Guardar os  dados da classe Categorias
