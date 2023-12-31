@@ -195,7 +195,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="nome"></param>
         /// <returns></returns>
-        public bool AlterarNomeMarca(int id, string nome)
+        public static bool AlterarNomeMarca(int id, string nome)
         {
             if (!VerificaMarcaPorId(id))
                 return false;
@@ -209,7 +209,7 @@ namespace Dados
 
             return aux;
         }
-        
+
 
         /// <summary>
         /// Metodo para encontrar a marca a qual sera alterada a morada
@@ -217,7 +217,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="morada"></param>
         /// <returns></returns>
-        public bool AlterarMoradaMarca(int id, string morada)
+        public static bool AlterarMoradaMarca(int id, string morada)
         {
             if (!VerificaMarcaPorId(id))
                 return false;
@@ -231,8 +231,11 @@ namespace Dados
 
             return aux;
         }
-        
 
+        public static void LimparLista()
+        {
+            listaMarcas = new List<Marca>();
+        }
 
         #endregion
 

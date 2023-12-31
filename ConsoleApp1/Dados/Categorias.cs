@@ -197,7 +197,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="nome"></param>
         /// <returns></returns>
-        public bool AlterarNomeCategoria(int id, string nome)
+        public static bool AlterarNomeCategoria(int id, string nome)
         {
             if (!VerificaCategoriaPorId(id))
                 return false;
@@ -210,6 +210,12 @@ namespace Dados
             bool aux = c.AlterarNome(nome);
 
             return aux;
+        }
+
+
+        public static void LimparLista()
+        {
+            listaCategorias = new List<Categoria>();
         }
 
         #endregion

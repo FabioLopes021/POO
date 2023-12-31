@@ -77,7 +77,7 @@ namespace Dados
         /// <exception cref="StockExcecoes"></exception>
         public static bool AdicionarProduto(Produto p)
         {
-            if (p == null || listaProdutos.Count >= CAPACIDADEMAX)
+            if (ReferenceEquals(p,null) || listaProdutos.Count >= CAPACIDADEMAX)
                 throw new StockExcecoes("Falha de Stock (Capacidade do Armazem excedida)");
 
             if(!p.VerificaIntegridadeProduto())
@@ -103,11 +103,8 @@ namespace Dados
         {
             Produto p = ProdutoPorId(id);
 
-            if (p == null) 
+            if (ReferenceEquals(p,null)) 
                 return false;
-
-            if (!p.VerificaIntegridadeProduto())
-                throw new StockExcecoes("Falha de Stock (Impossivel avaliar, Produto com atributos em falta)");
 
             if (ReferenceEquals(listaProdutos, null) || listaProdutos.Count == 0)
                 throw new StockExcecoes("Falha de Stock (Impossivel concluir operaçao. Lista vazia)");
@@ -240,7 +237,7 @@ namespace Dados
 
             aux = listaProdutos.Find(e => e.Id == produtoId);
 
-            if (aux == null)
+            if (ReferenceEquals(aux, null))
                 return false;
 
             if (aux.Quantidade >= quantidade)
@@ -396,14 +393,14 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="nome"></param>
         /// <returns></returns>
-        public bool AlterarNomeProduto(int id, string nome)
+        public static bool AlterarNomeProduto(int id, string nome)
         {
             if(!ExisteProdutoPorId(id))
                 return false;
 
             Produto p = ProdutoPorId(id);
 
-            if(p == null) 
+            if(ReferenceEquals(p, null)) 
                 return false;
 
             bool aux = p.AlterarNome(nome);
@@ -418,14 +415,14 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="valor"></param>
         /// <returns></returns>
-        public bool AlterarValorProduto(int id, float valor)
+        public static bool AlterarValorProduto(int id, float valor)
         {
             if (!ExisteProdutoPorId(id))
                 return false;
 
             Produto p = ProdutoPorId(id);
 
-            if (p == null)
+            if (ReferenceEquals(p, null))
                 return false;
 
             bool aux = p.AlterarValor(valor);
@@ -439,14 +436,14 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="garantia"></param>
         /// <returns></returns>
-        public bool AlterarGarantiaProduto(int id, float garantia)
+        public static bool AlterarGarantiaProduto(int id, float garantia)
         {
             if (!ExisteProdutoPorId(id))
                 return false;
 
             Produto p = ProdutoPorId(id);
 
-            if (p == null)
+            if (ReferenceEquals(p, null))
                 return false;
 
             bool aux = p.AlterarGarantia(garantia);
@@ -461,14 +458,14 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="categoria"></param>
         /// <returns></returns>
-        public bool AlterarCategoriaProduto(int id, int categoria)
+        public static bool AlterarCategoriaProduto(int id, int categoria)
         {
             if (!ExisteProdutoPorId(id))
                 return false;
 
             Produto p = ProdutoPorId(id);
 
-            if (p == null)
+            if (ReferenceEquals(p,null))
                 return false;
 
             bool aux = p.AlterarCategoria(categoria);
@@ -482,14 +479,14 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="marca"></param>
         /// <returns></returns>
-        public bool AlterarMarcaProduto(int id, int marca)
+        public static bool AlterarMarcaProduto(int id, int marca)
         {
             if (!ExisteProdutoPorId(id))
                 return false;
 
             Produto p = ProdutoPorId(id);
 
-            if (p == null)
+            if (ReferenceEquals(p, null))
                 return false;
 
             bool aux = p.AlterarMarca(marca);
@@ -543,6 +540,12 @@ namespace Dados
             return aux;
         }
 
+
+        public static void LimparLista()
+        {
+            listaProdutos = new List<Produto>();
+            Produto.TotProd = 1;
+        }
 
 
         #endregion

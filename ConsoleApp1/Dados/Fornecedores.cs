@@ -94,9 +94,12 @@ namespace Dados
         /// </summary>
         /// <param name="f"></param>
         /// <returns></returns>
-        public static bool RemoverFornecedor(Fornecedor f)
+        public static bool RemoverFornecedor(int id)
         {
-            if (f == null) return false;
+            Fornecedor f = FornecedorPorId(id);
+
+            if (ReferenceEquals(f,null)) 
+                return false;
 
             if (ReferenceEquals(listaFornecedores, null) || listaFornecedores.Count == 0)
                 return false;
@@ -219,7 +222,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="valor"></param>
         /// <returns></returns>
-        public bool AlterarNomeFornecedor(int id, string nome)
+        public static bool AlterarNomeFornecedor(int id, string nome)
         {
             if (!VerificaFornecedorId(id))
                 return false;
@@ -241,7 +244,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="morada"></param>
         /// <returns></returns>
-        public bool AlterarMoradaFornecedor(int id, string morada)
+        public static bool AlterarMoradaFornecedor(int id, string morada)
         {
             if (!VerificaFornecedorId(id))
                 return false;
@@ -263,7 +266,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="nif"></param>
         /// <returns></returns>
-        public bool AlterarNIFFornecedor(int id, int nif)
+        public static bool AlterarNIFFornecedor(int id, int nif)
         {
             if (!VerificaFornecedorId(id))
                 return false;
@@ -285,7 +288,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="tel"></param>
         /// <returns></returns>
-        public bool AlterarTelemovelFornecedor(int id, int tel)
+        public static bool AlterarTelemovelFornecedor(int id, int tel)
         {
             if (!VerificaFornecedorId(id))
                 return false;
@@ -300,6 +303,10 @@ namespace Dados
             return aux;
         }
 
+        public static void LimparLista()
+        {
+            listaFornecedores = new List<Fornecedor>();
+        }
 
         #endregion
 

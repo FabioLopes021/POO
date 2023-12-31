@@ -169,6 +169,10 @@ namespace Dados
             return true;
         }
 
+        public static void LimparLista()
+        {
+            listaCompras = new List<Compra>();
+        }
 
 
         #endregion

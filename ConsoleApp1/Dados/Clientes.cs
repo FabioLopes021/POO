@@ -93,9 +93,12 @@ namespace Dados
         /// </summary>
         /// <param name="c"></param>
         /// <returns></returns>
-        public static bool RemoverCliente(Cliente c)
+        public static bool RemoverCliente(int id)
         {
-            if (c == null) return false;
+            Cliente c = ClientePorId(id);
+
+            if (ReferenceEquals(c,null)) 
+                return false;
 
             if (ReferenceEquals(listaClientes, null) || listaClientes.Count == 0)
                 return false;
@@ -218,7 +221,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="valor"></param>
         /// <returns></returns>
-        public bool AlterarNomeCliente(int id, string nome)
+        public static bool AlterarNomeCliente(int id, string nome)
         {
             if (!VerificaClienteId(id))
                 return false;
@@ -240,7 +243,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="morada"></param>
         /// <returns></returns>
-        public bool AlterarMoradaCliente(int id, string morada)
+        public static bool AlterarMoradaCliente(int id, string morada)
         {
             if (!VerificaClienteId(id))
                 return false;
@@ -262,7 +265,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="nif"></param>
         /// <returns></returns>
-        public bool AlterarNIFCliente(int id, int nif)
+        public static bool AlterarNIFCliente(int id, int nif)
         {
             if (!VerificaClienteId(id))
                 return false;
@@ -284,7 +287,7 @@ namespace Dados
         /// <param name="id"></param>
         /// <param name="tel"></param>
         /// <returns></returns>
-        public bool AlterarTelemovelCliente(int id, int tel)
+        public static bool AlterarTelemovelCliente(int id, int tel)
         {
             if (!VerificaClienteId(id))
                 return false;
@@ -299,6 +302,11 @@ namespace Dados
             return aux;
         }
 
+
+        public static void LimparLista()
+        {
+            listaClientes = new List<Cliente>();
+        }
 
         #endregion
 

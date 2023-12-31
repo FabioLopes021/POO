@@ -10,13 +10,23 @@ namespace Helpteste
         {
 
             //Arrange
-            Produto prod = new Produto("Teste", (float)14.60, 2, 1, 1);
+            Categoria cat = new Categoria("Geral");
+            Marca mar = new Marca("Barcelos","Nike");
 
             //Act
-            bool resultado = Stock.AdicionarProduto(prod);
+            Marcas.GuardarMarca(mar);
+            Categorias.guardarCategoria(cat);
 
-            Console.WriteLine("{0}", resultado.ToString());
+            //Arrange
 
+            Produto p = new Produto("Teste1", (float)10.1, 2, 1, 1);
+            Stock.AdicionarProduto(p);
+
+
+            //Act
+            Stock.AumentarQuantidade(1, 10);
+
+            Console.WriteLine("{0}", p.Quantidade);
         }
     }
 }
